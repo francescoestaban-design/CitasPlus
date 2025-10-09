@@ -3405,6 +3405,7 @@ drawable abc_textfield_search_activated_mtrl_alpha
 drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
+drawable atras
 drawable avd_hide_password
 drawable avd_show_password
 drawable baseline_arrow_back_24
@@ -3436,11 +3437,14 @@ drawable common_google_signin_btn_text_light
 drawable common_google_signin_btn_text_light_focused
 drawable common_google_signin_btn_text_light_normal
 drawable common_google_signin_btn_text_light_normal_background
+drawable cruz_roja
+drawable cruz_verde
 drawable design_fab_background
 drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable favoritos
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable ic_arrow_back_black_24
@@ -3484,6 +3488,7 @@ drawable material_ic_keyboard_arrow_previous_black_24dp
 drawable material_ic_keyboard_arrow_right_black_24dp
 drawable material_ic_menu_arrow_down_black_24dp
 drawable material_ic_menu_arrow_up_black_24dp
+drawable mi_ubicacion
 drawable mtrl_bottomsheet_drag_handle
 drawable mtrl_checkbox_button
 drawable mtrl_checkbox_button_checked_unchecked
@@ -3606,6 +3611,7 @@ id action_bar_title
 id action_container
 id action_context_bar
 id action_divider
+id action_favorites
 id action_image
 id action_menu_divider
 id action_menu_presenter
@@ -3647,6 +3653,8 @@ id bounce
 id bounceBoth
 id bounceEnd
 id bounceStart
+id btnDelete
+id btnGo
 id buttonActualizarCentro
 id buttonAgendarCita
 id buttonCancelar
@@ -3672,6 +3680,7 @@ id calendarView
 id calendarViewCitas
 id callMeasure
 id cancel_button
+id cardPanelFiltros
 id carryVelocity
 id center
 id centerCrop
@@ -3761,6 +3770,7 @@ id edit_query
 id edit_text_id
 id elastic
 id embed
+id emptyFav
 id end
 id endToStart
 id enterAlways
@@ -3811,6 +3821,7 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
+id imgIcono
 id immediateStop
 id included
 id indeterminate
@@ -3972,6 +3983,7 @@ id progress_horizontal
 id radio
 id ratio
 id rectangles
+id recyclerFav
 id recyclerMedicamentos
 id report_drawn
 id reverseSawtooth
@@ -4047,6 +4059,7 @@ id stop
 id stretch
 id submenuarrow
 id submit_area
+id subtitle
 id supportScrollUp
 id tabMode
 id tag_accessibility_actions
@@ -4094,6 +4107,7 @@ id title_template
 id toggle
 id top
 id topBar
+id topBarFav
 id topPanel
 id touch_outside
 id transitionToEnd
@@ -4247,6 +4261,7 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_centros_mapa
+layout activity_favorites
 layout activity_main
 layout activity_main_paciente
 layout activity_medicamentos
@@ -4274,6 +4289,7 @@ layout dialog_registro
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
 layout item_cita
+layout item_favorite
 layout item_medicamento
 layout m3_alert_dialog
 layout m3_alert_dialog_actions

@@ -6,6 +6,19 @@
         android:id="@+id/action_search_place"
         android:title="@string/buscar"
         android:icon="@drawable/lupa_buscar"
-    app:showAsAction="always"
-    app:iconTint="@null" />
+    app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_favorites"
+        android:title="Mis favoritos"
+        android:icon="@drawable/baseline_arrow_back_24"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/action_favorites"
+        android:title="Mis favoritos"
+        android:icon="@drawable/baseline_arrow_back_24"
+        android:showAsAction="always"/>
+
 </menu>
+

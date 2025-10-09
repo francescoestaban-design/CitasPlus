@@ -13,6 +13,7 @@ import com.francesco.citapluus.R;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -34,6 +35,9 @@ public final class ActivityCentrosMapaBinding implements ViewBinding {
   public final MaterialButton buttonGuardarCentro;
 
   @NonNull
+  public final MaterialCardView cardPanelFiltros;
+
+  @NonNull
   public final Chip chipFarmacias;
 
   @NonNull
@@ -53,13 +57,15 @@ public final class ActivityCentrosMapaBinding implements ViewBinding {
 
   private ActivityCentrosMapaBinding(@NonNull CoordinatorLayout rootView,
       @NonNull AppBarLayout appBarLayout, @NonNull MaterialButton buttonFavorito,
-      @NonNull MaterialButton buttonGuardarCentro, @NonNull Chip chipFarmacias,
-      @NonNull Chip chipFavoritos, @NonNull Chip chipHospitales, @NonNull ChipGroup chipsFiltro,
-      @NonNull FloatingActionButton fabMiUbicacion, @NonNull MaterialToolbar topBar) {
+      @NonNull MaterialButton buttonGuardarCentro, @NonNull MaterialCardView cardPanelFiltros,
+      @NonNull Chip chipFarmacias, @NonNull Chip chipFavoritos, @NonNull Chip chipHospitales,
+      @NonNull ChipGroup chipsFiltro, @NonNull FloatingActionButton fabMiUbicacion,
+      @NonNull MaterialToolbar topBar) {
     this.rootView = rootView;
     this.appBarLayout = appBarLayout;
     this.buttonFavorito = buttonFavorito;
     this.buttonGuardarCentro = buttonGuardarCentro;
+    this.cardPanelFiltros = cardPanelFiltros;
     this.chipFarmacias = chipFarmacias;
     this.chipFavoritos = chipFavoritos;
     this.chipHospitales = chipHospitales;
@@ -113,6 +119,12 @@ public final class ActivityCentrosMapaBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.cardPanelFiltros;
+      MaterialCardView cardPanelFiltros = ViewBindings.findChildViewById(rootView, id);
+      if (cardPanelFiltros == null) {
+        break missingId;
+      }
+
       id = R.id.chipFarmacias;
       Chip chipFarmacias = ViewBindings.findChildViewById(rootView, id);
       if (chipFarmacias == null) {
@@ -150,8 +162,8 @@ public final class ActivityCentrosMapaBinding implements ViewBinding {
       }
 
       return new ActivityCentrosMapaBinding((CoordinatorLayout) rootView, appBarLayout,
-          buttonFavorito, buttonGuardarCentro, chipFarmacias, chipFavoritos, chipHospitales,
-          chipsFiltro, fabMiUbicacion, topBar);
+          buttonFavorito, buttonGuardarCentro, cardPanelFiltros, chipFarmacias, chipFavoritos,
+          chipHospitales, chipsFiltro, fabMiUbicacion, topBar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

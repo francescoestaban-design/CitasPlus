@@ -1,0 +1,27 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topBarFav"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:navigationIcon="@drawable/baseline_arrow_back_24"
+        android:title="Mis Favoritos" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerFav"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <TextView
+        android:id="@+id/emptyFav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No tienes favoritos guardados"
+        android:textAlignment="center"
+        android:padding="24dp"
+        android:visibility="gone"/>
+</LinearLayout>
