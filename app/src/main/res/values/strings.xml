@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">CitaPluus</string>
+    <string name="prompt_hora">Selecciona la hora</string>
+    <string name="prompt_doctor">Selecciona el doctor</string>
+    <string name="prompt_motivo">Selecciona el motivo</string>
+    <string name="ir_a_mi_ubicacion">Ir a mi ubicación</string>
+
+    <string name="buscar">Buscar</string>
+    <string name="centros_y_farmacias">Centros y farmacias</string>
+</resources>

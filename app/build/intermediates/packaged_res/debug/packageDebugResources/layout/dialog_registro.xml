@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <EditText
+            android:id="@+id/editTextDNI"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="DNI" />
+
+        <EditText
+            android:id="@+id/editTextNombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombre" />
+
+        <EditText
+            android:id="@+id/editTextApellidoPaterno"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Apellido paterno" />
+
+        <EditText
+            android:id="@+id/editTextApellidoMaterno"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Apellido materno" />
+
+        <Spinner
+            android:id="@+id/spinnerTipoSangre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp" />
+
+        <EditText
+            android:id="@+id/editTextCIPA"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="CIPA" />
+
+        <EditText
+            android:id="@+id/editTextCodigoPostal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Código Postal"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/editTextContrasena"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Contraseña"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/buttonRegistrar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Registrarse"
+            android:layout_marginTop="12dp" />
+
+    </LinearLayout>
+</ScrollView>
