@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/textViewFechaSeleccionada"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:textSize="16sp"
+        android:textColor="?android:attr/textColorPrimary"
+        android:background="?attr/editTextBackground"
+        android:drawableEnd="@android:drawable/ic_menu_today"
+        android:drawablePadding="12dp"
+        android:focusable="true"
+        android:clickable="true"
+        android:contentDescription="Seleccionar fecha"
+        tools:text="01/10/2025" />
+
+    <Spinner
+        android:id="@+id/spinnerHora"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:spinnerMode="dropdown" />
+
+    <Spinner
+        android:id="@+id/spinnerDoctor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:spinnerMode="dropdown" />
+
+    <Spinner
+        android:id="@+id/spinnerMotivo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:spinnerMode="dropdown" />
+
+    <Button
+        android:id="@+id/buttonConfirmarCita"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Confirmar" />
+</LinearLayout>
