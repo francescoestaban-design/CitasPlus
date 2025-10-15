@@ -26,20 +26,20 @@
 16    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 16-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:10:5-80
 16-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:10:22-78
-17
-18    <uses-feature
-18-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:12:5-14:36
-19        android:name="android.hardware.telephony"
-19-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:13:9-50
-20        android:required="false" />
-20-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:14:9-33
-21
-22    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- Include required permissions for Google Maps API to run. -->
-22-->[com.google.android.libraries.places:places:3.5.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\87595a9a48124715a3bd69eaa5506027\transformed\jetified-places-3.5.0\AndroidManifest.xml:11:5-76
-22-->[com.google.android.libraries.places:places:3.5.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\87595a9a48124715a3bd69eaa5506027\transformed\jetified-places-3.5.0\AndroidManifest.xml:11:22-73
-23    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-23-->[com.google.android.gms:play-services-maps:18.2.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\6f7d4049b22d6091af7ecc58be2caebd\transformed\jetified-play-services-maps-18.2.0\AndroidManifest.xml:23:5-79
-23-->[com.google.android.gms:play-services-maps:18.2.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\6f7d4049b22d6091af7ecc58be2caebd\transformed\jetified-play-services-maps-18.2.0\AndroidManifest.xml:23:22-76
+17    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+17-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:11:5-78
+17-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:11:22-76
+18
+19    <uses-feature
+19-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:13:5-15:36
+20        android:name="android.hardware.telephony"
+20-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:14:9-50
+21        android:required="false" />
+21-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:15:9-33
+22
+23    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+23-->[com.google.android.libraries.places:places:3.5.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\87595a9a48124715a3bd69eaa5506027\transformed\jetified-places-3.5.0\AndroidManifest.xml:11:5-76
+23-->[com.google.android.libraries.places:places:3.5.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\87595a9a48124715a3bd69eaa5506027\transformed\jetified-places-3.5.0\AndroidManifest.xml:11:22-73
 24
 25    <uses-feature
 25-->[com.google.android.gms:play-services-maps:18.2.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\6f7d4049b22d6091af7ecc58be2caebd\transformed\jetified-play-services-maps-18.2.0\AndroidManifest.xml:26:5-28:35
@@ -69,81 +69,81 @@
 39-->[androidx.core:core:1.13.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\073257a03b3e1cb7b6d9c4111e246b47\transformed\core-1.13.0\AndroidManifest.xml:26:22-94
 40
 41    <application
-41-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:17:5-44:19
+41-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:18:5-45:19
 42        android:allowBackup="true"
-42-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:18:9-35
+42-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:19:9-35
 43        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 43-->[androidx.core:core:1.13.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\073257a03b3e1cb7b6d9c4111e246b47\transformed\core-1.13.0\AndroidManifest.xml:28:18-86
 44        android:debuggable="true"
 45        android:extractNativeLibs="false"
 46        android:label="CitaPluus"
-46-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:19:9-34
+46-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:20:9-34
 47        android:supportsRtl="true"
-47-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:20:9-35
+47-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:21:9-35
 48        android:testOnly="true"
 49        android:theme="@style/Theme.CitaPluus" >
-49-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:21:9-47
+49-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:22:9-47
 50        <meta-data
-50-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:23:9-25:54
+50-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:24:9-26:54
 51            android:name="com.google.android.geo.API_KEY"
-51-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:24:13-58
+51-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:25:13-58
 52            android:value="@string/google_maps_key" />
-52-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:25:13-52
+52-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:26:13-52
 53
 54        <activity
-54-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:28:9-35:20
+54-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:29:9-36:20
 55            android:name="com.francesco.citapluus.MainActivity"
-55-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:29:13-41
+55-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:30:13-41
 56            android:exported="true" >
-56-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:30:13-36
+56-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:31:13-36
 57            <intent-filter>
-57-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:31:13-34:29
+57-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:32:13-35:29
 58                <action android:name="android.intent.action.MAIN" />
-58-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:32:17-69
-58-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:32:25-66
+58-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:33:17-69
+58-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:33:25-66
 59
 60                <category android:name="android.intent.category.LAUNCHER" />
-60-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:33:17-77
-60-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:33:27-74
+60-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:34:17-77
+60-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:34:27-74
 61            </intent-filter>
 62        </activity>
 63        <activity
-63-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:37:9-77
+63-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:38:9-77
 64            android:name="com.francesco.citapluus.LoginActivity"
-64-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:37:19-48
+64-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:38:19-48
 65            android:exported="false" />
-65-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:37:50-74
+65-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:38:50-74
 66        <activity
-66-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:38:9-77
+66-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:39:9-77
 67            android:name="com.francesco.citapluus.PerfilActivity"
-67-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:38:19-49
+67-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:39:19-49
 68            android:exported="false" />
-68-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:38:50-74
+68-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:39:50-74
 69        <activity
-69-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:39:9-81
+69-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:40:9-81
 70            android:name="com.francesco.citapluus.WorkerMainActivity"
-70-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:39:19-53
+70-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:40:19-53
 71            android:exported="false" />
-71-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:39:54-78
+71-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:40:54-78
 72        <activity
-72-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:40:9-82
+72-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:41:9-82
 73            android:name="com.francesco.citapluus.MedicamentosActivity"
-73-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:40:19-55
+73-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:41:19-55
 74            android:exported="false" />
-74-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:40:56-80
+74-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:41:56-80
 75        <activity
-75-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:42:9-82
+75-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:43:9-82
 76            android:name="com.francesco.citapluus.CentrosMapaActivity"
-76-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:42:19-54
+76-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:43:19-54
 77            android:exported="false" />
-77-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:42:55-79
+77-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:43:55-79
 78
 79        <receiver
-79-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:43:9-83
+79-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:44:9-83
 80            android:name="com.francesco.citapluus.CitaReminderReceiver"
-80-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:43:19-55
+80-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:44:19-55
 81            android:exported="false" />
-81-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:43:56-80
+81-->C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:44:56-80
 82
 83        <activity
 83-->[com.google.android.libraries.places:places:3.5.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\87595a9a48124715a3bd69eaa5506027\transformed\jetified-places-3.5.0\AndroidManifest.xml:15:9-21:20
@@ -166,20 +166,20 @@
 92-->[com.google.android.gms:play-services-maps:18.2.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\6f7d4049b22d6091af7ecc58be2caebd\transformed\jetified-play-services-maps-18.2.0\AndroidManifest.xml:41:13-37
 93
 94        <activity
-94-->[com.google.android.gms:play-services-base:18.5.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\50881554b9ac01aff78ec0912b75bc91\transformed\jetified-play-services-base-18.5.0\AndroidManifest.xml:5:9-173
+94-->[com.google.android.gms:play-services-base:18.3.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\82a6961e1fdbd43830369aa3d9b576a5\transformed\jetified-play-services-base-18.3.0\AndroidManifest.xml:20:9-22:45
 95            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-95-->[com.google.android.gms:play-services-base:18.5.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\50881554b9ac01aff78ec0912b75bc91\transformed\jetified-play-services-base-18.5.0\AndroidManifest.xml:5:19-85
+95-->[com.google.android.gms:play-services-base:18.3.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\82a6961e1fdbd43830369aa3d9b576a5\transformed\jetified-play-services-base-18.3.0\AndroidManifest.xml:20:19-85
 96            android:exported="false"
-96-->[com.google.android.gms:play-services-base:18.5.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\50881554b9ac01aff78ec0912b75bc91\transformed\jetified-play-services-base-18.5.0\AndroidManifest.xml:5:146-170
+96-->[com.google.android.gms:play-services-base:18.3.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\82a6961e1fdbd43830369aa3d9b576a5\transformed\jetified-play-services-base-18.3.0\AndroidManifest.xml:22:19-43
 97            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-97-->[com.google.android.gms:play-services-base:18.5.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\50881554b9ac01aff78ec0912b75bc91\transformed\jetified-play-services-base-18.5.0\AndroidManifest.xml:5:86-145
+97-->[com.google.android.gms:play-services-base:18.3.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\82a6961e1fdbd43830369aa3d9b576a5\transformed\jetified-play-services-base-18.3.0\AndroidManifest.xml:21:19-78
 98
 99        <meta-data
-99-->[com.google.android.gms:play-services-basement:18.4.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\1d4351cac60f496159d738138b37ee4f\transformed\jetified-play-services-basement-18.4.0\AndroidManifest.xml:6:9-122
+99-->[com.google.android.gms:play-services-basement:18.3.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\cdce9f19bed22c7ba34e165ae44fbe6f\transformed\jetified-play-services-basement-18.3.0\AndroidManifest.xml:21:9-23:69
 100            android:name="com.google.android.gms.version"
-100-->[com.google.android.gms:play-services-basement:18.4.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\1d4351cac60f496159d738138b37ee4f\transformed\jetified-play-services-basement-18.4.0\AndroidManifest.xml:6:20-65
+100-->[com.google.android.gms:play-services-basement:18.3.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\cdce9f19bed22c7ba34e165ae44fbe6f\transformed\jetified-play-services-basement-18.3.0\AndroidManifest.xml:22:13-58
 101            android:value="@integer/google_play_services_version" />
-101-->[com.google.android.gms:play-services-basement:18.4.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\1d4351cac60f496159d738138b37ee4f\transformed\jetified-play-services-basement-18.4.0\AndroidManifest.xml:6:66-119
+101-->[com.google.android.gms:play-services-basement:18.3.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\cdce9f19bed22c7ba34e165ae44fbe6f\transformed\jetified-play-services-basement-18.3.0\AndroidManifest.xml:23:13-66
 102
 103        <provider
 103-->[androidx.emoji2:emoji2:1.3.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\39498a34ba9d806895412feedf025c07\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:24:9-32:20

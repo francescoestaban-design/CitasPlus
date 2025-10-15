@@ -1,94 +1,90 @@
 [
     {
-        "merged": "C:\\Users\\FRANCESCO\\.gradle\\daemon\\8.6\\com.francesco.citapluus.app-debug-37:\\layout_item_favorite.xml.flat",
-        "source": "C:\\Users\\FRANCESCO\\.gradle\\daemon\\8.6\\com.francesco.citapluus.app-main-39:\\layout\\item_favorite.xml"
+        "merged": "com.francesco.citapluus.app-debug-37:/layout_activity_main.xml.flat",
+        "source": "com.francesco.citapluus.app-main-39:/layout/activity_main.xml"
     },
     {
-        "merged": "C:\\Users\\FRANCESCO\\.gradle\\daemon\\8.6\\com.francesco.citapluus.app-debug-37:\\drawable_cruz_verde.png.flat",
-        "source": "C:\\Users\\FRANCESCO\\.gradle\\daemon\\8.6\\com.francesco.citapluus.app-main-39:\\drawable\\cruz_verde.png"
+        "merged": "com.francesco.citapluus.app-debug-37:/drawable_atras.jpg.flat",
+        "source": "com.francesco.citapluus.app-main-39:/drawable/atras.jpg"
     },
     {
-        "merged": "C:\\Users\\FRANCESCO\\.gradle\\daemon\\8.6\\com.francesco.citapluus.app-debug-37:\\layout_activity_centros_mapa.xml.flat",
-        "source": "C:\\Users\\FRANCESCO\\.gradle\\daemon\\8.6\\com.francesco.citapluus.app-main-39:\\layout\\activity_centros_mapa.xml"
+        "merged": "com.francesco.citapluus.app-debug-37:/layout_activity_perfil.xml.flat",
+        "source": "com.francesco.citapluus.app-main-39:/layout/activity_perfil.xml"
     },
     {
-        "merged": "C:\\Users\\FRANCESCO\\.gradle\\daemon\\8.6\\com.francesco.citapluus.app-debug-37:\\layout_activity_favorites.xml.flat",
-        "source": "C:\\Users\\FRANCESCO\\.gradle\\daemon\\8.6\\com.francesco.citapluus.app-main-39:\\layout\\activity_favorites.xml"
+        "merged": "com.francesco.citapluus.app-debug-37:/layout_dialog_agendar_cita.xml.flat",
+        "source": "com.francesco.citapluus.app-main-39:/layout/dialog_agendar_cita.xml"
     },
     {
-        "merged": "C:\\Users\\FRANCESCO\\.gradle\\daemon\\8.6\\com.francesco.citapluus.app-debug-37:\\layout_activity_perfil.xml.flat",
-        "source": "C:\\Users\\FRANCESCO\\.gradle\\daemon\\8.6\\com.francesco.citapluus.app-main-39:\\layout\\activity_perfil.xml"
+        "merged": "com.francesco.citapluus.app-debug-37:/layout_dialog_registro.xml.flat",
+        "source": "com.francesco.citapluus.app-main-39:/layout/dialog_registro.xml"
     },
     {
-        "merged": "C:\\Users\\FRANCESCO\\.gradle\\daemon\\8.6\\com.francesco.citapluus.app-debug-37:\\layout_dialog_registro.xml.flat",
-        "source": "C:\\Users\\FRANCESCO\\.gradle\\daemon\\8.6\\com.francesco.citapluus.app-main-39:\\layout\\dialog_registro.xml"
+        "merged": "com.francesco.citapluus.app-debug-37:/drawable_baseline_arrow_back_24.xml.flat",
+        "source": "com.francesco.citapluus.app-main-39:/drawable/baseline_arrow_back_24.xml"
+    },
+    {
+        "merged": "com.francesco.citapluus.app-debug-37:/layout_activity_medicamentos.xml.flat",
+        "source": "com.francesco.citapluus.app-main-39:/layout/activity_medicamentos.xml"
     },
     {
         "merged": "com.francesco.citapluus.app-debug-37:/layout_activity_centros_mapa.xml.flat",
         "source": "com.francesco.citapluus.app-main-39:/layout/activity_centros_mapa.xml"
     },
     {
-        "merged": "C:\\Users\\FRANCESCO\\.gradle\\daemon\\8.6\\com.francesco.citapluus.app-debug-37:\\drawable_cruz_roja.png.flat",
-        "source": "C:\\Users\\FRANCESCO\\.gradle\\daemon\\8.6\\com.francesco.citapluus.app-main-39:\\drawable\\cruz_roja.png"
+        "merged": "com.francesco.citapluus.app-debug-37:/menu_menu_centros_mapa.xml.flat",
+        "source": "com.francesco.citapluus.app-main-39:/menu/menu_centros_mapa.xml"
     },
     {
-        "merged": "C:\\Users\\FRANCESCO\\.gradle\\daemon\\8.6\\com.francesco.citapluus.app-debug-37:\\drawable_baseline_arrow_back_24.xml.flat",
-        "source": "C:\\Users\\FRANCESCO\\.gradle\\daemon\\8.6\\com.francesco.citapluus.app-main-39:\\drawable\\baseline_arrow_back_24.xml"
+        "merged": "com.francesco.citapluus.app-debug-37:/drawable_cruz_verde.png.flat",
+        "source": "com.francesco.citapluus.app-main-39:/drawable/cruz_verde.png"
     },
     {
-        "merged": "C:\\Users\\FRANCESCO\\.gradle\\daemon\\8.6\\com.francesco.citapluus.app-debug-37:\\layout_dialog_agendar_cita.xml.flat",
-        "source": "C:\\Users\\FRANCESCO\\.gradle\\daemon\\8.6\\com.francesco.citapluus.app-main-39:\\layout\\dialog_agendar_cita.xml"
+        "merged": "com.francesco.citapluus.app-debug-37:/layout_activity_main_paciente.xml.flat",
+        "source": "com.francesco.citapluus.app-main-39:/layout/activity_main_paciente.xml"
     },
     {
-        "merged": "C:\\Users\\FRANCESCO\\.gradle\\daemon\\8.6\\com.francesco.citapluus.app-debug-37:\\drawable_lupa_buscar.png.flat",
-        "source": "C:\\Users\\FRANCESCO\\.gradle\\daemon\\8.6\\com.francesco.citapluus.app-main-39:\\drawable\\lupa_buscar.png"
+        "merged": "com.francesco.citapluus.app-debug-37:/drawable_lupa_buscar.png.flat",
+        "source": "com.francesco.citapluus.app-main-39:/drawable/lupa_buscar.png"
     },
     {
-        "merged": "C:\\Users\\FRANCESCO\\.gradle\\daemon\\8.6\\com.francesco.citapluus.app-debug-37:\\layout_activity_medicamentos.xml.flat",
-        "source": "C:\\Users\\FRANCESCO\\.gradle\\daemon\\8.6\\com.francesco.citapluus.app-main-39:\\layout\\activity_medicamentos.xml"
+        "merged": "com.francesco.citapluus.app-debug-37:/drawable_mi_ubicacion.png.flat",
+        "source": "com.francesco.citapluus.app-main-39:/drawable/mi_ubicacion.png"
     },
     {
-        "merged": "C:\\Users\\FRANCESCO\\.gradle\\daemon\\8.6\\com.francesco.citapluus.app-debug-37:\\drawable_favoritos.png.flat",
-        "source": "C:\\Users\\FRANCESCO\\.gradle\\daemon\\8.6\\com.francesco.citapluus.app-main-39:\\drawable\\favoritos.png"
+        "merged": "com.francesco.citapluus.app-debug-37:/layout_item_favorite.xml.flat",
+        "source": "com.francesco.citapluus.app-main-39:/layout/item_favorite.xml"
     },
     {
-        "merged": "C:\\Users\\FRANCESCO\\.gradle\\daemon\\8.6\\com.francesco.citapluus.app-debug-37:\\layout_item_cita.xml.flat",
-        "source": "C:\\Users\\FRANCESCO\\.gradle\\daemon\\8.6\\com.francesco.citapluus.app-main-39:\\layout\\item_cita.xml"
+        "merged": "com.francesco.citapluus.app-debug-37:/drawable_favoritos.png.flat",
+        "source": "com.francesco.citapluus.app-main-39:/drawable/favoritos.png"
     },
     {
-        "merged": "C:\\Users\\FRANCESCO\\.gradle\\daemon\\8.6\\com.francesco.citapluus.app-debug-37:\\layout_dialog_login.xml.flat",
-        "source": "C:\\Users\\FRANCESCO\\.gradle\\daemon\\8.6\\com.francesco.citapluus.app-main-39:\\layout\\dialog_login.xml"
+        "merged": "com.francesco.citapluus.app-debug-37:/layout_activity_favorites.xml.flat",
+        "source": "com.francesco.citapluus.app-main-39:/layout/activity_favorites.xml"
     },
     {
-        "merged": "C:\\Users\\FRANCESCO\\.gradle\\daemon\\8.6\\com.francesco.citapluus.app-debug-37:\\drawable_atras.jpg.flat",
-        "source": "C:\\Users\\FRANCESCO\\.gradle\\daemon\\8.6\\com.francesco.citapluus.app-main-39:\\drawable\\atras.jpg"
+        "merged": "com.francesco.citapluus.app-debug-37:/layout_item_cita.xml.flat",
+        "source": "com.francesco.citapluus.app-main-39:/layout/item_cita.xml"
     },
     {
-        "merged": "C:\\Users\\FRANCESCO\\.gradle\\daemon\\8.6\\com.francesco.citapluus.app-debug-37:\\layout_activity_worker_main.xml.flat",
-        "source": "C:\\Users\\FRANCESCO\\.gradle\\daemon\\8.6\\com.francesco.citapluus.app-main-39:\\layout\\activity_worker_main.xml"
+        "merged": "com.francesco.citapluus.app-debug-37:/layout_activity_worker_main.xml.flat",
+        "source": "com.francesco.citapluus.app-main-39:/layout/activity_worker_main.xml"
     },
     {
-        "merged": "C:\\Users\\FRANCESCO\\.gradle\\daemon\\8.6\\com.francesco.citapluus.app-debug-37:\\layout_activity_main_paciente.xml.flat",
-        "source": "C:\\Users\\FRANCESCO\\.gradle\\daemon\\8.6\\com.francesco.citapluus.app-main-39:\\layout\\activity_main_paciente.xml"
+        "merged": "com.francesco.citapluus.app-debug-37:/drawable_baseline_search_24.xml.flat",
+        "source": "com.francesco.citapluus.app-main-39:/drawable/baseline_search_24.xml"
     },
     {
-        "merged": "C:\\Users\\FRANCESCO\\.gradle\\daemon\\8.6\\com.francesco.citapluus.app-debug-37:\\layout_activity_main.xml.flat",
-        "source": "C:\\Users\\FRANCESCO\\.gradle\\daemon\\8.6\\com.francesco.citapluus.app-main-39:\\layout\\activity_main.xml"
+        "merged": "com.francesco.citapluus.app-debug-37:/drawable_cruz_roja.png.flat",
+        "source": "com.francesco.citapluus.app-main-39:/drawable/cruz_roja.png"
     },
     {
-        "merged": "C:\\Users\\FRANCESCO\\.gradle\\daemon\\8.6\\com.francesco.citapluus.app-debug-37:\\drawable_baseline_search_24.xml.flat",
-        "source": "C:\\Users\\FRANCESCO\\.gradle\\daemon\\8.6\\com.francesco.citapluus.app-main-39:\\drawable\\baseline_search_24.xml"
+        "merged": "com.francesco.citapluus.app-debug-37:/layout_dialog_login.xml.flat",
+        "source": "com.francesco.citapluus.app-main-39:/layout/dialog_login.xml"
     },
     {
-        "merged": "C:\\Users\\FRANCESCO\\.gradle\\daemon\\8.6\\com.francesco.citapluus.app-debug-37:\\menu_menu_centros_mapa.xml.flat",
-        "source": "C:\\Users\\FRANCESCO\\.gradle\\daemon\\8.6\\com.francesco.citapluus.app-main-39:\\menu\\menu_centros_mapa.xml"
-    },
-    {
-        "merged": "C:\\Users\\FRANCESCO\\.gradle\\daemon\\8.6\\com.francesco.citapluus.app-debug-37:\\drawable_mi_ubicacion.png.flat",
-        "source": "C:\\Users\\FRANCESCO\\.gradle\\daemon\\8.6\\com.francesco.citapluus.app-main-39:\\drawable\\mi_ubicacion.png"
-    },
-    {
-        "merged": "C:\\Users\\FRANCESCO\\.gradle\\daemon\\8.6\\com.francesco.citapluus.app-debug-37:\\layout_item_medicamento.xml.flat",
-        "source": "C:\\Users\\FRANCESCO\\.gradle\\daemon\\8.6\\com.francesco.citapluus.app-main-39:\\layout\\item_medicamento.xml"
+        "merged": "com.francesco.citapluus.app-debug-37:/layout_item_medicamento.xml.flat",
+        "source": "com.francesco.citapluus.app-main-39:/layout/item_medicamento.xml"
     }
 ]

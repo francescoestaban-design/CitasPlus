@@ -99,6 +99,7 @@ string app_name
 string buscar
 string centros_y_farmacias
 string google_maps_key
+string google_places_web_key
 string ir_a_mi_ubicacion
 string prompt_doctor
 string prompt_hora

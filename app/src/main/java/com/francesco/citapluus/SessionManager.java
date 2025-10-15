@@ -11,12 +11,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * SessionManager compatible con el código existente.
- * - Datos del usuario (dni, nombre, apellidos, sangre, cipa, cp, contraseña)
- * - Centro de salud seleccionado
- * - Favoritos (lista de FavoritePlace)
- */
+
 public class SessionManager {
 
     // ====== Prefs ======

@@ -57,6 +57,23 @@
                     }
                 },
                 {
+                    "source": "C:\\Users\\FRANCESCO\\.gradle\\caches\\transforms-4\\82a6961e1fdbd43830369aa3d9b576a5\\transformed\\jetified-play-services-base-18.3.0\\res\\values-fr-rCA\\values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
+                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+                        "startOffsets": "197,299,475,601,706,873,1002,1119,1228,1419,1527,1708,1840,1996,2171,2240,2303",
+                        "endColumns": "101,175,125,104,166,128,116,108,190,107,180,131,155,174,68,62,79",
+                        "endOffsets": "298,474,600,705,872,1001,1118,1227,1418,1526,1707,1839,1995,2170,2239,2302,2382"
+                    },
+                    "to": {
+                        "startLines": "48,49,50,51,52,53,54,55,57,58,59,60,61,62,63,64,65",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "4608,4714,4894,5024,5133,5304,5437,5558,5832,6027,6139,6324,6460,6620,6799,6872,6939",
+                        "endColumns": "105,179,129,108,170,132,120,112,194,111,184,135,159,178,72,66,83",
+                        "endOffsets": "4709,4889,5019,5128,5299,5432,5553,5666,6022,6134,6319,6455,6615,6794,6867,6934,7018"
+                    }
+                },
+                {
                     "source": "C:\\Users\\FRANCESCO\\.gradle\\caches\\transforms-4\\073257a03b3e1cb7b6d9c4111e246b47\\transformed\\core-1.13.0\\res\\values-fr-rCA\\values-fr-rCA.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
@@ -74,7 +91,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\FRANCESCO\\.gradle\\caches\\transforms-4\\1d4351cac60f496159d738138b37ee4f\\transformed\\jetified-play-services-basement-18.4.0\\res\\values-fr-rCA\\values.xml",
+                    "source": "C:\\Users\\FRANCESCO\\.gradle\\caches\\transforms-4\\cdce9f19bed22c7ba34e165ae44fbe6f\\transformed\\jetified-play-services-basement-18.3.0\\res\\values-fr-rCA\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -88,23 +105,6 @@
                         "startOffsets": "5671",
                         "endColumns": "160",
                         "endOffsets": "5827"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\FRANCESCO\\.gradle\\caches\\transforms-4\\50881554b9ac01aff78ec0912b75bc91\\transformed\\jetified-play-services-base-18.5.0\\res\\values-fr-rCA\\values.xml",
-                    "from": {
-                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
-                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
-                        "startOffsets": "197,299,475,601,706,873,1002,1119,1228,1419,1527,1708,1840,1996,2171,2240,2303",
-                        "endColumns": "101,175,125,104,166,128,116,108,190,107,180,131,155,174,68,62,79",
-                        "endOffsets": "298,474,600,705,872,1001,1118,1227,1418,1526,1707,1839,1995,2170,2239,2302,2382"
-                    },
-                    "to": {
-                        "startLines": "48,49,50,51,52,53,54,55,57,58,59,60,61,62,63,64,65",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "4608,4714,4894,5024,5133,5304,5437,5558,5832,6027,6139,6324,6460,6620,6799,6872,6939",
-                        "endColumns": "105,179,129,108,170,132,120,112,194,111,184,135,159,178,72,66,83",
-                        "endOffsets": "4709,4889,5019,5128,5299,5432,5553,5666,6022,6134,6319,6455,6615,6794,6867,6934,7018"
                     }
                 }
             ]

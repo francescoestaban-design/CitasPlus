@@ -1,4 +1,5 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -6,9 +7,12 @@
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/topBarFav"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:navigationIcon="@drawable/baseline_arrow_back_24"
-        android:title="Mis Favoritos" />
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:title="Favoritos"
+        android:titleTextColor="?attr/colorOnPrimary"
+        app:navigationIcon="@drawable/baseline_arrow_back_24"
+        app:navigationIconTint="?attr/colorOnPrimary"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerFav"
@@ -20,8 +24,8 @@
         android:id="@+id/emptyFav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="No tienes favoritos guardados"
-        android:textAlignment="center"
         android:padding="24dp"
+        android:text="No tienes favoritos todavía"
+        android:gravity="center"
         android:visibility="gone"/>
 </LinearLayout>

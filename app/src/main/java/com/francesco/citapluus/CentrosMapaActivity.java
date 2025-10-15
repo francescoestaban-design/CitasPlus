@@ -3,6 +3,8 @@ package com.francesco.citapluus;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -42,51 +44,96 @@ import com.google.android.libraries.places.api.net.FetchPlaceRequest;
 import com.google.android.libraries.places.api.net.FetchPlaceResponse;
 import com.google.android.libraries.places.api.net.FindAutocompletePredictionsRequest;
 import com.google.android.libraries.places.api.net.PlacesClient;
-import com.google.android.libraries.places.widget.Autocomplete;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+// Retrofit – Nearby Search (Places Web Service)
+import com.francesco.citapluus.net.places.PlacesNearbyResponse;
+import com.francesco.citapluus.net.places.PlacesService;
+import com.francesco.citapluus.net.places.RetrofitPlaces;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class CentrosMapaActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     // ===== Config =====
-    private static final double RADIO_METROS = 8000; // para seleccionar el más cercano entre sugerencias
-    private static final int MAX_SUGERENCIAS = 12;   // cuántas predicciones pintamos
+    private static final int RADIO_NEARBY_M = 2000;          // centros: 2 km
+    private static final int RADIO_NEARBY_FARM_M = 7000;     // farmacias: 7 km (más resultados)
+    private static final double RADIO_METROS = 4000;         // abrir el más cercano si cae en rango
+    private static final int MAX_SUGERENCIAS = 12;           // Autocomplete
+    private static final float MIN_ZOOM_DELTA = 0.4f;        // umbral de zoom para recargar
+    private static final float MIN_RELOAD_METERS = 350f;     // umbral de desplazamiento para recargar
 
     // ===== Google / Places =====
     private GoogleMap map;
     private FusedLocationProviderClient fused;
     private PlacesClient placesClient;
+    private PlacesService placesService; // Retrofit (Places Web Service)
 
-    // ===== UI =====
-    private View panelFiltros; // MaterialCardView (id: cardPanelFiltros)
+    // Geocoder para deduplicar por CP si algún día lo reactivas
+    private final ExecutorService geoExecutor = Executors.newSingleThreadExecutor();
+
+    // UI
+    private View panelFiltros;
     private boolean panelOculto = false;
     private ChipGroup chips;
     private Chip chipHosp, chipFarm, chipFav;
     private FloatingActionButton fabMiUbicacion;
     private MaterialButton buttonGuardar, buttonFavorito;
 
-    // ===== Estado =====
+    // Estado mapa/resultados
     private final List<Marker> marcadores = new ArrayList<>();
     private LatLng lastKnown;
     private Marker seleccion;
-    private Place seleccionPlace;          // marcador de Places
-    private FavoritePlace seleccionFav;    // marcador de favoritos
 
-    // Solo recargar sugerencias si el movimiento fue por gesto del usuario
-    private boolean recargarAlSoltarPorGesto = false;
+    // selección actual (puede venir del SDK, de favoritos o de Nearby web)
+    private Place seleccionPlace;                         // SDK
+    private FavoritePlace seleccionFav;                   // Favoritos locales
+    private PlacesNearbyResponse.Result seleccionWeb;     // Result Web (Nearby)
 
-    // ===== Autocomplete programático =====
-    private AutocompleteSessionToken token = AutocompleteSessionToken.newInstance();
+    // Modo de carga
+    private enum Modo { NEARBY, AUTOCOMPLETE, FAVORITOS }
+    private Modo modoActual = Modo.NEARBY;
+
+    // Anti-recarga por animaciones
+    private long suppressReloadUntil = 0;
+    private boolean shouldReload() { return android.os.SystemClock.uptimeMillis() >= suppressReloadUntil; }
+    private void suprimirRecargaDurante(long ms) { suppressReloadUntil = android.os.SystemClock.uptimeMillis() + ms; }
+
+    // Autocomplete
+    private final AutocompleteSessionToken token = AutocompleteSessionToken.newInstance();
     private final List<AutocompletePrediction> ultimasPredicciones = new ArrayList<>();
     private ArrayAdapter<String> predAdapter;
+
+    // Debounce
+    private final android.os.Handler handler = new android.os.Handler(android.os.Looper.getMainLooper());
+    private Runnable pendingLoadTask;
+    private boolean isLoadingNearby = false;
+
+    // Autocomplete -> FetchPlace
+    private int pendingFetchCount = 0;
+    private final List<Place> pendingPlaces = new ArrayList<>();
+
+    // Control de recargas por movimiento
+    private boolean lastMoveWasGesture = false;
+    private LatLng lastQueryCenter = null;
+    private float lastQueryZoom = -1f;
 
     // ===== Permisos =====
     private final ActivityResultLauncher<String> permisoUbicacion =
@@ -95,30 +142,13 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
                         if (granted) {
                             enableMyLocation();
                             moverACoordenadaActual();
-                            cargarLugares(); // primera carga
+                            recargarSegunChip(true);
                         } else {
                             Toast.makeText(this, "Sin permiso de ubicación", Toast.LENGTH_SHORT).show();
                         }
                     });
 
-    // Mantengo el launcher por si vuelves a la UI nativa de Autocomplete
-    private final ActivityResultLauncher<Intent> autocompleteLauncher =
-            registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
-                    result -> {
-                        if (result.getResultCode() == RESULT_OK && result.getData() != null) {
-                            Place place = Autocomplete.getPlaceFromIntent(result.getData());
-                            if (place != null && place.getLatLng() != null) {
-                                LatLng ll = place.getLatLng();
-                                if (map != null) {
-                                    recargarAlSoltarPorGesto = false; // ← importante
-                                    map.animateCamera(CameraUpdateFactory.newLatLngZoom(ll, 16f));
-                                }
-                                limpiarYMarcarSeleccion(place, ll);
-                            }
-                        }
-                    });
-
-    // ===== Launcher para abrir lista de favoritos (debe ser CAMPO, no dentro de onCreate) =====
+    // ===== Launchers =====
     private final ActivityResultLauncher<Intent> abrirFavLauncher =
             registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
                     r -> {
@@ -130,7 +160,7 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
 
                             LatLng ll = new LatLng(lat, lng);
                             if (map != null) {
-                                recargarAlSoltarPorGesto = false;
+                                suprimirRecargaDurante(700);
                                 map.animateCamera(CameraUpdateFactory.newLatLngZoom(ll, 16f));
                             }
 
@@ -154,6 +184,7 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
         topBar.setNavigationOnClickListener(v -> onBackPressed());
         topBar.setOnMenuItemClickListener(item -> {
             if (item.getItemId() == R.id.action_search_place) {
+                modoActual = Modo.AUTOCOMPLETE;
                 abrirBuscadorFiltrado();
                 return true;
             } else if (item.getItemId() == R.id.action_favorites) {
@@ -164,12 +195,15 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
             return false;
         });
 
-        // Places
+        // Places SDK + Location
         if (!Places.isInitialized()) {
             Places.initialize(getApplicationContext(), getString(R.string.google_maps_key));
         }
         placesClient = Places.createClient(this);
         fused = LocationServices.getFusedLocationProviderClient(this);
+
+        // Places Web Service (Nearby) con Retrofit
+        placesService = RetrofitPlaces.get().create(PlacesService.class);
 
         // UI
         panelFiltros   = findViewById(R.id.cardPanelFiltros);
@@ -187,23 +221,33 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
         fabMiUbicacion.setOnClickListener(v -> moverACoordenadaActual());
 
         chips.setOnCheckedStateChangeListener((group, checkedIds) -> {
-            if (chipFav.isChecked()) cargarFavoritos();
-            else cargarLugares();
+            if (chipFav.isChecked()) {
+                modoActual = Modo.FAVORITOS;
+                cargarFavoritos();
+            } else {
+                modoActual = Modo.NEARBY;
+                recargarSegunChip(true); // recarga inmediata al cambiar chip
+            }
         });
 
-        // Guardar como "mi centro"
+        // Guardar como “mi centro”
         buttonGuardar.setOnClickListener(v -> {
             SessionManager sm = new SessionManager(this);
             if (seleccionPlace != null && seleccionPlace.getLatLng() != null) {
                 LatLng ll = seleccionPlace.getLatLng();
-                sm.setCentroSalud(seleccionPlace.getName(), seleccionPlace.getAddress(),
-                        ll.latitude, ll.longitude);
+                sm.setCentroSalud(seleccionPlace.getName(), seleccionPlace.getAddress(), ll.latitude, ll.longitude);
                 Toast.makeText(this, "Centro guardado: " + seleccionPlace.getName(), Toast.LENGTH_SHORT).show();
                 finish();
             } else if (seleccionFav != null) {
-                sm.setCentroSalud(seleccionFav.nombre, seleccionFav.direccion,
-                        seleccionFav.lat, seleccionFav.lng);
+                sm.setCentroSalud(seleccionFav.nombre, seleccionFav.direccion, seleccionFav.lat, seleccionFav.lng);
                 Toast.makeText(this, "Centro guardado: " + seleccionFav.nombre, Toast.LENGTH_SHORT).show();
+                finish();
+            } else if (seleccionWeb != null) {
+                LatLng p = new LatLng(seleccionWeb.geometry.location.lat, seleccionWeb.geometry.location.lng);
+                sm.setCentroSalud(seleccionWeb.name,
+                        seleccionWeb.vicinity != null ? seleccionWeb.vicinity : "",
+                        p.latitude, p.longitude);
+                Toast.makeText(this, "Centro guardado: " + seleccionWeb.name, Toast.LENGTH_SHORT).show();
                 finish();
             }
         });
@@ -211,6 +255,8 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
         // Añadir / quitar favorito
         buttonFavorito.setOnClickListener(v -> {
             SessionManager sm = new SessionManager(this);
+
+            // Desde SDK Place
             if (seleccionPlace != null && seleccionPlace.getLatLng() != null) {
                 String id = seleccionPlace.getId();
                 if (sm.isFavorito(id)) {
@@ -218,19 +264,41 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
                     Toast.makeText(this, "Eliminado de favoritos", Toast.LENGTH_SHORT).show();
                 } else {
                     LatLng ll = seleccionPlace.getLatLng();
-                    String tipo = chipHosp.isChecked() ? "HOSPITAL" : "FARMACIA";
+                    String tipo = (chipFarm.isChecked()) ? "FARMACIA" : "CENTRO_SALUD";
+                    sm.addFavorito(new FavoritePlace(
+                            id, seleccionPlace.getName(), seleccionPlace.getAddress(),
+                            ll.latitude, ll.longitude, tipo
+                    ));
+                    Toast.makeText(this, "Añadido a favoritos", Toast.LENGTH_SHORT).show();
+                }
+                actualizarTextoBotonFavorito();
+                return;
+            }
+
+            // Desde Nearby (web)
+            if (seleccionWeb != null) {
+                String id = seleccionWeb.place_id;
+                if (sm.isFavorito(id)) {
+                    sm.removeFavoritoById(id);
+                    Toast.makeText(this, "Eliminado de favoritos", Toast.LENGTH_SHORT).show();
+                } else {
+                    String tipo = (chipFarm.isChecked()) ? "FARMACIA" : "CENTRO_SALUD";
                     sm.addFavorito(new FavoritePlace(
                             id,
-                            seleccionPlace.getName(),
-                            seleccionPlace.getAddress(),
-                            ll.latitude,
-                            ll.longitude,
+                            seleccionWeb.name,
+                            seleccionWeb.vicinity != null ? seleccionWeb.vicinity : "",
+                            seleccionWeb.geometry.location.lat,
+                            seleccionWeb.geometry.location.lng,
                             tipo
                     ));
                     Toast.makeText(this, "Añadido a favoritos", Toast.LENGTH_SHORT).show();
                 }
                 actualizarTextoBotonFavorito();
-            } else if (seleccionFav != null) {
+                return;
+            }
+
+            // Desde favoritos
+            if (seleccionFav != null) {
                 if (sm.isFavorito(seleccionFav.id)) {
                     sm.removeFavoritoById(seleccionFav.id);
                     Toast.makeText(this, "Eliminado de favoritos", Toast.LENGTH_SHORT).show();
@@ -248,46 +316,345 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
         map = googleMap;
         map.getUiSettings().setMyLocationButtonEnabled(false);
 
+        // Ocultar/mostrar panel en gesto
+        map.setOnCameraMoveStartedListener(reason -> {
+            if (reason == GoogleMap.OnCameraMoveStartedListener.REASON_GESTURE) {
+                lastMoveWasGesture = true;
+                ocultarPanel(true);
+            }
+        });
+
+        map.setOnCameraIdleListener(() -> {
+            ocultarPanel(false);
+
+            if (!shouldReload()) return;
+            if (modoActual == Modo.FAVORITOS) return;
+
+            // Sólo recargar si el usuario realmente se movió lo suficiente
+            LatLng now = map.getCameraPosition().target;
+            float zoomNow = map.getCameraPosition().zoom;
+
+            boolean debe = false;
+            if (lastQueryCenter == null) {
+                debe = true;
+            } else {
+                float[] d = new float[1];
+                android.location.Location.distanceBetween(
+                        lastQueryCenter.latitude, lastQueryCenter.longitude,
+                        now.latitude, now.longitude, d);
+                float dz = Math.abs(zoomNow - lastQueryZoom);
+                if (d[0] >= MIN_RELOAD_METERS || dz >= MIN_ZOOM_DELTA) debe = true;
+            }
+
+            if (debe && lastMoveWasGesture) {
+                recargarSegunChip(false);
+                lastQueryCenter = now;
+                lastQueryZoom = zoomNow;
+            }
+
+            lastMoveWasGesture = false;
+        });
+
         map.setOnMarkerClickListener(marker -> {
+            // Evita que un pequeño recentrado dispare recarga
+            suprimirRecargaDurante(900);
+
             seleccion = marker;
             seleccion.showInfoWindow();
             buttonGuardar.setEnabled(true);
             buttonFavorito.setEnabled(true);
 
-            // reset selección
+            // Reset selección
             seleccionPlace = null;
             seleccionFav = null;
+            seleccionWeb  = null;
 
             Object tag = marker.getTag();
-            if (tag instanceof Place)      seleccionPlace = (Place) tag;
-            else if (tag instanceof FavoritePlace) seleccionFav = (FavoritePlace) tag;
+            if (tag instanceof Place) {
+                seleccionPlace = (Place) tag;
+            } else if (tag instanceof FavoritePlace) {
+                seleccionFav = (FavoritePlace) tag;
+            } else if (tag instanceof PlacesNearbyResponse.Result) {
+                seleccionWeb = (PlacesNearbyResponse.Result) tag;
+            }
 
             actualizarTextoBotonFavorito();
-            return false;
-        });
-
-        // Oculta panel al mover; solo recarga si el movimiento fue por gesto
-        map.setOnCameraMoveStartedListener(reason -> {
-            recargarAlSoltarPorGesto =
-                    (reason == GoogleMap.OnCameraMoveStartedListener.REASON_GESTURE);
-            ocultarPanel(true);
-        });
-        map.setOnCameraIdleListener(() -> {
-            lastKnown = map.getCameraPosition().target;
-            if (recargarAlSoltarPorGesto && !chipFav.isChecked()) {
-                cargarLugares();
-            }
-            recargarAlSoltarPorGesto = false; // reset
-            ocultarPanel(false);
+            return false; // comportamiento por defecto del InfoWindow
         });
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED) {
             enableMyLocation();
             moverACoordenadaActual();
-            cargarLugares();
+            recargarSegunChip(true);
         } else {
             permisoUbicacion.launch(Manifest.permission.ACCESS_FINE_LOCATION);
+        }
+    }
+
+    // ===== Nearby (recomendaciones automáticas) =====
+    private void recargarSegunChip(boolean inmediata) {
+        if (map == null) return;
+
+        if (chipFav.isChecked()) {
+            modoActual = Modo.FAVORITOS;
+            cargarFavoritos();
+            return;
+        }
+
+        modoActual = Modo.NEARBY;
+
+        LatLng centro = (map.getCameraPosition() != null)
+                ? map.getCameraPosition().target
+                : (lastKnown != null ? lastKnown : new LatLng(40.4168, -3.7038));
+
+        Runnable task = () -> {
+            if (chipFarm.isChecked()) {
+                // Farmacias
+                cargarNearby(centro, "pharmacy", null, BitmapDescriptorFactory.HUE_GREEN);
+            } else {
+                // Centros de salud (médicos) con palabra clave típica en España
+                cargarNearby(centro, "doctor", "centro de salud ambulatorio consultorio",
+                        BitmapDescriptorFactory.HUE_RED);
+            }
+        };
+
+        if (inmediata) {
+            if (!isLoadingNearby) task.run();
+        } else {
+            if (pendingLoadTask != null) handler.removeCallbacks(pendingLoadTask);
+            pendingLoadTask = () -> { if (!isLoadingNearby) task.run(); };
+            handler.postDelayed(pendingLoadTask, 280);
+        }
+    }
+
+    private void cargarFavoritos() {
+        if (map == null) return;
+
+        limpiarMarcadores();
+        buttonGuardar.setEnabled(false);
+        buttonFavorito.setEnabled(false);
+        buttonFavorito.setText("Añadir a favoritos");
+
+        SessionManager sm = new SessionManager(this);
+        List<FavoritePlace> favs = sm.getFavoritos();
+        if (favs == null || favs.isEmpty()) {
+            // sin toasts ruidosos
+            return;
+        }
+
+        for (FavoritePlace f : favs) {
+            MarkerOptions mo = new MarkerOptions()
+                    .position(new LatLng(f.lat, f.lng))
+                    .title(f.nombre)
+                    .snippet(f.direccion)
+                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW));
+            Marker mk = map.addMarker(mo);
+            if (mk != null) {
+                mk.setTag(f);
+                marcadores.add(mk);
+            }
+        }
+
+        if (!marcadores.isEmpty()) {
+            marcadores.get(0).showInfoWindow();
+            seleccion = marcadores.get(0);
+            Object tag = seleccion.getTag();
+            seleccionFav = (tag instanceof FavoritePlace) ? (FavoritePlace) tag : null;
+            seleccionPlace = null;
+            seleccionWeb = null;
+            buttonGuardar.setEnabled(true);
+            buttonFavorito.setEnabled(true);
+            actualizarTextoBotonFavorito();
+        }
+    }
+
+    private void cargarNearby(@NonNull LatLng centro,
+                              @NonNull String tipo,
+                              String keywordOrNull,
+                              float hue) {
+        if (placesService == null) return;
+        isLoadingNearby = true;
+
+        String latlng = centro.latitude + "," + centro.longitude;
+        String apiKey = getString(R.string.google_places_web_key); // CLAVE WEB
+
+        int radio = "pharmacy".equals(tipo) ? RADIO_NEARBY_FARM_M : RADIO_NEARBY_M;
+
+        Call<PlacesNearbyResponse> call;
+        if ("pharmacy".equals(tipo) || keywordOrNull == null) {
+            call = placesService.nearbySearch(latlng, radio, tipo, "es", apiKey);
+        } else {
+            call = placesService.nearbySearchWithKeyword(latlng, radio, tipo, keywordOrNull, "es", apiKey);
+        }
+
+        call.enqueue(new Callback<PlacesNearbyResponse>() {
+            @Override
+            public void onResponse(Call<PlacesNearbyResponse> c, Response<PlacesNearbyResponse> r) {
+                isLoadingNearby = false;
+
+                PlacesNearbyResponse body = r.body();
+                if (body == null || body.results == null || body.results.isEmpty()) {
+                    // Silencio: no pintamos nada
+                    limpiarMarcadores();
+                    return;
+                }
+
+                limpiarMarcadores();
+                List<PlacesNearbyResponse.Result> results = body.results;
+
+                // Pinta resultados
+                for (PlacesNearbyResponse.Result res : results) {
+                    LatLng p = new LatLng(res.geometry.location.lat, res.geometry.location.lng);
+                    String direccion = (res.vicinity != null) ? res.vicinity : "";
+                    Marker mk = map.addMarker(new MarkerOptions()
+                            .position(p)
+                            .title(res.name != null ? res.name : "")
+                            .snippet(direccion)
+                            .icon(BitmapDescriptorFactory.defaultMarker(hue)));
+                    if (mk != null) {
+                        mk.setTag(res); // ¡importante para favoritos!
+                        marcadores.add(mk);
+                    }
+                }
+
+                if (!marcadores.isEmpty()) {
+                    marcadores.get(0).showInfoWindow();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<PlacesNearbyResponse> call, Throwable t) {
+                isLoadingNearby = false;
+                // Sólo mostramos errores reales (conectividad, etc.)
+                Toast.makeText(CentrosMapaActivity.this, "Error Nearby: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    // ===== Autocomplete (flujo manual) =====
+    private void cargarLugares() {
+        if (map == null) return;
+
+        if (chipFav.isChecked()) {
+            limpiarMarcadores();
+            cargarFavoritos();
+            return;
+        }
+
+        LatLng centro = (map.getCameraPosition() != null)
+                ? map.getCameraPosition().target
+                : (lastKnown != null ? lastKnown : new LatLng(40.4168, -3.7038));
+
+        double delta = 0.22;
+        RectangularBounds bounds = RectangularBounds.newInstance(
+                new LatLng(centro.latitude - delta, centro.longitude - delta),
+                new LatLng(centro.latitude + delta, centro.longitude + delta)
+        );
+
+        final boolean mostrarCentros = !chipFarm.isChecked();
+        final String query = mostrarCentros ? "centro de salud" : "farmacia";
+
+        FindAutocompletePredictionsRequest req = FindAutocompletePredictionsRequest.builder()
+                .setSessionToken(token)
+                .setQuery(query)
+                .setCountries(Collections.singletonList("ES"))
+                .setTypesFilter(Collections.singletonList(mostrarCentros ? PlaceTypes.HOSPITAL : PlaceTypes.PHARMACY))
+                .setLocationBias(bounds)
+                .build();
+
+        pendingPlaces.clear();
+        pendingFetchCount = 0;
+
+        placesClient.findAutocompletePredictions(req)
+                .addOnSuccessListener(resp -> {
+                    List<AutocompletePrediction> preds = resp.getAutocompletePredictions();
+                    if (preds.isEmpty()) {
+                        limpiarMarcadores();
+                        return;
+                    }
+
+                    int count = Math.min(MAX_SUGERENCIAS, preds.size());
+                    pendingFetchCount = count;
+
+                    for (int i = 0; i < count; i++) {
+                        AutocompletePrediction p = preds.get(i);
+                        FetchPlaceRequest fReq = FetchPlaceRequest.newInstance(
+                                p.getPlaceId(),
+                                Arrays.asList(Place.Field.ID, Place.Field.NAME, Place.Field.ADDRESS, Place.Field.LAT_LNG, Place.Field.TYPES)
+                        );
+                        placesClient.fetchPlace(fReq)
+                                .addOnSuccessListener((FetchPlaceResponse r) -> {
+                                    Place pl = r.getPlace();
+                                    if (pl.getLatLng() != null) {
+                                        pendingPlaces.add(pl);
+                                    }
+                                    onFetchTerminado(centro, mostrarCentros);
+                                })
+                                .addOnFailureListener(e -> onFetchTerminado(centro, mostrarCentros));
+                    }
+                })
+                .addOnFailureListener(e ->
+                        Toast.makeText(this, "Error cargando sugerencias: " + e.getMessage(), Toast.LENGTH_SHORT).show()
+                );
+    }
+
+    private void onFetchTerminado(LatLng centro, boolean mostrarCentros) {
+        pendingFetchCount--;
+        if (pendingFetchCount <= 0) {
+            pintarSugerenciasLote(pendingPlaces, mostrarCentros, centro);
+        }
+    }
+
+    private void pintarSugerenciasLote(List<Place> placesOK, boolean mostrarCentros, LatLng centro) {
+        limpiarMarcadores();
+        if (placesOK == null || placesOK.isEmpty()) return;
+
+        placesOK.sort((a, b) -> {
+            float[] da = new float[1], db = new float[1];
+            LatLng la = a.getLatLng(), lb = b.getLatLng();
+            android.location.Location.distanceBetween(centro.latitude, centro.longitude, la.latitude, la.longitude, da);
+            android.location.Location.distanceBetween(centro.latitude, centro.longitude, lb.latitude, lb.longitude, db);
+            return Float.compare(da[0], db[0]);
+        });
+
+        float color = mostrarCentros ? BitmapDescriptorFactory.HUE_RED : BitmapDescriptorFactory.HUE_GREEN;
+
+        for (Place p : placesOK) {
+            Marker mk = map.addMarker(new MarkerOptions()
+                    .position(p.getLatLng())
+                    .title(p.getName())
+                    .snippet(p.getAddress())
+                    .icon(BitmapDescriptorFactory.defaultMarker(color)));
+            if (mk != null) {
+                mk.setTag(p);
+                marcadores.add(mk);
+            }
+        }
+
+        if (!marcadores.isEmpty()) {
+            Marker nearest = null;
+            float best = Float.MAX_VALUE;
+            float[] res = new float[1];
+            for (Marker m : marcadores) {
+                LatLng p = m.getPosition();
+                android.location.Location.distanceBetween(centro.latitude, centro.longitude, p.latitude, p.longitude, res);
+                if (res[0] < best) {
+                    best = res[0];
+                    nearest = m;
+                }
+            }
+            if (nearest != null && best <= RADIO_METROS) {
+                nearest.showInfoWindow();
+                seleccion = nearest;
+                Object tag = nearest.getTag();
+                seleccionPlace = tag instanceof Place ? (Place) tag : null;
+                seleccionFav   = null;
+                seleccionWeb   = null;
+                buttonGuardar.setEnabled(true);
+                buttonFavorito.setEnabled(true);
+                actualizarTextoBotonFavorito();
+            }
         }
     }
 
@@ -300,11 +667,7 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
         float toAlpha = ocultar ? 0f : 1f;
         float toTransY = ocultar ? -panelFiltros.getHeight() * 0.35f : 0f;
 
-        panelFiltros.animate()
-                .alpha(toAlpha)
-                .translationY(toTransY)
-                .setDuration(180)
-                .start();
+        panelFiltros.animate().alpha(toAlpha).translationY(toTransY).setDuration(180).start();
         panelFiltros.setClickable(!ocultar);
     }
 
@@ -314,6 +677,7 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
         String id = null;
         if (seleccionPlace != null) id = seleccionPlace.getId();
         else if (seleccionFav != null) id = seleccionFav.id;
+        else if (seleccionWeb != null) id = seleccionWeb.place_id;
 
         if (id == null) {
             buttonFavorito.setText("Añadir a favoritos");
@@ -353,7 +717,7 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
         lastKnown = new LatLng(lat, lng);
         CameraPosition cp = CameraPosition.builder().target(lastKnown).zoom(15f).build();
         if (map != null) {
-            recargarAlSoltarPorGesto = false; // no recargar tras animación programática
+            suprimirRecargaDurante(700);
             map.animateCamera(CameraUpdateFactory.newCameraPosition(cp));
         }
     }
@@ -364,6 +728,7 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
         seleccion = null;
         seleccionPlace = null;
         seleccionFav = null;
+        seleccionWeb = null;
         buttonGuardar.setEnabled(false);
         buttonFavorito.setEnabled(false);
         buttonFavorito.setText("Añadir a favoritos");
@@ -383,161 +748,14 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
             seleccion = mk;
             seleccionPlace = place;
             seleccionFav = null;
+            seleccionWeb = null;
             buttonGuardar.setEnabled(true);
             buttonFavorito.setEnabled(true);
             actualizarTextoBotonFavorito();
         }
     }
 
-    // ===== RECOMENDACIONES CERCA DEL PUNTO (ES) =====
-    private void cargarLugares() {
-        if (map == null) return;
-        limpiarMarcadores();
-
-        if (chipFav != null && chipFav.isChecked()) {
-            cargarFavoritos();
-            return;
-        }
-
-        // Centro = cámara si existe; si no, lastKnown; si no, Madrid
-        LatLng centro = (map != null) ? map.getCameraPosition().target
-                : (lastKnown != null ? lastKnown : new LatLng(40.4168, -3.7038));
-
-        double delta = 0.22; // ~20–25 km
-        RectangularBounds bounds = RectangularBounds.newInstance(
-                new LatLng(centro.latitude - delta, centro.longitude - delta),
-                new LatLng(centro.latitude + delta, centro.longitude + delta)
-        );
-
-        final boolean mostrarHospitales = chipHosp != null && chipHosp.isChecked();
-        final String query = mostrarHospitales ? "hospital" : "farmacia";
-
-        FindAutocompletePredictionsRequest req = FindAutocompletePredictionsRequest.builder()
-                .setSessionToken(token)
-                .setQuery(query)
-                .setCountries(Collections.singletonList("ES"))
-                .setTypesFilter(Collections.singletonList(
-                        mostrarHospitales ? PlaceTypes.HOSPITAL : PlaceTypes.PHARMACY
-                ))
-                .setLocationBias(bounds)
-                .build();
-
-        placesClient.findAutocompletePredictions(req)
-                .addOnSuccessListener(resp -> {
-                    List<AutocompletePrediction> preds = resp.getAutocompletePredictions();
-                    if (preds.isEmpty()) {
-                        Toast.makeText(this,
-                                mostrarHospitales
-                                        ? "No se encontraron centros de salud cerca."
-                                        : "No se encontraron farmacias cerca.",
-                                Toast.LENGTH_SHORT).show();
-                        return;
-                    }
-
-                    int count = Math.min(MAX_SUGERENCIAS, preds.size());
-                    final List<Place> placesOK = new ArrayList<>();
-
-                    for (int i = 0; i < count; i++) {
-                        AutocompletePrediction p = preds.get(i);
-                        FetchPlaceRequest fReq = FetchPlaceRequest.newInstance(
-                                p.getPlaceId(),
-                                Arrays.asList(Place.Field.ID, Place.Field.NAME, Place.Field.ADDRESS, Place.Field.LAT_LNG)
-                        );
-                        placesClient.fetchPlace(fReq)
-                                .addOnSuccessListener((FetchPlaceResponse r) -> {
-                                    Place pl = r.getPlace();
-                                    if (pl.getLatLng() != null) placesOK.add(pl);
-                                    pintarSugerencias(placesOK, mostrarHospitales, centro);
-                                })
-                                .addOnFailureListener(e -> { /* ignorar fallos individuales */ });
-                    }
-                })
-                .addOnFailureListener(e ->
-                        Toast.makeText(this, "Error cargando sugerencias: " + e.getMessage(), Toast.LENGTH_SHORT).show()
-                );
-    }
-
-    private void pintarSugerencias(List<Place> placesOK, boolean mostrarHospitales, LatLng centro) {
-        if (placesOK.isEmpty()) return;
-
-        limpiarMarcadores();
-
-        // ordenar por distancia al centro
-        placesOK.sort((a, b) -> {
-            float[] da = new float[1], db = new float[1];
-            LatLng la = a.getLatLng(), lb = b.getLatLng();
-            android.location.Location.distanceBetween(centro.latitude, centro.longitude, la.latitude, la.longitude, da);
-            android.location.Location.distanceBetween(centro.latitude, centro.longitude, lb.latitude, lb.longitude, db);
-            return Float.compare(da[0], db[0]);
-        });
-
-        float color = mostrarHospitales
-                ? BitmapDescriptorFactory.HUE_RED
-                : BitmapDescriptorFactory.HUE_GREEN;
-
-        for (Place p : placesOK) {
-            Marker mk = map.addMarker(new MarkerOptions()
-                    .position(p.getLatLng())
-                    .title(p.getName())
-                    .snippet(p.getAddress())
-                    .icon(BitmapDescriptorFactory.defaultMarker(color)));
-            if (mk != null) { mk.setTag(p); marcadores.add(mk); }
-        }
-
-        // abrir el más cercano si cae dentro del radio
-        if (!marcadores.isEmpty()) {
-            Marker nearest = null;
-            float best = Float.MAX_VALUE;
-            float[] res = new float[1];
-            for (Marker m : marcadores) {
-                LatLng p = m.getPosition();
-                android.location.Location.distanceBetween(
-                        centro.latitude, centro.longitude, p.latitude, p.longitude, res);
-                if (res[0] < best) {
-                    best = res[0];
-                    nearest = m;
-                }
-            }
-            if (nearest != null && best <= RADIO_METROS) {
-                nearest.showInfoWindow();
-                seleccion = nearest;
-                Object tag = nearest.getTag();
-                seleccionPlace = tag instanceof Place ? (Place) tag : null;
-                seleccionFav = null;
-                buttonGuardar.setEnabled(true);
-                buttonFavorito.setEnabled(true);
-                actualizarTextoBotonFavorito();
-            }
-        }
-    }
-
-    /** Pinta favoritos del usuario. */
-    private void cargarFavoritos() {
-        if (map == null) return;
-        limpiarMarcadores();
-
-        SessionManager sm = new SessionManager(this);
-        List<FavoritePlace> favs = sm.getFavoritos();
-        for (FavoritePlace f : favs) {
-            MarkerOptions mo = new MarkerOptions()
-                    .position(new LatLng(f.lat, f.lng))
-                    .title(f.nombre)
-                    .snippet(f.direccion)
-                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW));
-            Marker mk = map.addMarker(mo);
-            if (mk != null) {
-                mk.setTag(f);
-                marcadores.add(mk);
-            }
-        }
-        if (marcadores.isEmpty()) {
-            Toast.makeText(this,
-                    "Aún no tienes favoritos. Toca un marcador y pulsa “Añadir a favoritos”.",
-                    Toast.LENGTH_LONG).show();
-        }
-    }
-
-    // ===== Buscador programático (ES + tipos) =====
+    // ===== Buscador programático =====
     private void abrirBuscadorFiltrado() {
         final android.widget.LinearLayout root = new android.widget.LinearLayout(this);
         root.setOrientation(android.widget.LinearLayout.VERTICAL);
@@ -545,7 +763,7 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
         root.setPadding(pad, pad, pad, pad);
 
         final EditText input = new EditText(this);
-        input.setHint("Buscar hospital o farmacia...");
+        input.setHint("Buscar centro de salud o farmacia…");
         input.setSingleLine(true);
         root.addView(input, new android.widget.LinearLayout.LayoutParams(
                 android.widget.LinearLayout.LayoutParams.MATCH_PARENT,
@@ -563,7 +781,7 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
                 new androidx.appcompat.app.AlertDialog.Builder(this)
                         .setTitle("Buscar")
                         .setView(root)
-                        .setNegativeButton("Cerrar", (d,w) -> d.dismiss())
+                        .setNegativeButton("Cerrar", (d, w) -> d.dismiss())
                         .create();
 
         input.addTextChangedListener(new TextWatcher() {
@@ -574,9 +792,7 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
                 final String q = s.toString().trim();
                 long now = System.currentTimeMillis();
                 last = now;
-                list.postDelayed(() -> {
-                    if (now == last) solicitarPrediccionesFiltradas(q);
-                }, 250);
+                list.postDelayed(() -> { if (now == last) solicitarPrediccionesFiltradas(q); }, 250);
             }
         });
 
@@ -606,17 +822,16 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
             return;
         }
 
-        // Centro = cámara si existe; si no, lastKnown; si no, Madrid
-        LatLng centro = (map != null) ? map.getCameraPosition().target
+        LatLng centro = (map != null && map.getCameraPosition() != null)
+                ? map.getCameraPosition().target
                 : (lastKnown != null ? lastKnown : new LatLng(40.4168, -3.7038));
-        double delta = 0.20; // ~20-25 km
+        double delta = 0.20;
 
         RectangularBounds bounds = RectangularBounds.newInstance(
                 new LatLng(centro.latitude - delta, centro.longitude - delta),
                 new LatLng(centro.latitude + delta, centro.longitude + delta)
         );
 
-        // ES + tipos (máximo 1) para no exceder restricciones
         List<String> tipos = new ArrayList<>();
         String qLower = query.toLowerCase();
         if (qLower.contains("farm") || (chipFarm != null && chipFarm.isChecked())) {
@@ -656,9 +871,7 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
     }
 
     private void fetchPlaceYMarcar(String placeId) {
-        List<Place.Field> fields = Arrays.asList(
-                Place.Field.ID, Place.Field.NAME, Place.Field.ADDRESS, Place.Field.LAT_LNG
-        );
+        List<Place.Field> fields = Arrays.asList(Place.Field.ID, Place.Field.NAME, Place.Field.ADDRESS, Place.Field.LAT_LNG);
         FetchPlaceRequest req = FetchPlaceRequest.newInstance(placeId, fields);
 
         placesClient.fetchPlace(req)
@@ -670,7 +883,7 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
                     }
                     LatLng ll = place.getLatLng();
                     if (map != null) {
-                        recargarAlSoltarPorGesto = false; // no recargar tras animación programática
+                        suprimirRecargaDurante(700);
                         map.animateCamera(CameraUpdateFactory.newLatLngZoom(ll, 16f));
                     }
                     limpiarYMarcarSeleccion(place, ll);

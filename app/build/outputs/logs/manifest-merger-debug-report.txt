@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:2:1-45:12
-INJECTED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:2:1-45:12
-INJECTED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:2:1-45:12
-INJECTED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:2:1-45:12
+ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:2:1-46:12
+INJECTED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:2:1-46:12
+INJECTED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:2:1-46:12
+INJECTED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:2:1-46:12
 MERGED from [androidx.databinding:viewbinding:8.3.2] C:\Users\FRANCESCO\.gradle\caches\transforms-4\60e075188b928a3822febbadd87be5d8\transformed\jetified-viewbinding-8.3.2\AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.android.material:material:1.12.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\b6299e5fddeaca0665221303ac698981\transformed\material-1.12.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\FRANCESCO\.gradle\caches\transforms-4\986d15c414132773634787a228f902b1\transformed\constraintlayout-2.1.4\AndroidManifest.xml:2:1-11:12
@@ -13,10 +13,10 @@ MERGED from [androidx.appcompat:appcompat:1.7.0] C:\Users\FRANCESCO\.gradle\cach
 MERGED from [com.google.android.gms:play-services-maps:18.2.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\6f7d4049b22d6091af7ecc58be2caebd\transformed\jetified-play-services-maps-18.2.0\AndroidManifest.xml:17:1-44:12
 MERGED from [androidx.recyclerview:recyclerview:1.3.2] C:\Users\FRANCESCO\.gradle\caches\transforms-4\0484947d117110d055e86fe0aca14527\transformed\recyclerview-1.3.2\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.viewpager2:viewpager2:1.1.0-beta02] C:\Users\FRANCESCO\.gradle\caches\transforms-4\20034b70dfb704d40e5f05c49b7ebb2b\transformed\jetified-viewpager2-1.1.0-beta02\AndroidManifest.xml:2:1-7:12
-MERGED from [com.google.android.gms:play-services-location:21.3.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\2c76382f3731cda58ef90d3a5a8536e9\transformed\jetified-play-services-location-21.3.0\AndroidManifest.xml:2:1-8:12
-MERGED from [com.google.android.gms:play-services-base:18.5.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\50881554b9ac01aff78ec0912b75bc91\transformed\jetified-play-services-base-18.5.0\AndroidManifest.xml:2:1-7:12
-MERGED from [com.google.android.gms:play-services-tasks:18.2.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\b924ea4a3729464869850938610bf2c3\transformed\jetified-play-services-tasks-18.2.0\AndroidManifest.xml:2:1-5:12
-MERGED from [com.google.android.gms:play-services-basement:18.4.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\1d4351cac60f496159d738138b37ee4f\transformed\jetified-play-services-basement-18.4.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-location:21.0.1] C:\Users\FRANCESCO\.gradle\caches\transforms-4\5b49ec65640fa0758487b0799a7698f4\transformed\jetified-play-services-location-21.0.1\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-base:18.3.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\82a6961e1fdbd43830369aa3d9b576a5\transformed\jetified-play-services-base-18.3.0\AndroidManifest.xml:16:1-24:12
+MERGED from [com.google.android.gms:play-services-tasks:18.1.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\bfd4ba96745600338e54217409ea7220\transformed\jetified-play-services-tasks-18.1.0\AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-basement:18.3.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\cdce9f19bed22c7ba34e165ae44fbe6f\transformed\jetified-play-services-basement-18.3.0\AndroidManifest.xml:16:1-26:12
 MERGED from [androidx.fragment:fragment:1.7.1] C:\Users\FRANCESCO\.gradle\caches\transforms-4\80a4d84bf8b1dfdd09ef534699940240\transformed\fragment-1.7.1\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.activity:activity:1.9.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\20c8f86a2373f1764bf5aa9adccf83c2\transformed\jetified-activity-1.9.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\1e5cbae3f6f3c55bbee72f6647755393\transformed\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
@@ -103,15 +103,25 @@ MERGED from [com.google.android.libraries.places:places:3.5.0] C:\Users\FRANCESC
 MERGED from [com.google.android.libraries.places:places:3.5.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\87595a9a48124715a3bd69eaa5506027\transformed\jetified-places-3.5.0\AndroidManifest.xml:9:5-81
 	android:name
 		ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:10:22-78
-uses-feature#android.hardware.telephony
-ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:12:5-14:36
-	android:required
-		ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:14:9-33
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:11:5-78
+MERGED from [com.google.android.gms:play-services-maps:18.2.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\6f7d4049b22d6091af7ecc58be2caebd\transformed\jetified-play-services-maps-18.2.0\AndroidManifest.xml:23:5-79
+MERGED from [com.google.android.gms:play-services-maps:18.2.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\6f7d4049b22d6091af7ecc58be2caebd\transformed\jetified-play-services-maps-18.2.0\AndroidManifest.xml:23:5-79
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.2.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\1df839d102096d3c730ec8cb3ffcf878\transformed\jetified-transport-backend-cct-3.2.0\AndroidManifest.xml:22:5-79
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.2.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\1df839d102096d3c730ec8cb3ffcf878\transformed\jetified-transport-backend-cct-3.2.0\AndroidManifest.xml:22:5-79
+MERGED from [com.google.android.datatransport:transport-runtime:3.2.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\c9a198c0e2d77960f87723e7e0e71fa5\transformed\jetified-transport-runtime-3.2.0\AndroidManifest.xml:20:5-79
+MERGED from [com.google.android.datatransport:transport-runtime:3.2.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\c9a198c0e2d77960f87723e7e0e71fa5\transformed\jetified-transport-runtime-3.2.0\AndroidManifest.xml:20:5-79
 	android:name
-		ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:13:9-50
+		ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:11:22-76
+uses-feature#android.hardware.telephony
+ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:13:5-15:36
+	android:required
+		ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:15:9-33
+	android:name
+		ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:14:9-50
 application
-ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:17:5-44:19
-INJECTED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:17:5-44:19
+ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:18:5-45:19
+INJECTED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:18:5-45:19
 MERGED from [com.google.android.material:material:1.12.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\b6299e5fddeaca0665221303ac698981\transformed\material-1.12.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.12.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\b6299e5fddeaca0665221303ac698981\transformed\material-1.12.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\FRANCESCO\.gradle\caches\transforms-4\986d15c414132773634787a228f902b1\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
@@ -120,14 +130,14 @@ MERGED from [com.google.android.libraries.places:places:3.5.0] C:\Users\FRANCESC
 MERGED from [com.google.android.libraries.places:places:3.5.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\87595a9a48124715a3bd69eaa5506027\transformed\jetified-places-3.5.0\AndroidManifest.xml:14:5-22:19
 MERGED from [com.google.android.gms:play-services-maps:18.2.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\6f7d4049b22d6091af7ecc58be2caebd\transformed\jetified-play-services-maps-18.2.0\AndroidManifest.xml:36:5-42:19
 MERGED from [com.google.android.gms:play-services-maps:18.2.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\6f7d4049b22d6091af7ecc58be2caebd\transformed\jetified-play-services-maps-18.2.0\AndroidManifest.xml:36:5-42:19
-MERGED from [com.google.android.gms:play-services-location:21.3.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\2c76382f3731cda58ef90d3a5a8536e9\transformed\jetified-play-services-location-21.3.0\AndroidManifest.xml:6:5-20
-MERGED from [com.google.android.gms:play-services-location:21.3.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\2c76382f3731cda58ef90d3a5a8536e9\transformed\jetified-play-services-location-21.3.0\AndroidManifest.xml:6:5-20
-MERGED from [com.google.android.gms:play-services-base:18.5.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\50881554b9ac01aff78ec0912b75bc91\transformed\jetified-play-services-base-18.5.0\AndroidManifest.xml:4:5-6:19
-MERGED from [com.google.android.gms:play-services-base:18.5.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\50881554b9ac01aff78ec0912b75bc91\transformed\jetified-play-services-base-18.5.0\AndroidManifest.xml:4:5-6:19
-MERGED from [com.google.android.gms:play-services-tasks:18.2.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\b924ea4a3729464869850938610bf2c3\transformed\jetified-play-services-tasks-18.2.0\AndroidManifest.xml:4:5-20
-MERGED from [com.google.android.gms:play-services-tasks:18.2.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\b924ea4a3729464869850938610bf2c3\transformed\jetified-play-services-tasks-18.2.0\AndroidManifest.xml:4:5-20
-MERGED from [com.google.android.gms:play-services-basement:18.4.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\1d4351cac60f496159d738138b37ee4f\transformed\jetified-play-services-basement-18.4.0\AndroidManifest.xml:5:5-7:19
-MERGED from [com.google.android.gms:play-services-basement:18.4.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\1d4351cac60f496159d738138b37ee4f\transformed\jetified-play-services-basement-18.4.0\AndroidManifest.xml:5:5-7:19
+MERGED from [com.google.android.gms:play-services-location:21.0.1] C:\Users\FRANCESCO\.gradle\caches\transforms-4\5b49ec65640fa0758487b0799a7698f4\transformed\jetified-play-services-location-21.0.1\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-location:21.0.1] C:\Users\FRANCESCO\.gradle\caches\transforms-4\5b49ec65640fa0758487b0799a7698f4\transformed\jetified-play-services-location-21.0.1\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-base:18.3.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\82a6961e1fdbd43830369aa3d9b576a5\transformed\jetified-play-services-base-18.3.0\AndroidManifest.xml:19:5-23:19
+MERGED from [com.google.android.gms:play-services-base:18.3.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\82a6961e1fdbd43830369aa3d9b576a5\transformed\jetified-play-services-base-18.3.0\AndroidManifest.xml:19:5-23:19
+MERGED from [com.google.android.gms:play-services-tasks:18.1.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\bfd4ba96745600338e54217409ea7220\transformed\jetified-play-services-tasks-18.1.0\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-tasks:18.1.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\bfd4ba96745600338e54217409ea7220\transformed\jetified-play-services-tasks-18.1.0\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-basement:18.3.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\cdce9f19bed22c7ba34e165ae44fbe6f\transformed\jetified-play-services-basement-18.3.0\AndroidManifest.xml:20:5-24:19
+MERGED from [com.google.android.gms:play-services-basement:18.3.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\cdce9f19bed22c7ba34e165ae44fbe6f\transformed\jetified-play-services-basement-18.3.0\AndroidManifest.xml:20:5-24:19
 MERGED from [androidx.emoji2:emoji2:1.3.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\39498a34ba9d806895412feedf025c07\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:23:5-33:19
 MERGED from [androidx.emoji2:emoji2:1.3.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\39498a34ba9d806895412feedf025c07\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:23:5-33:19
 MERGED from [androidx.lifecycle:lifecycle-process:2.8.3] C:\Users\FRANCESCO\.gradle\caches\transforms-4\2c70851e02279be8eabfbd9d8a0fc9ae\transformed\jetified-lifecycle-process-2.8.3\AndroidManifest.xml:23:5-33:19
@@ -149,71 +159,71 @@ MERGED from [com.google.android.datatransport:transport-runtime:3.2.0] C:\Users\
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.13.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\073257a03b3e1cb7b6d9c4111e246b47\transformed\core-1.13.0\AndroidManifest.xml:28:18-86
 	android:supportsRtl
-		ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:20:9-35
+		ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:21:9-35
 	android:label
-		ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:19:9-34
+		ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:20:9-34
 	android:allowBackup
-		ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:18:9-35
+		ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:19:9-35
 	android:theme
-		ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:21:9-47
+		ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:22:9-47
 meta-data#com.google.android.geo.API_KEY
-ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:23:9-25:54
+ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:24:9-26:54
 	android:value
-		ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:25:13-52
+		ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:26:13-52
 	android:name
-		ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:24:13-58
+		ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:25:13-58
 activity#com.francesco.citapluus.MainActivity
-ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:28:9-35:20
+ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:29:9-36:20
 	android:exported
-		ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:30:13-36
+		ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:31:13-36
 	android:name
-		ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:29:13-41
+		ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:30:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:31:13-34:29
+ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:32:13-35:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:32:17-69
+ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:33:17-69
 	android:name
-		ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:32:25-66
+		ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:33:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:33:17-77
+ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:34:17-77
 	android:name
-		ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:33:27-74
+		ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:34:27-74
 activity#com.francesco.citapluus.LoginActivity
-ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:37:9-77
-	android:exported
-		ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:37:50-74
-	android:name
-		ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:37:19-48
-activity#com.francesco.citapluus.PerfilActivity
 ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:38:9-77
 	android:exported
 		ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:38:50-74
 	android:name
-		ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:38:19-49
+		ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:38:19-48
+activity#com.francesco.citapluus.PerfilActivity
+ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:39:9-77
+	android:exported
+		ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:39:50-74
+	android:name
+		ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:39:19-49
 activity#com.francesco.citapluus.WorkerMainActivity
-ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:39:9-81
+ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:40:9-81
 	android:exported
-		ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:39:54-78
+		ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:40:54-78
 	android:name
-		ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:39:19-53
+		ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:40:19-53
 activity#com.francesco.citapluus.MedicamentosActivity
-ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:40:9-82
+ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:41:9-82
 	android:exported
-		ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:40:56-80
+		ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:41:56-80
 	android:name
-		ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:40:19-55
+		ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:41:19-55
 activity#com.francesco.citapluus.CentrosMapaActivity
-ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:42:9-82
+ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:43:9-82
 	android:exported
-		ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:42:55-79
+		ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:43:55-79
 	android:name
-		ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:42:19-54
+		ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:43:19-54
 receiver#com.francesco.citapluus.CitaReminderReceiver
-ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:43:9-83
+ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:44:9-83
 	android:exported
-		ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:43:56-80
+		ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:44:56-80
 	android:name
-		ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:43:19-55
+		ADDED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml:44:19-55
 uses-sdk
 INJECTED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\src\main\AndroidManifest.xml
@@ -236,14 +246,14 @@ MERGED from [androidx.recyclerview:recyclerview:1.3.2] C:\Users\FRANCESCO\.gradl
 MERGED from [androidx.recyclerview:recyclerview:1.3.2] C:\Users\FRANCESCO\.gradle\caches\transforms-4\0484947d117110d055e86fe0aca14527\transformed\recyclerview-1.3.2\AndroidManifest.xml:20:5-44
 MERGED from [androidx.viewpager2:viewpager2:1.1.0-beta02] C:\Users\FRANCESCO\.gradle\caches\transforms-4\20034b70dfb704d40e5f05c49b7ebb2b\transformed\jetified-viewpager2-1.1.0-beta02\AndroidManifest.xml:5:5-44
 MERGED from [androidx.viewpager2:viewpager2:1.1.0-beta02] C:\Users\FRANCESCO\.gradle\caches\transforms-4\20034b70dfb704d40e5f05c49b7ebb2b\transformed\jetified-viewpager2-1.1.0-beta02\AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-location:21.3.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\2c76382f3731cda58ef90d3a5a8536e9\transformed\jetified-play-services-location-21.3.0\AndroidManifest.xml:4:5-44
-MERGED from [com.google.android.gms:play-services-location:21.3.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\2c76382f3731cda58ef90d3a5a8536e9\transformed\jetified-play-services-location-21.3.0\AndroidManifest.xml:4:5-44
-MERGED from [com.google.android.gms:play-services-base:18.5.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\50881554b9ac01aff78ec0912b75bc91\transformed\jetified-play-services-base-18.5.0\AndroidManifest.xml:3:5-44
-MERGED from [com.google.android.gms:play-services-base:18.5.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\50881554b9ac01aff78ec0912b75bc91\transformed\jetified-play-services-base-18.5.0\AndroidManifest.xml:3:5-44
-MERGED from [com.google.android.gms:play-services-tasks:18.2.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\b924ea4a3729464869850938610bf2c3\transformed\jetified-play-services-tasks-18.2.0\AndroidManifest.xml:3:5-44
-MERGED from [com.google.android.gms:play-services-tasks:18.2.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\b924ea4a3729464869850938610bf2c3\transformed\jetified-play-services-tasks-18.2.0\AndroidManifest.xml:3:5-44
-MERGED from [com.google.android.gms:play-services-basement:18.4.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\1d4351cac60f496159d738138b37ee4f\transformed\jetified-play-services-basement-18.4.0\AndroidManifest.xml:3:5-44
-MERGED from [com.google.android.gms:play-services-basement:18.4.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\1d4351cac60f496159d738138b37ee4f\transformed\jetified-play-services-basement-18.4.0\AndroidManifest.xml:3:5-44
+MERGED from [com.google.android.gms:play-services-location:21.0.1] C:\Users\FRANCESCO\.gradle\caches\transforms-4\5b49ec65640fa0758487b0799a7698f4\transformed\jetified-play-services-location-21.0.1\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-location:21.0.1] C:\Users\FRANCESCO\.gradle\caches\transforms-4\5b49ec65640fa0758487b0799a7698f4\transformed\jetified-play-services-location-21.0.1\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-base:18.3.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\82a6961e1fdbd43830369aa3d9b576a5\transformed\jetified-play-services-base-18.3.0\AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-base:18.3.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\82a6961e1fdbd43830369aa3d9b576a5\transformed\jetified-play-services-base-18.3.0\AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-tasks:18.1.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\bfd4ba96745600338e54217409ea7220\transformed\jetified-play-services-tasks-18.1.0\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tasks:18.1.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\bfd4ba96745600338e54217409ea7220\transformed\jetified-play-services-tasks-18.1.0\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-basement:18.3.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\cdce9f19bed22c7ba34e165ae44fbe6f\transformed\jetified-play-services-basement-18.3.0\AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-basement:18.3.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\cdce9f19bed22c7ba34e165ae44fbe6f\transformed\jetified-play-services-basement-18.3.0\AndroidManifest.xml:18:5-43
 MERGED from [androidx.fragment:fragment:1.7.1] C:\Users\FRANCESCO\.gradle\caches\transforms-4\80a4d84bf8b1dfdd09ef534699940240\transformed\fragment-1.7.1\AndroidManifest.xml:5:5-44
 MERGED from [androidx.fragment:fragment:1.7.1] C:\Users\FRANCESCO\.gradle\caches\transforms-4\80a4d84bf8b1dfdd09ef534699940240\transformed\fragment-1.7.1\AndroidManifest.xml:5:5-44
 MERGED from [androidx.activity:activity:1.9.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\20c8f86a2373f1764bf5aa9adccf83c2\transformed\jetified-activity-1.9.0\AndroidManifest.xml:20:5-44
@@ -350,14 +360,6 @@ ADDED from [com.google.android.libraries.places:places:3.5.0] C:\Users\FRANCESCO
 		ADDED from [com.google.android.libraries.places:places:3.5.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\87595a9a48124715a3bd69eaa5506027\transformed\jetified-places-3.5.0\AndroidManifest.xml:19:13-61
 	android:name
 		ADDED from [com.google.android.libraries.places:places:3.5.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\87595a9a48124715a3bd69eaa5506027\transformed\jetified-places-3.5.0\AndroidManifest.xml:16:13-91
-uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from [com.google.android.gms:play-services-maps:18.2.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\6f7d4049b22d6091af7ecc58be2caebd\transformed\jetified-play-services-maps-18.2.0\AndroidManifest.xml:23:5-79
-MERGED from [com.google.android.datatransport:transport-backend-cct:3.2.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\1df839d102096d3c730ec8cb3ffcf878\transformed\jetified-transport-backend-cct-3.2.0\AndroidManifest.xml:22:5-79
-MERGED from [com.google.android.datatransport:transport-backend-cct:3.2.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\1df839d102096d3c730ec8cb3ffcf878\transformed\jetified-transport-backend-cct-3.2.0\AndroidManifest.xml:22:5-79
-MERGED from [com.google.android.datatransport:transport-runtime:3.2.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\c9a198c0e2d77960f87723e7e0e71fa5\transformed\jetified-transport-runtime-3.2.0\AndroidManifest.xml:20:5-79
-MERGED from [com.google.android.datatransport:transport-runtime:3.2.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\c9a198c0e2d77960f87723e7e0e71fa5\transformed\jetified-transport-runtime-3.2.0\AndroidManifest.xml:20:5-79
-	android:name
-		ADDED from [com.google.android.gms:play-services-maps:18.2.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\6f7d4049b22d6091af7ecc58be2caebd\transformed\jetified-play-services-maps-18.2.0\AndroidManifest.xml:23:22-76
 uses-feature#0x00020000
 ADDED from [com.google.android.gms:play-services-maps:18.2.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\6f7d4049b22d6091af7ecc58be2caebd\transformed\jetified-play-services-maps-18.2.0\AndroidManifest.xml:26:5-28:35
 	android:glEsVersion
@@ -377,19 +379,19 @@ ADDED from [com.google.android.gms:play-services-maps:18.2.0] C:\Users\FRANCESCO
 	android:name
 		ADDED from [com.google.android.gms:play-services-maps:18.2.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\6f7d4049b22d6091af7ecc58be2caebd\transformed\jetified-play-services-maps-18.2.0\AndroidManifest.xml:40:13-50
 activity#com.google.android.gms.common.api.GoogleApiActivity
-ADDED from [com.google.android.gms:play-services-base:18.5.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\50881554b9ac01aff78ec0912b75bc91\transformed\jetified-play-services-base-18.5.0\AndroidManifest.xml:5:9-173
+ADDED from [com.google.android.gms:play-services-base:18.3.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\82a6961e1fdbd43830369aa3d9b576a5\transformed\jetified-play-services-base-18.3.0\AndroidManifest.xml:20:9-22:45
 	android:exported
-		ADDED from [com.google.android.gms:play-services-base:18.5.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\50881554b9ac01aff78ec0912b75bc91\transformed\jetified-play-services-base-18.5.0\AndroidManifest.xml:5:146-170
+		ADDED from [com.google.android.gms:play-services-base:18.3.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\82a6961e1fdbd43830369aa3d9b576a5\transformed\jetified-play-services-base-18.3.0\AndroidManifest.xml:22:19-43
 	android:theme
-		ADDED from [com.google.android.gms:play-services-base:18.5.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\50881554b9ac01aff78ec0912b75bc91\transformed\jetified-play-services-base-18.5.0\AndroidManifest.xml:5:86-145
+		ADDED from [com.google.android.gms:play-services-base:18.3.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\82a6961e1fdbd43830369aa3d9b576a5\transformed\jetified-play-services-base-18.3.0\AndroidManifest.xml:21:19-78
 	android:name
-		ADDED from [com.google.android.gms:play-services-base:18.5.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\50881554b9ac01aff78ec0912b75bc91\transformed\jetified-play-services-base-18.5.0\AndroidManifest.xml:5:19-85
+		ADDED from [com.google.android.gms:play-services-base:18.3.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\82a6961e1fdbd43830369aa3d9b576a5\transformed\jetified-play-services-base-18.3.0\AndroidManifest.xml:20:19-85
 meta-data#com.google.android.gms.version
-ADDED from [com.google.android.gms:play-services-basement:18.4.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\1d4351cac60f496159d738138b37ee4f\transformed\jetified-play-services-basement-18.4.0\AndroidManifest.xml:6:9-122
+ADDED from [com.google.android.gms:play-services-basement:18.3.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\cdce9f19bed22c7ba34e165ae44fbe6f\transformed\jetified-play-services-basement-18.3.0\AndroidManifest.xml:21:9-23:69
 	android:value
-		ADDED from [com.google.android.gms:play-services-basement:18.4.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\1d4351cac60f496159d738138b37ee4f\transformed\jetified-play-services-basement-18.4.0\AndroidManifest.xml:6:66-119
+		ADDED from [com.google.android.gms:play-services-basement:18.3.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\cdce9f19bed22c7ba34e165ae44fbe6f\transformed\jetified-play-services-basement-18.3.0\AndroidManifest.xml:23:13-66
 	android:name
-		ADDED from [com.google.android.gms:play-services-basement:18.4.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\1d4351cac60f496159d738138b37ee4f\transformed\jetified-play-services-basement-18.4.0\AndroidManifest.xml:6:20-65
+		ADDED from [com.google.android.gms:play-services-basement:18.3.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\cdce9f19bed22c7ba34e165ae44fbe6f\transformed\jetified-play-services-basement-18.3.0\AndroidManifest.xml:22:13-58
 provider#androidx.startup.InitializationProvider
 ADDED from [androidx.emoji2:emoji2:1.3.0] C:\Users\FRANCESCO\.gradle\caches\transforms-4\39498a34ba9d806895412feedf025c07\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
 MERGED from [androidx.lifecycle:lifecycle-process:2.8.3] C:\Users\FRANCESCO\.gradle\caches\transforms-4\2c70851e02279be8eabfbd9d8a0fc9ae\transformed\jetified-lifecycle-process-2.8.3\AndroidManifest.xml:24:9-32:20
