@@ -1,4 +1,0 @@
-com.francesco.citapluus.test.app-androidTest-0 C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\build\generated\res\resValues\androidTest\debug
-com.francesco.citapluus.test.app-mergeDebugAndroidTestResources-1 C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
-com.francesco.citapluus.test.app-mergeDebugAndroidTestResources-2 C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
-com.francesco.citapluus.test.app-debugAndroidTest-3 C:\Users\FRANCESCO\AndroidStudioProjects\CitaPluusSkeleton\app\build\intermediates\merged_res\debugAndroidTest\mergeDebugAndroidTestResources

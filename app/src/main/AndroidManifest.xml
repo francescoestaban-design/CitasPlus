@@ -16,12 +16,15 @@
 
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:label="CitaPluus"
         android:supportsRtl="true"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/Theme.CitaPluus">
 
-        <meta-data
+    <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key"/>
 
@@ -35,12 +38,18 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="false"
+            android:label="Ajustes" />
+
         <activity android:name=".LoginActivity"  android:exported="false" />
         <activity android:name=".PerfilActivity" android:exported="false" />
         <activity android:name=".WorkerMainActivity" android:exported="false" />
         <activity android:name=".MedicamentosActivity" android:exported="false"/>
 
         <activity android:name=".CentrosMapaActivity" android:exported="false" />
+        <activity android:name=".FavoritesActivity" android:exported="false" />
         <receiver android:name=".CitaReminderReceiver" android:exported="false" />
     </application>
 </manifest>

@@ -1,11 +1,42 @@
 <resources>
     <string name="app_name">CitaPluus</string>
-    <string name="prompt_hora">Selecciona la hora</string>
-    <string name="prompt_doctor">Selecciona el doctor</string>
-    <string name="prompt_motivo">Selecciona el motivo</string>
-    <string name="ir_a_mi_ubicacion">Ir a mi ubicación</string>
-    <string name="buscar">Buscar</string>
-    <string name="centros_y_farmacias">Centros y farmacias</string>
 
+    <string name="centros_y_farmacias">Centros y farmacias</string>
+    <string name="chip_centros">Centros de salud</string>
+    <string name="chip_farmacias">Farmacias</string>
+    <string name="chip_favoritos">Favoritos</string>
+    <string name="ir_a_mi_ubicacion">Ir a mi ubicación</string>
+    <string name="btn_guardar_centro">Guardar selección como mi centro</string>
+    <string name="btn_add_fav">Añadir a favoritos</string>
+    <string name="btn_remove_fav">Quitar de favoritos</string>
+
+    <string name="menu_sort">Ordenar</string>
+    <string name="sort_by_type">Por tipo</string>
+    <string name="sort_by_distance">Por distancia</string>
+
+    <string name="empty_favorites">No tienes favoritos todavía</string>
+    <string name="snackbar_undo">DESHACER</string>
+
+    <string name="settings_title">Ajustes</string>
+    <string name="settings_theme">Tema</string>
+    <string name="settings_theme_follow">Predeterminado del sistema</string>
+    <string name="settings_theme_light">Claro</string>
+    <string name="settings_theme_dark">Oscuro</string>
+    <string name="settings_privacy">Política de privacidad</string>
+
+    <string name="buscar_hint">Buscar centro de salud o farmacia…</string>
+    <string name="buscar">Buscar</string>
+    <string name="cerrar">Cerrar</string>
+
+    <string name="msg_sin_permiso">Sin permiso de ubicación</string>
+    <string name="msg_error_nearby">Error Nearby</string>
+    <string name="msg_no_coordenadas">Lugar sin coordenadas.</string>
+    <string name="msg_no_obtener_lugar">No se pudo obtener el lugar.</string>
+    <string name="msg_abriendo_favoritos_error">No se pudo abrir favoritos</string>
+    <string name="msg_fav_agregado">Añadido a favoritos</string>
+    <string name="msg_fav_eliminado">Eliminado de favoritos</string>
+    <string name="msg_centro_guardado">Centro guardado</string>
+
+    <string name="base_url">http://10.0.2.2:3000/</string>
 
 </resources>

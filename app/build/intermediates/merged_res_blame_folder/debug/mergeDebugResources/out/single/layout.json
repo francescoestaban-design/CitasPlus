@@ -1,54 +1,62 @@
 [
     {
-        "merged": "com.francesco.citapluus.app-mergeDebugResources-36:/layout/activity_perfil.xml",
-        "source": "com.francesco.citapluus.app-main-39:/layout/activity_perfil.xml"
+        "merged": "com.francesco.citapluus.app-mergeDebugResources-45:/layout/item_cita.xml",
+        "source": "com.francesco.citapluus.app-main-48:/layout/item_cita.xml"
     },
     {
-        "merged": "com.francesco.citapluus.app-mergeDebugResources-36:/layout/activity_medicamentos.xml",
-        "source": "com.francesco.citapluus.app-main-39:/layout/activity_medicamentos.xml"
+        "merged": "com.francesco.citapluus.app-mergeDebugResources-45:/layout/activity_medicamentos.xml",
+        "source": "com.francesco.citapluus.app-main-48:/layout/activity_medicamentos.xml"
     },
     {
-        "merged": "com.francesco.citapluus.app-mergeDebugResources-36:/layout/activity_favorites.xml",
-        "source": "com.francesco.citapluus.app-main-39:/layout/activity_favorites.xml"
+        "merged": "com.francesco.citapluus.app-mergeDebugResources-45:/layout/activity_main_paciente.xml",
+        "source": "com.francesco.citapluus.app-main-48:/layout/activity_main_paciente.xml"
     },
     {
-        "merged": "com.francesco.citapluus.app-mergeDebugResources-36:/layout/dialog_agendar_cita.xml",
-        "source": "com.francesco.citapluus.app-main-39:/layout/dialog_agendar_cita.xml"
+        "merged": "com.francesco.citapluus.app-mergeDebugResources-45:/layout/activity_worker_main.xml",
+        "source": "com.francesco.citapluus.app-main-48:/layout/activity_worker_main.xml"
     },
     {
-        "merged": "com.francesco.citapluus.app-mergeDebugResources-36:/layout/activity_main_paciente.xml",
-        "source": "com.francesco.citapluus.app-main-39:/layout/activity_main_paciente.xml"
+        "merged": "com.francesco.citapluus.app-mergeDebugResources-45:/layout/item_medicamento.xml",
+        "source": "com.francesco.citapluus.app-main-48:/layout/item_medicamento.xml"
     },
     {
-        "merged": "com.francesco.citapluus.app-mergeDebugResources-36:/layout/item_medicamento.xml",
-        "source": "com.francesco.citapluus.app-main-39:/layout/item_medicamento.xml"
+        "merged": "com.francesco.citapluus.app-mergeDebugResources-45:/layout/activity_centros_mapa.xml",
+        "source": "com.francesco.citapluus.app-main-48:/layout/activity_centros_mapa.xml"
     },
     {
-        "merged": "com.francesco.citapluus.app-mergeDebugResources-36:/layout/dialog_login.xml",
-        "source": "com.francesco.citapluus.app-main-39:/layout/dialog_login.xml"
+        "merged": "com.francesco.citapluus.app-mergeDebugResources-45:/layout/dialog_agendar_cita.xml",
+        "source": "com.francesco.citapluus.app-main-48:/layout/dialog_agendar_cita.xml"
     },
     {
-        "merged": "com.francesco.citapluus.app-mergeDebugResources-36:/layout/activity_worker_main.xml",
-        "source": "com.francesco.citapluus.app-main-39:/layout/activity_worker_main.xml"
+        "merged": "com.francesco.citapluus.app-mergeDebugResources-45:/layout/activity_perfil.xml",
+        "source": "com.francesco.citapluus.app-main-48:/layout/activity_perfil.xml"
     },
     {
-        "merged": "com.francesco.citapluus.app-mergeDebugResources-36:/layout/dialog_registro.xml",
-        "source": "com.francesco.citapluus.app-main-39:/layout/dialog_registro.xml"
+        "merged": "com.francesco.citapluus.app-mergeDebugResources-45:/layout/activity_favorites.xml",
+        "source": "com.francesco.citapluus.app-main-48:/layout/activity_favorites.xml"
     },
     {
-        "merged": "com.francesco.citapluus.app-mergeDebugResources-36:/layout/activity_centros_mapa.xml",
-        "source": "com.francesco.citapluus.app-main-39:/layout/activity_centros_mapa.xml"
+        "merged": "com.francesco.citapluus.app-mergeDebugResources-45:/layout/dialog_registro.xml",
+        "source": "com.francesco.citapluus.app-main-48:/layout/dialog_registro.xml"
     },
     {
-        "merged": "com.francesco.citapluus.app-mergeDebugResources-36:/layout/item_favorite.xml",
-        "source": "com.francesco.citapluus.app-main-39:/layout/item_favorite.xml"
+        "merged": "com.francesco.citapluus.app-mergeDebugResources-45:/layout/include_empty_view.xml",
+        "source": "com.francesco.citapluus.app-main-48:/layout/include_empty_view.xml"
     },
     {
-        "merged": "com.francesco.citapluus.app-mergeDebugResources-36:/layout/activity_main.xml",
-        "source": "com.francesco.citapluus.app-main-39:/layout/activity_main.xml"
+        "merged": "com.francesco.citapluus.app-mergeDebugResources-45:/layout/include_loading_view.xml",
+        "source": "com.francesco.citapluus.app-main-48:/layout/include_loading_view.xml"
     },
     {
-        "merged": "com.francesco.citapluus.app-mergeDebugResources-36:/layout/item_cita.xml",
-        "source": "com.francesco.citapluus.app-main-39:/layout/item_cita.xml"
+        "merged": "com.francesco.citapluus.app-mergeDebugResources-45:/layout/item_favorite.xml",
+        "source": "com.francesco.citapluus.app-main-48:/layout/item_favorite.xml"
+    },
+    {
+        "merged": "com.francesco.citapluus.app-mergeDebugResources-45:/layout/dialog_login.xml",
+        "source": "com.francesco.citapluus.app-main-48:/layout/dialog_login.xml"
+    },
+    {
+        "merged": "com.francesco.citapluus.app-mergeDebugResources-45:/layout/activity_main.xml",
+        "source": "com.francesco.citapluus.app-main-48:/layout/activity_main.xml"
     }
 ]

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="pref_radius_entries">
+        <item>1 km</item>
+        <item>2 km</item>
+        <item>5 km</item>
+        <item>7 km</item>
+        <item>10 km</item>
+    </string-array>
+
+    <string-array name="pref_radius_values">
+        <item>1000</item>
+        <item>2000</item>
+        <item>5000</item>
+        <item>7000</item>
+        <item>10000</item>
+    </string-array>
+
+    <string-array name="pref_theme_entries">
+        <item>Automático (según sistema)</item>
+        <item>Claro</item>
+        <item>Oscuro</item>
+    </string-array>
+    <string-array name="pref_theme_values">
+        <item>system</item>
+        <item>light</item>
+        <item>dark</item>
+    </string-array>
+</resources>

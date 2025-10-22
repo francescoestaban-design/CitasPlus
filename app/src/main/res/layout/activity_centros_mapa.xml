@@ -51,41 +51,58 @@
 
                 <com.google.android.material.chip.ChipGroup
                     android:id="@+id/chipsFiltro"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:singleSelection="true"
                     app:selectionRequired="true">
 
                     <com.google.android.material.chip.Chip
                         android:id="@+id/chipHospitales"
-                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:checked="true"
                         android:text="Centros de salud"
+                        android:textColor="@android:color/black"
                         app:chipIcon="@drawable/cruz_roja"
-                        app:chipIconTint="@null"
-                        app:chipIconVisible="true" />
+                        app:chipIconVisible="true"
+                        app:checkedIconVisible="false"
+                        app:checkedIcon="@null"
+                        app:chipIconSize="18dp"
+                        app:chipStartPadding="10dp"
+                        app:iconStartPadding="6dp"
+                        app:chipBackgroundColor="@color/chip_bg_selector" />
 
                     <com.google.android.material.chip.Chip
                         android:id="@+id/chipFarmacias"
-                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Farmacias"
+                        android:textColor="@android:color/black"
                         app:chipIcon="@drawable/cruz_verde"
-                        app:chipIconTint="@null"
-                        app:chipIconVisible="true" />
+                        app:chipIconVisible="true"
+                        app:checkedIconVisible="false"
+                        app:checkedIcon="@null"
+                        app:chipIconSize="18dp"
+                        app:chipStartPadding="10dp"
+                        app:iconStartPadding="6dp"
+                        app:chipBackgroundColor="@color/chip_bg_selector" />
 
                     <com.google.android.material.chip.Chip
                         android:id="@+id/chipFavoritos"
-                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Favoritos"
+                        android:textColor="@android:color/black"
                         app:chipIcon="@drawable/favoritos"
-                        app:chipIconTint="@null"
-                        app:chipIconVisible="true" />
+                        app:chipIconVisible="true"
+                        app:checkedIconVisible="false"
+                        app:checkedIcon="@null"
+                        app:chipIconSize="18dp"
+                        app:chipStartPadding="10dp"
+                        app:iconStartPadding="6dp"
+                        app:chipBackgroundColor="@color/chip_bg_selector" />
                 </com.google.android.material.chip.ChipGroup>
 
                 <com.google.android.material.button.MaterialButton

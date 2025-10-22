@@ -1,4 +1,0 @@
-#Wed Oct 15 13:19:50 CEST 2025
-base.0=C\:\\Users\\FRANCESCO\\AndroidStudioProjects\\CitaPluusSkeleton\\app\\build\\intermediates\\dex\\debugAndroidTest\\mergeProjectDexDebugAndroidTest\\0\\classes.dex
-path.0=0/classes.dex
-renamed.0=classes.dex

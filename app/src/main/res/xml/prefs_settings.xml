@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ListPreference
+        android:key="pref_radio_farmacia"
+        android:title="Radio de búsqueda (farmacias)"
+        android:summary="Selecciona el radio para las recomendaciones de farmacias"
+        android:entries="@array/pref_radius_entries"
+        android:entryValues="@array/pref_radius_values"
+        android:defaultValue="7000"
+        app:useSimpleSummaryProvider="true" />
+
+    <ListPreference
+        android:key="pref_radio_centros"
+        android:title="Radio de búsqueda (centros de salud)"
+        android:summary="Selecciona el radio para las recomendaciones de centros"
+        android:entries="@array/pref_radius_entries"
+        android:entryValues="@array/pref_radius_values"
+        android:defaultValue="2000"
+        app:useSimpleSummaryProvider="true" />
+
+    <ListPreference
+        android:key="pref_tema"
+        android:title="Tema"
+        android:summary="Claro/Oscuro/Automático"
+        android:entries="@array/pref_theme_entries"
+        android:entryValues="@array/pref_theme_values"
+        android:defaultValue="system"
+        app:useSimpleSummaryProvider="true" />
+
+    <Preference
+        android:key="pref_privacidad"
+        android:title="Política de privacidad"
+        android:summary="Ver detalles de privacidad" />
+</PreferenceScreen>

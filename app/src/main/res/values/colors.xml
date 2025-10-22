@@ -1,9 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="brand_primary">#146C94</color>
+    <color name="brand_secondary">#19A7CE</color>
+
+    <color name="splash_bg">#FFFFFF</color>
+    <color name="chip_bg_unchecked">#E0E0E0</color>
+    <color name="chip_bg_checked">#B3E5FC</color>
+    <color name="chip_text_color">#000000</color>
+
+    <color name="ic_launcher_bg">#FFFFFF</color>
+
+
     <color name="purple_500">#6200EE</color>
     <color name="purple_700">#3700B3</color>
     <color name="teal_200">#03DAC5</color>
     <color name="teal_700">#018786</color>
-    <color name="white">#FFFFFF</color>
-    <color name="black">#000000</color>
+    <color name="chip_unchecked_bg">#F2ECF4</color>
+    <color name="chip_checked_text">#006C4E</color>
+    <color name="chip_unchecked_text">#333333</color>
+
 </resources>
+
+

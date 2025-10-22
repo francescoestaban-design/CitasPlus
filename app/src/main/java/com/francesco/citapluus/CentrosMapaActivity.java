@@ -3,12 +3,9 @@ package com.francesco.citapluus;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.location.Address;
-import android.location.Geocoder;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -21,6 +18,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import com.francesco.citapluus.net.places.PlacesNearbyResponse;
+import com.francesco.citapluus.net.places.PlacesService;
+import com.francesco.citapluus.net.places.RetrofitPlaces;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.Priority;
@@ -34,7 +34,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.CancellationTokenSource;
-import com.google.android.libraries.places.api.Places;
+import com.google.android.libraries.places.api.Places; // inicializada en App
 import com.google.android.libraries.places.api.model.AutocompletePrediction;
 import com.google.android.libraries.places.api.model.AutocompleteSessionToken;
 import com.google.android.libraries.places.api.model.Place;
@@ -50,21 +50,10 @@ import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-// Retrofit – Nearby Search (Places Web Service)
-import com.francesco.citapluus.net.places.PlacesNearbyResponse;
-import com.francesco.citapluus.net.places.PlacesService;
-import com.francesco.citapluus.net.places.RetrofitPlaces;
-
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -74,11 +63,11 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
 
     // ===== Config =====
     private static final int RADIO_NEARBY_M = 2000;          // centros: 2 km
-    private static final int RADIO_NEARBY_FARM_M = 7000;     // farmacias: 7 km (más resultados)
-    private static final double RADIO_METROS = 4000;         // abrir el más cercano si cae en rango
+    private static final int RADIO_NEARBY_FARM_M = 7000;     // farmacias: 7 km
+    private static final double RADIO_METROS = 4000;         // autoselección si está cerca
     private static final int MAX_SUGERENCIAS = 12;           // Autocomplete
     private static final float MIN_ZOOM_DELTA = 0.4f;        // umbral de zoom para recargar
-    private static final float MIN_RELOAD_METERS = 350f;     // umbral de desplazamiento para recargar
+    private static final float MIN_RELOAD_METERS = 350f;     // umbral de desplazamiento
 
     // ===== Google / Places =====
     private GoogleMap map;
@@ -86,12 +75,9 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
     private PlacesClient placesClient;
     private PlacesService placesService; // Retrofit (Places Web Service)
 
-    // Geocoder para deduplicar por CP si algún día lo reactivas
-    private final ExecutorService geoExecutor = Executors.newSingleThreadExecutor();
-
     // UI
-    private View panelFiltros;
-    private boolean panelOculto = false;
+    private MaterialToolbar topBar;
+    private android.view.View panelFiltros;
     private ChipGroup chips;
     private Chip chipHosp, chipFarm, chipFav;
     private FloatingActionButton fabMiUbicacion;
@@ -102,10 +88,10 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
     private LatLng lastKnown;
     private Marker seleccion;
 
-    // selección actual (puede venir del SDK, de favoritos o de Nearby web)
-    private Place seleccionPlace;                         // SDK
-    private FavoritePlace seleccionFav;                   // Favoritos locales
-    private PlacesNearbyResponse.Result seleccionWeb;     // Result Web (Nearby)
+    // selección actual (SDK / Favorito / Nearby web)
+    private Place seleccionPlace;
+    private FavoritePlace seleccionFav;
+    private PlacesNearbyResponse.Result seleccionWeb;
 
     // Modo de carga
     private enum Modo { NEARBY, AUTOCOMPLETE, FAVORITOS }
@@ -135,6 +121,13 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
     private LatLng lastQueryCenter = null;
     private float lastQueryZoom = -1f;
 
+    // Persistencia
+    private static final String STATE_CHIP_ID = "state_chip_id";
+    private static final String STATE_CAM_LAT = "state_cam_lat";
+    private static final String STATE_CAM_LNG = "state_cam_lng";
+    private static final String STATE_CAM_ZOOM = "state_cam_zoom";
+    private Bundle savedState;
+
     // ===== Permisos =====
     private final ActivityResultLauncher<String> permisoUbicacion =
             registerForActivityResult(new ActivityResultContracts.RequestPermission(),
@@ -144,7 +137,16 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
                             moverACoordenadaActual();
                             recargarSegunChip(true);
                         } else {
-                            Toast.makeText(this, "Sin permiso de ubicación", Toast.LENGTH_SHORT).show();
+                            new androidx.appcompat.app.AlertDialog.Builder(this)
+                                    .setTitle("Permiso de ubicación")
+                                    .setMessage("Activa la ubicación para ver resultados cercanos.")
+                                    .setPositiveButton("Abrir ajustes", (d, w) -> {
+                                        Intent i = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                                        i.setData(android.net.Uri.parse("package:" + getPackageName()));
+                                        startActivity(i);
+                                    })
+                                    .setNegativeButton("Cancelar", null)
+                                    .show();
                         }
                     });
 
@@ -177,29 +179,32 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.savedState = savedInstanceState;
         setContentView(R.layout.activity_centros_mapa);
 
-        // Toolbar
-        MaterialToolbar topBar = findViewById(R.id.topBar);
+        // Barra superior
+        topBar = findViewById(R.id.topBar);
         topBar.setNavigationOnClickListener(v -> onBackPressed());
         topBar.setOnMenuItemClickListener(item -> {
-            if (item.getItemId() == R.id.action_search_place) {
+            int id = item.getItemId();
+            if (id == R.id.action_search_place) {
                 modoActual = Modo.AUTOCOMPLETE;
                 abrirBuscadorFiltrado();
                 return true;
-            } else if (item.getItemId() == R.id.action_favorites) {
-                Intent i = new Intent(this, FavoritesActivity.class);
-                abrirFavLauncher.launch(i);
+            } else if (id == R.id.action_favorites) {
+                try {
+                    Intent i = new Intent(this, FavoritesActivity.class);
+                    abrirFavLauncher.launch(i);
+                } catch (Exception e) {
+                    Toast.makeText(this, getString(R.string.msg_abriendo_favoritos_error), Toast.LENGTH_SHORT).show();
+                }
                 return true;
             }
             return false;
         });
 
-        // Places SDK + Location
-        if (!Places.isInitialized()) {
-            Places.initialize(getApplicationContext(), getString(R.string.google_maps_key));
-        }
-        placesClient = Places.createClient(this);
+        // Google clients (Places ya inicializado en App)
+        placesClient = App.getPlacesClient();
         fused = LocationServices.getFusedLocationProviderClient(this);
 
         // Places Web Service (Nearby) con Retrofit
@@ -215,10 +220,20 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
         buttonGuardar  = findViewById(R.id.buttonGuardarCentro);
         buttonFavorito = findViewById(R.id.buttonFavorito);
 
+        // Restaurar chip seleccionado
+        if (savedInstanceState != null) {
+            int chipId = savedInstanceState.getInt(STATE_CHIP_ID, R.id.chipHospitales);
+            chips.check(chipId);
+        } else {
+            chips.check(R.id.chipHospitales);
+        }
+
+        // Mapa
         SupportMapFragment frag = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         if (frag != null) frag.getMapAsync(this);
 
-        fabMiUbicacion.setOnClickListener(v -> moverACoordenadaActual());
+        // Acciones
+        fabMiUbicacion.setOnClickListener(v -> pedirPermisoUbicacion());
 
         chips.setOnCheckedStateChangeListener((group, checkedIds) -> {
             if (chipFav.isChecked()) {
@@ -226,7 +241,7 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
                 cargarFavoritos();
             } else {
                 modoActual = Modo.NEARBY;
-                recargarSegunChip(true); // recarga inmediata al cambiar chip
+                recargarSegunChip(true);
             }
         });
 
@@ -244,9 +259,11 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
                 finish();
             } else if (seleccionWeb != null) {
                 LatLng p = new LatLng(seleccionWeb.geometry.location.lat, seleccionWeb.geometry.location.lng);
-                sm.setCentroSalud(seleccionWeb.name,
+                sm.setCentroSalud(
+                        seleccionWeb.name,
                         seleccionWeb.vicinity != null ? seleccionWeb.vicinity : "",
-                        p.latitude, p.longitude);
+                        p.latitude, p.longitude
+                );
                 Toast.makeText(this, "Centro guardado: " + seleccionWeb.name, Toast.LENGTH_SHORT).show();
                 finish();
             }
@@ -316,6 +333,15 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
         map = googleMap;
         map.getUiSettings().setMyLocationButtonEnabled(false);
 
+        // Restaurar cámara si hay estado
+        if (savedState != null && savedState.containsKey(STATE_CAM_LAT)) {
+            double lat = savedState.getDouble(STATE_CAM_LAT, 40.4168);
+            double lng = savedState.getDouble(STATE_CAM_LNG, -3.7038);
+            float  zoom= savedState.getFloat(STATE_CAM_ZOOM, 14f);
+            suprimirRecargaDurante(700);
+            map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(lat, lng), zoom));
+        }
+
         // Ocultar/mostrar panel en gesto
         map.setOnCameraMoveStartedListener(reason -> {
             if (reason == GoogleMap.OnCameraMoveStartedListener.REASON_GESTURE) {
@@ -330,7 +356,6 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
             if (!shouldReload()) return;
             if (modoActual == Modo.FAVORITOS) return;
 
-            // Sólo recargar si el usuario realmente se movió lo suficiente
             LatLng now = map.getCameraPosition().target;
             float zoomNow = map.getCameraPosition().zoom;
 
@@ -356,7 +381,6 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
         });
 
         map.setOnMarkerClickListener(marker -> {
-            // Evita que un pequeño recentrado dispare recarga
             suprimirRecargaDurante(900);
 
             seleccion = marker;
@@ -379,14 +403,30 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
             }
 
             actualizarTextoBotonFavorito();
-            return false; // comportamiento por defecto del InfoWindow
+            return false;
         });
 
+        pedirPermisoUbicacion();
+    }
+
+    private void pedirPermisoUbicacion() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED) {
             enableMyLocation();
             moverACoordenadaActual();
             recargarSegunChip(true);
+            return;
+        }
+
+        if (androidx.core.app.ActivityCompat.shouldShowRequestPermissionRationale(
+                this, Manifest.permission.ACCESS_FINE_LOCATION)) {
+            new androidx.appcompat.app.AlertDialog.Builder(this)
+                    .setTitle("Permiso de ubicación")
+                    .setMessage("Para mostrarte farmacias y centros cercanos necesitamos tu ubicación.")
+                    .setPositiveButton("Conceder", (d, w) ->
+                            permisoUbicacion.launch(Manifest.permission.ACCESS_FINE_LOCATION))
+                    .setNegativeButton("Cancelar", null)
+                    .show();
         } else {
             permisoUbicacion.launch(Manifest.permission.ACCESS_FINE_LOCATION);
         }
@@ -414,7 +454,8 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
                 cargarNearby(centro, "pharmacy", null, BitmapDescriptorFactory.HUE_GREEN);
             } else {
                 // Centros de salud (médicos) con palabra clave típica en España
-                cargarNearby(centro, "doctor", "centro de salud ambulatorio consultorio",
+                cargarNearby(centro, "doctor",
+                        "centro de salud ambulatorio consultorio",
                         BitmapDescriptorFactory.HUE_RED);
             }
         };
@@ -439,7 +480,7 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
         SessionManager sm = new SessionManager(this);
         List<FavoritePlace> favs = sm.getFavoritos();
         if (favs == null || favs.isEmpty()) {
-            // sin toasts ruidosos
+            // sin overlay: simplemente no mostramos nada
             return;
         }
 
@@ -495,15 +536,13 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
 
                 PlacesNearbyResponse body = r.body();
                 if (body == null || body.results == null || body.results.isEmpty()) {
-                    // Silencio: no pintamos nada
                     limpiarMarcadores();
-                    return;
+                    return; // sin overlay
                 }
 
                 limpiarMarcadores();
                 List<PlacesNearbyResponse.Result> results = body.results;
 
-                // Pinta resultados
                 for (PlacesNearbyResponse.Result res : results) {
                     LatLng p = new LatLng(res.geometry.location.lat, res.geometry.location.lng);
                     String direccion = (res.vicinity != null) ? res.vicinity : "";
@@ -513,7 +552,7 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
                             .snippet(direccion)
                             .icon(BitmapDescriptorFactory.defaultMarker(hue)));
                     if (mk != null) {
-                        mk.setTag(res); // ¡importante para favoritos!
+                        mk.setTag(res); // importante para favoritos
                         marcadores.add(mk);
                     }
                 }
@@ -526,8 +565,8 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
             @Override
             public void onFailure(Call<PlacesNearbyResponse> call, Throwable t) {
                 isLoadingNearby = false;
-                // Sólo mostramos errores reales (conectividad, etc.)
-                Toast.makeText(CentrosMapaActivity.this, "Error Nearby: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(CentrosMapaActivity.this,
+                        "No se pudo cargar (conexión).", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -555,6 +594,9 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
         final boolean mostrarCentros = !chipFarm.isChecked();
         final String query = mostrarCentros ? "centro de salud" : "farmacia";
 
+        pendingPlaces.clear();
+        pendingFetchCount = 0;
+
         FindAutocompletePredictionsRequest req = FindAutocompletePredictionsRequest.builder()
                 .setSessionToken(token)
                 .setQuery(query)
@@ -562,9 +604,6 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
                 .setTypesFilter(Collections.singletonList(mostrarCentros ? PlaceTypes.HOSPITAL : PlaceTypes.PHARMACY))
                 .setLocationBias(bounds)
                 .build();
-
-        pendingPlaces.clear();
-        pendingFetchCount = 0;
 
         placesClient.findAutocompletePredictions(req)
                 .addOnSuccessListener(resp -> {
@@ -595,7 +634,7 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
                     }
                 })
                 .addOnFailureListener(e ->
-                        Toast.makeText(this, "Error cargando sugerencias: " + e.getMessage(), Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Error cargando sugerencias.", Toast.LENGTH_SHORT).show()
                 );
     }
 
@@ -608,7 +647,9 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
 
     private void pintarSugerenciasLote(List<Place> placesOK, boolean mostrarCentros, LatLng centro) {
         limpiarMarcadores();
-        if (placesOK == null || placesOK.isEmpty()) return;
+        if (placesOK == null || placesOK.isEmpty()) {
+            return;
+        }
 
         placesOK.sort((a, b) -> {
             float[] da = new float[1], db = new float[1];
@@ -661,12 +702,8 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
     // ===== Panel show/hide =====
     private void ocultarPanel(boolean ocultar) {
         if (panelFiltros == null) return;
-        if (panelOculto == ocultar) return;
-        panelOculto = ocultar;
-
         float toAlpha = ocultar ? 0f : 1f;
         float toTransY = ocultar ? -panelFiltros.getHeight() * 0.35f : 0f;
-
         panelFiltros.animate().alpha(toAlpha).translationY(toTransY).setDuration(180).start();
         panelFiltros.setClickable(!ocultar);
     }
@@ -763,7 +800,7 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
         root.setPadding(pad, pad, pad, pad);
 
         final EditText input = new EditText(this);
-        input.setHint("Buscar centro de salud o farmacia…");
+        input.setHint(getString(R.string.buscar_hint));
         input.setSingleLine(true);
         root.addView(input, new android.widget.LinearLayout.LayoutParams(
                 android.widget.LinearLayout.LayoutParams.MATCH_PARENT,
@@ -779,9 +816,9 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
 
         final androidx.appcompat.app.AlertDialog dlg =
                 new androidx.appcompat.app.AlertDialog.Builder(this)
-                        .setTitle("Buscar")
+                        .setTitle(getString(R.string.buscar))
                         .setView(root)
-                        .setNegativeButton("Cerrar", (d, w) -> d.dismiss())
+                        .setNegativeButton(getString(R.string.cerrar), (d, w) -> d.dismiss())
                         .create();
 
         input.addTextChangedListener(new TextWatcher() {
@@ -866,7 +903,7 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
                     }
                 })
                 .addOnFailureListener(e ->
-                        Toast.makeText(this, "Predicciones fallaron: " + e.getMessage(), Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "No se pudo cargar sugerencias.", Toast.LENGTH_SHORT).show()
                 );
     }
 
@@ -889,8 +926,20 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
                     limpiarYMarcarSeleccion(place, ll);
                 })
                 .addOnFailureListener(e ->
-                        Toast.makeText(this, "No se pudo obtener el lugar: " + e.getMessage(), Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "No se pudo obtener el lugar.", Toast.LENGTH_SHORT).show()
                 );
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt(STATE_CHIP_ID, chips.getCheckedChipId());
+        if (map != null) {
+            CameraPosition cp = map.getCameraPosition();
+            outState.putDouble(STATE_CAM_LAT, cp.target.latitude);
+            outState.putDouble(STATE_CAM_LNG, cp.target.longitude);
+            outState.putFloat (STATE_CAM_ZOOM, cp.zoom);
+        }
     }
 
     @Override

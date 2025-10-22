@@ -29,14 +29,14 @@ public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.VH> 
         setHasStableIds(true);
     }
 
-    /** Reemplaza todo el dataset (útil si vuelves de FavoritesActivity con cambios). */
+    /** Reemplaza todo el dataset. */
     public void setData(@NonNull List<FavoritePlace> newData) {
         data.clear();
         data.addAll(newData);
         notifyDataSetChanged();
     }
 
-    /** Elimina 1 elemento por instancia (opcionalmente desde onDelete). */
+    /** Elimina un elemento. */
     public void remove(@NonNull FavoritePlace f) {
         int idx = data.indexOf(f);
         if (idx >= 0) {
@@ -52,7 +52,7 @@ public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.VH> 
 
         VH(@NonNull View v) {
             super(v);
-            imgIcono = v.findViewById(R.id.imgIcono);     // <-- debe existir en item_favorite.xml
+            imgIcono = v.findViewById(R.id.imgIcono);
             title    = v.findViewById(R.id.title);
             subtitle = v.findViewById(R.id.subtitle);
             btnGo    = v.findViewById(R.id.btnGo);
@@ -60,8 +60,7 @@ public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.VH> 
         }
     }
 
-    @NonNull
-    @Override
+    @NonNull @Override
     public VH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_favorite, parent, false);
@@ -75,44 +74,32 @@ public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.VH> 
         h.title.setText(f.nombre != null ? f.nombre : "");
         h.subtitle.setText(f.direccion != null ? f.direccion : "");
 
-        // Icono por tipo (usa tus PNG: hospital.png / cruz_verde.png / favoritos.png)
-        if (h.imgIcono != null) {
-            if ("HOSPITAL".equalsIgnoreCase(f.tipo)) {
-                h.imgIcono.setImageResource(R.drawable.cruz_verde);
-                h.imgIcono.setContentDescription("Hospital");
-            } else if ("FARMACIA".equalsIgnoreCase(f.tipo)) {
-                h.imgIcono.setImageResource(R.drawable.cruz_verde);
-                h.imgIcono.setContentDescription("Farmacia");
-            } else {
-                h.imgIcono.setImageResource(R.drawable.favoritos);
-                h.imgIcono.setContentDescription("Favorito");
-            }
+        // Icono por tipo (normalizamos)
+        String tipo = f.tipo != null ? f.tipo.trim().toUpperCase() : "";
+        if ("CENTRO_SALUD".equals(tipo) || "CENTRO_DE_SALUD".equals(tipo)
+                || "CENTRO".equals(tipo) || "HOSPITAL".equals(tipo) || "DOCTOR".equals(tipo)) {
+            h.imgIcono.setImageResource(R.drawable.cruz_roja);
+            h.imgIcono.setContentDescription("Centro de salud");
+        } else if ("FARMACIA".equals(tipo) || "PHARMACY".equals(tipo)) {
+            h.imgIcono.setImageResource(R.drawable.cruz_verde);
+            h.imgIcono.setContentDescription("Farmacia");
+        } else {
+            h.imgIcono.setImageResource(R.drawable.favoritos);
+            h.imgIcono.setContentDescription("Favorito");
         }
 
-        h.btnGo.setOnClickListener(v -> {
-            if (callback != null) callback.onGo(f);
-        });
-        h.btnDelete.setOnClickListener(v -> {
-            if (callback != null) callback.onDelete(f);
-        });
+        h.btnGo.setOnClickListener(v -> { if (callback != null) callback.onGo(f); });
+        h.btnDelete.setOnClickListener(v -> { if (callback != null) callback.onDelete(f); });
     }
 
-    @Override
-    public int getItemCount() {
-        return data.size();
-    }
+    @Override public int getItemCount() { return data.size(); }
 
-    /** IDs estables para mejores animaciones del RecyclerView. */
-    @Override
-    public long getItemId(int position) {
+    @Override public long getItemId(int position) {
         FavoritePlace f = data.get(position);
-        // Si el id de Place existe lo usamos; si no, derivamos de lat/lng/nombre
         if (f.id != null) return f.id.hashCode();
         long mix = Double.doubleToRawLongBits(f.lat) ^ Double.doubleToRawLongBits(f.lng);
         return (f.nombre != null ? f.nombre.hashCode() : 0) ^ mix;
     }
 
-    public FavoritePlace getItem(int position) {
-        return data.get(position);
-    }
+    public FavoritePlace getItem(int position) { return data.get(position); }
 }

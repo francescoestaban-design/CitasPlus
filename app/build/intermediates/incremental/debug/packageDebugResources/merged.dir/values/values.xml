@@ -1,31 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#000000</color>
+    <string-array name="pref_radius_entries">
+        <item>1 km</item>
+        <item>2 km</item>
+        <item>5 km</item>
+        <item>7 km</item>
+        <item>10 km</item>
+    </string-array>
+    <string-array name="pref_radius_values">
+        <item>1000</item>
+        <item>2000</item>
+        <item>5000</item>
+        <item>7000</item>
+        <item>10000</item>
+    </string-array>
+    <string-array name="pref_theme_entries">
+        <item>Automático (según sistema)</item>
+        <item>Claro</item>
+        <item>Oscuro</item>
+    </string-array>
+    <string-array name="pref_theme_values">
+        <item>system</item>
+        <item>light</item>
+        <item>dark</item>
+    </string-array>
+    <color name="brand_primary">#146C94</color>
+    <color name="brand_secondary">#19A7CE</color>
+    <color name="chip_bg_checked">#B3E5FC</color>
+    <color name="chip_bg_unchecked">#E0E0E0</color>
+    <color name="chip_checked_text">#006C4E</color>
+    <color name="chip_text_color">#000000</color>
+    <color name="chip_unchecked_bg">#F2ECF4</color>
+    <color name="chip_unchecked_text">#333333</color>
+    <color name="ic_launcher_bg">#FFFFFF</color>
     <color name="purple_500">#6200EE</color>
     <color name="purple_700">#3700B3</color>
+    <color name="splash_bg">#FFFFFF</color>
     <color name="teal_200">#03DAC5</color>
     <color name="teal_700">#018786</color>
-    <color name="white">#FFFFFF</color>
     <string name="app_name">CitaPluus</string>
+    <string name="base_url">http://10.0.2.2:3000/</string>
+    <string name="btn_add_fav">Añadir a favoritos</string>
+    <string name="btn_guardar_centro">Guardar selección como mi centro</string>
+    <string name="btn_remove_fav">Quitar de favoritos</string>
     <string name="buscar">Buscar</string>
+    <string name="buscar_hint">Buscar centro de salud o farmacia…</string>
     <string name="centros_y_farmacias">Centros y farmacias</string>
+    <string name="cerrar">Cerrar</string>
+    <string name="chip_centros">Centros de salud</string>
+    <string name="chip_farmacias">Farmacias</string>
+    <string name="chip_favoritos">Favoritos</string>
+    <string name="empty_favorites">No tienes favoritos todavía</string>
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyC7U0bUGOZBDfmm5fHx3MLt5lyW9YGMXuI</string>
     <string name="google_places_web_key">AIzaSyCmClnIigpYybX5mVXsKlmyIR-kBkyk4Ts</string>
     <string name="ir_a_mi_ubicacion">Ir a mi ubicación</string>
-    <string name="prompt_doctor">Selecciona el doctor</string>
-    <string name="prompt_hora">Selecciona la hora</string>
-    <string name="prompt_motivo">Selecciona el motivo</string>
+    <string name="menu_sort">Ordenar</string>
+    <string name="msg_abriendo_favoritos_error">No se pudo abrir favoritos</string>
+    <string name="msg_centro_guardado">Centro guardado</string>
+    <string name="msg_error_nearby">Error Nearby</string>
+    <string name="msg_fav_agregado">Añadido a favoritos</string>
+    <string name="msg_fav_eliminado">Eliminado de favoritos</string>
+    <string name="msg_no_coordenadas">Lugar sin coordenadas.</string>
+    <string name="msg_no_obtener_lugar">No se pudo obtener el lugar.</string>
+    <string name="msg_sin_permiso">Sin permiso de ubicación</string>
+    <string name="settings_privacy">Política de privacidad</string>
+    <string name="settings_theme">Tema</string>
+    <string name="settings_theme_dark">Oscuro</string>
+    <string name="settings_theme_follow">Predeterminado del sistema</string>
+    <string name="settings_theme_light">Claro</string>
+    <string name="settings_title">Ajustes</string>
+    <string name="snackbar_undo">DESHACER</string>
+    <string name="sort_by_distance">Por distancia</string>
+    <string name="sort_by_type">Por tipo</string>
     <style name="Theme.CitaPluus" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/teal_200</item>
-        <item name="colorPrimaryVariant">@color/teal_700</item>
-        <item name="colorOnPrimary">@color/black</item>
-
-        <item name="colorSecondary">@color/purple_500</item>
-        <item name="colorSecondaryVariant">@color/purple_700</item>
-        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorPrimary">@color/brand_primary</item>
+        <item name="colorSecondary">@color/brand_secondary</item>
 
         <item name="materialAlertDialogTheme">@style/ThemeOverlay.Material3.MaterialAlertDialog</item>
-
+        <item name="android:fontFamily">sans-serif</item>
     </style>
     <style name="Widget.CitaPluus.OutlinedButton" parent="Widget.Material3.Button.OutlinedButton">
         <item name="cornerRadius">28dp</item>
