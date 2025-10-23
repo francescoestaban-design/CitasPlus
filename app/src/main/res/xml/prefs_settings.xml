@@ -33,4 +33,19 @@
         android:key="pref_privacidad"
         android:title="Política de privacidad"
         android:summary="Ver detalles de privacidad" />
+
+    <PreferenceCategory android:title="Servidor">
+        <SwitchPreferenceCompat
+            android:key="pref_mock_enabled"
+            android:title="Usar servidor de pruebas (Mock)"
+            android:summaryOn="Enviando a MockWebServer local"
+            android:summaryOff="Enviando al backend real" />
+
+        <EditTextPreference
+            android:key="pref_real_base_url"
+            android:title="URL del backend real"
+            app:useSimpleSummaryProvider="true"
+            android:dialogTitle="URL del backend real"
+            android:defaultValue="https://mi-backend-real.com/api/" />
+    </PreferenceCategory>
 </PreferenceScreen>

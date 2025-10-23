@@ -18,7 +18,7 @@
             android:background="?attr/colorPrimary"
             android:title="@string/centros_y_farmacias"
             android:titleTextColor="?attr/colorOnPrimary"
-            app:menu="@menu/menu_centros_mapa"
+            app:menu="@menu/menu_main"
             app:navigationIcon="@drawable/baseline_arrow_back_24"
             app:navigationIconTint="?attr/colorOnPrimary"/>
     </com.google.android.material.appbar.AppBarLayout>

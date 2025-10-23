@@ -31,11 +31,14 @@ drawable lupa_buscar
 drawable mi_ubicacion
 id action_favorites
 id action_search_place
+id action_settings
 id action_sort_distance
 id action_sort_type
 id appBarLayout
 id btnDelete
 id btnGo
+id btnProbarApi
+id btnSettings
 id buttonActualizarCentro
 id buttonAgendarCita
 id buttonCancelar
@@ -119,6 +122,7 @@ layout item_favorite
 layout item_medicamento
 menu menu_centros_mapa
 menu menu_favorites
+menu menu_main
 mipmap ic_launcher
 mipmap ic_launcher_round
 string app_name

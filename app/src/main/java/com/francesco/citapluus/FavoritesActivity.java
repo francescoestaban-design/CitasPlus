@@ -152,7 +152,7 @@ public class FavoritesActivity extends AppCompatActivity {
     }
 
     private void reloadData() {
-        repo.list(new FavoritesRepository.RepoCallback<List<FavoritePlace>>() {
+        repo.fetch(new FavoritesRepository.RepoCallback<List<FavoritePlace>>() {
             @Override public void onSuccess(List<FavoritePlace> fresh) {
                 java.util.Collections.sort(fresh, (a, b) -> {
                     String na = a != null && a.nombre != null ? a.nombre : "";
@@ -165,10 +165,12 @@ public class FavoritesActivity extends AppCompatActivity {
                 updateEmpty(data.isEmpty());
             }
             @Override public void onError(Throwable t) {
-                // opcional: mostrar mensaje
+                // Si quieres, avisa al usuario o registra el error
+                Toast.makeText(FavoritesActivity.this, "Error cargando favoritos", Toast.LENGTH_SHORT).show();
             }
         });
     }
+
     private void updateEmpty(boolean empty) {
         recyclerView.setVisibility(empty ? View.GONE : View.VISIBLE);
         emptyView.setVisibility(empty ? View.VISIBLE : View.GONE);

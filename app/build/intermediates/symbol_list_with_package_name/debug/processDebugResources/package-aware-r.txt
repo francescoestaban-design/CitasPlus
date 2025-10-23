@@ -3715,6 +3715,7 @@ id action_mode_bar
 id action_mode_bar_stub
 id action_mode_close_button
 id action_search_place
+id action_settings
 id action_sort_distance
 id action_sort_type
 id action_text
@@ -3754,6 +3755,8 @@ id bounceEnd
 id bounceStart
 id btnDelete
 id btnGo
+id btnProbarApi
+id btnSettings
 id buttonActualizarCentro
 id buttonAgendarCita
 id buttonCancelar
@@ -4499,6 +4502,7 @@ layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
 menu menu_centros_mapa
 menu menu_favorites
+menu menu_main
 mipmap ic_launcher
 mipmap ic_launcher_round
 plurals mtrl_badge_content_description

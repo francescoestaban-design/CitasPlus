@@ -43,6 +43,10 @@
             android:exported="false"
             android:label="Ajustes" />
 
+
+
+
+
         <activity android:name=".LoginActivity"  android:exported="false" />
         <activity android:name=".PerfilActivity" android:exported="false" />
         <activity android:name=".WorkerMainActivity" android:exported="false" />

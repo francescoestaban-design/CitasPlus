@@ -21,6 +21,12 @@ public final class ActivityMainPacienteBinding implements ViewBinding {
   private final ScrollView rootView;
 
   @NonNull
+  public final Button btnProbarApi;
+
+  @NonNull
+  public final Button btnSettings;
+
+  @NonNull
   public final Button buttonAgendarCita;
 
   @NonNull
@@ -35,11 +41,13 @@ public final class ActivityMainPacienteBinding implements ViewBinding {
   @NonNull
   public final TextView textViewTitulo;
 
-  private ActivityMainPacienteBinding(@NonNull ScrollView rootView,
-      @NonNull Button buttonAgendarCita, @NonNull Button buttonMedicamentos,
-      @NonNull Button buttonPerfil, @NonNull Button buttonVerCentros,
-      @NonNull TextView textViewTitulo) {
+  private ActivityMainPacienteBinding(@NonNull ScrollView rootView, @NonNull Button btnProbarApi,
+      @NonNull Button btnSettings, @NonNull Button buttonAgendarCita,
+      @NonNull Button buttonMedicamentos, @NonNull Button buttonPerfil,
+      @NonNull Button buttonVerCentros, @NonNull TextView textViewTitulo) {
     this.rootView = rootView;
+    this.btnProbarApi = btnProbarApi;
+    this.btnSettings = btnSettings;
     this.buttonAgendarCita = buttonAgendarCita;
     this.buttonMedicamentos = buttonMedicamentos;
     this.buttonPerfil = buttonPerfil;
@@ -74,6 +82,18 @@ public final class ActivityMainPacienteBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.btnProbarApi;
+      Button btnProbarApi = ViewBindings.findChildViewById(rootView, id);
+      if (btnProbarApi == null) {
+        break missingId;
+      }
+
+      id = R.id.btnSettings;
+      Button btnSettings = ViewBindings.findChildViewById(rootView, id);
+      if (btnSettings == null) {
+        break missingId;
+      }
+
       id = R.id.buttonAgendarCita;
       Button buttonAgendarCita = ViewBindings.findChildViewById(rootView, id);
       if (buttonAgendarCita == null) {
@@ -104,8 +124,8 @@ public final class ActivityMainPacienteBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityMainPacienteBinding((ScrollView) rootView, buttonAgendarCita,
-          buttonMedicamentos, buttonPerfil, buttonVerCentros, textViewTitulo);
+      return new ActivityMainPacienteBinding((ScrollView) rootView, btnProbarApi, btnSettings,
+          buttonAgendarCita, buttonMedicamentos, buttonPerfil, buttonVerCentros, textViewTitulo);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

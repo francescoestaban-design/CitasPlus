@@ -92,6 +92,10 @@
         "source": "com.francesco.citapluus.app-main-48:/layout/dialog_registro.xml"
     },
     {
+        "merged": "com.francesco.citapluus.app-debug-46:/menu_menu_main.xml.flat",
+        "source": "com.francesco.citapluus.app-main-48:/menu/menu_main.xml"
+    },
+    {
         "merged": "com.francesco.citapluus.app-debug-46:/drawable_baseline_search_24.xml.flat",
         "source": "com.francesco.citapluus.app-main-48:/drawable/baseline_search_24.xml"
     },
