@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.CalendarView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
@@ -15,6 +16,7 @@ import com.francesco.citapluus.R;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -42,6 +44,9 @@ public final class ActivityPerfilBinding implements ViewBinding {
   public final ChipGroup chipsCitas;
 
   @NonNull
+  public final TextInputEditText editTextAlergias;
+
+  @NonNull
   public final TextInputEditText editTextCIPA;
 
   @NonNull
@@ -56,13 +61,28 @@ public final class ActivityPerfilBinding implements ViewBinding {
   @NonNull
   public final LinearLayout layoutIndicadores;
 
+  @NonNull
+  public final TextInputLayout tilAlergias;
+
+  @NonNull
+  public final TextInputLayout tilTipoSangre;
+
+  @NonNull
+  public final TextInputLayout tilcp;
+
+  @NonNull
+  public final TextView txtSaveState;
+
   private ActivityPerfilBinding(@NonNull ScrollView rootView,
       @NonNull MaterialButton buttonActualizarCentro, @NonNull MaterialButton buttonCerrarSesion,
       @NonNull MaterialButton buttonLlamarEmergencia, @NonNull MaterialButton buttonVolverMenu,
       @NonNull CalendarView calendarView, @NonNull ChipGroup chipsCitas,
-      @NonNull TextInputEditText editTextCIPA, @NonNull TextInputEditText editTextCodigoPostal,
+      @NonNull TextInputEditText editTextAlergias, @NonNull TextInputEditText editTextCIPA,
+      @NonNull TextInputEditText editTextCodigoPostal,
       @NonNull TextInputEditText editTextNombreCompleto,
-      @NonNull TextInputEditText editTextTipoSangre, @NonNull LinearLayout layoutIndicadores) {
+      @NonNull TextInputEditText editTextTipoSangre, @NonNull LinearLayout layoutIndicadores,
+      @NonNull TextInputLayout tilAlergias, @NonNull TextInputLayout tilTipoSangre,
+      @NonNull TextInputLayout tilcp, @NonNull TextView txtSaveState) {
     this.rootView = rootView;
     this.buttonActualizarCentro = buttonActualizarCentro;
     this.buttonCerrarSesion = buttonCerrarSesion;
@@ -70,11 +90,16 @@ public final class ActivityPerfilBinding implements ViewBinding {
     this.buttonVolverMenu = buttonVolverMenu;
     this.calendarView = calendarView;
     this.chipsCitas = chipsCitas;
+    this.editTextAlergias = editTextAlergias;
     this.editTextCIPA = editTextCIPA;
     this.editTextCodigoPostal = editTextCodigoPostal;
     this.editTextNombreCompleto = editTextNombreCompleto;
     this.editTextTipoSangre = editTextTipoSangre;
     this.layoutIndicadores = layoutIndicadores;
+    this.tilAlergias = tilAlergias;
+    this.tilTipoSangre = tilTipoSangre;
+    this.tilcp = tilcp;
+    this.txtSaveState = txtSaveState;
   }
 
   @Override
@@ -140,6 +165,12 @@ public final class ActivityPerfilBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.editTextAlergias;
+      TextInputEditText editTextAlergias = ViewBindings.findChildViewById(rootView, id);
+      if (editTextAlergias == null) {
+        break missingId;
+      }
+
       id = R.id.editTextCIPA;
       TextInputEditText editTextCIPA = ViewBindings.findChildViewById(rootView, id);
       if (editTextCIPA == null) {
@@ -170,10 +201,34 @@ public final class ActivityPerfilBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.tilAlergias;
+      TextInputLayout tilAlergias = ViewBindings.findChildViewById(rootView, id);
+      if (tilAlergias == null) {
+        break missingId;
+      }
+
+      id = R.id.tilTipoSangre;
+      TextInputLayout tilTipoSangre = ViewBindings.findChildViewById(rootView, id);
+      if (tilTipoSangre == null) {
+        break missingId;
+      }
+
+      id = R.id.tilcp;
+      TextInputLayout tilcp = ViewBindings.findChildViewById(rootView, id);
+      if (tilcp == null) {
+        break missingId;
+      }
+
+      id = R.id.txtSaveState;
+      TextView txtSaveState = ViewBindings.findChildViewById(rootView, id);
+      if (txtSaveState == null) {
+        break missingId;
+      }
+
       return new ActivityPerfilBinding((ScrollView) rootView, buttonActualizarCentro,
           buttonCerrarSesion, buttonLlamarEmergencia, buttonVolverMenu, calendarView, chipsCitas,
-          editTextCIPA, editTextCodigoPostal, editTextNombreCompleto, editTextTipoSangre,
-          layoutIndicadores);
+          editTextAlergias, editTextCIPA, editTextCodigoPostal, editTextNombreCompleto,
+          editTextTipoSangre, layoutIndicadores, tilAlergias, tilTipoSangre, tilcp, txtSaveState);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -14,7 +14,7 @@
     <string name="sort_by_type">Por tipo</string>
     <string name="sort_by_distance">Por distancia</string>
 
-    <string name="empty_favorites">No tienes favoritos todavía</string>
+    <string name="empty_favorites">No tienes favoritos guardados</string>
     <string name="snackbar_undo">DESHACER</string>
 
     <string name="settings_title">Ajustes</string>
@@ -36,6 +36,9 @@
     <string name="msg_fav_agregado">Añadido a favoritos</string>
     <string name="msg_fav_eliminado">Eliminado de favoritos</string>
     <string name="msg_centro_guardado">Centro guardado</string>
+
+    <string name="alergias_opcional_hint">Alergias (opcional)</string>
+
 
     <string name="base_url">http://10.0.2.2:3000/</string>
 

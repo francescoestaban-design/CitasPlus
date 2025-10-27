@@ -1,6 +1,5 @@
+// MainActivity.java
 package com.francesco.citapluus;
-
-import com.francesco.citapluus.data.FavoritesRepository;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -24,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // IMPORTANTE: este layout debe contener btnSettings
+        // IMPORTANTE: este layout debe contener btnSettings y btnProbarApi
         setContentView(R.layout.activity_main_paciente);
 
         textViewTitulo     = findViewById(R.id.textViewTitulo);
@@ -32,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         buttonVerCentros   = findViewById(R.id.buttonVerCentros);
         buttonMedicamentos = findViewById(R.id.buttonMedicamentos);
         buttonPerfil       = findViewById(R.id.buttonPerfil);
-        btnSettings        = findViewById(R.id.btnSettings);   // <-- nuevo
+        btnSettings        = findViewById(R.id.btnSettings);
 
         // Título
         String nombreUsuario = getIntent().getStringExtra("usuario");
@@ -64,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(new Intent(this, SettingsActivity.class)));
         }
 
+        // Botón de prueba (ping al backend configurado: mock o real)
         findViewById(R.id.btnProbarApi).setOnClickListener(v -> {
             com.francesco.citapluus.net.core.ApiService api =
                     com.francesco.citapluus.net.core.RetrofitProvider
@@ -82,53 +82,6 @@ public class MainActivity extends AppCompatActivity {
             });
         });
 
-        // ===== DEMO rápido Favoritos Mock =====
-        findViewById(R.id.btnProbarApi).post(() -> {
-            FavoritesRepository repo = new FavoritesRepository(this);
-
-            // 1) GET
-            repo.fetch(new FavoritesRepository.RepoCallback<java.util.List<com.francesco.citapluus.FavoritePlace>>() {
-                @Override public void onSuccess(java.util.List<com.francesco.citapluus.FavoritePlace> data) {
-                    android.util.Log.i("NetworkCfg", "GET /favorites -> size=" + data.size());
-                }
-                @Override public void onError(Throwable error) {
-                    android.util.Log.e("NetworkCfg", "GET /favorites error", error);
-                }
-            });
-
-            // 2) POST (añadir otro)
-            com.francesco.citapluus.FavoritePlace nuevo =
-                    new com.francesco.citapluus.FavoritePlace(
-                            "ph_2","Farmacia Norte","Av. Norte 456",40.42,-3.70,"FARMACIA");
-            repo.add(nuevo, new FavoritesRepository.RepoCallback<com.francesco.citapluus.FavoritePlace>() {
-                @Override public void onSuccess(com.francesco.citapluus.FavoritePlace data) {
-                    android.util.Log.i("NetworkCfg", "POST /favorites OK id=" + data.id);
-                    // 3) GET para verificar que creció
-                    repo.fetch(new FavoritesRepository.RepoCallback<java.util.List<com.francesco.citapluus.FavoritePlace>>() {
-                        @Override public void onSuccess(java.util.List<com.francesco.citapluus.FavoritePlace> data) {
-                            android.util.Log.i("NetworkCfg", "GET /favorites (after add) -> size=" + data.size());
-                        }
-                        @Override public void onError(Throwable error) {}
-                    });
-                    // 4) DELETE para probar borrado
-                    repo.remove("ph_2", new FavoritesRepository.RepoCallback<Void>() {
-                        @Override public void onSuccess(Void v) {
-                            android.util.Log.i("NetworkCfg", "DELETE /favorites/ph_2 OK");
-                        }
-                        @Override public void onError(Throwable error) {
-                            android.util.Log.e("NetworkCfg", "DELETE error", error);
-                        }
-                    });
-                }
-                @Override public void onError(Throwable error) {
-                    android.util.Log.e("NetworkCfg", "POST /favorites error", error);
-                }
-            });
-        });
-
-
-
-
         // Permiso notificaciones Android 13+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
                 ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS)
@@ -138,7 +91,6 @@ public class MainActivity extends AppCompatActivity {
             );
         }
     }
-
 
     private String getHoy() {
         Calendar c = Calendar.getInstance();

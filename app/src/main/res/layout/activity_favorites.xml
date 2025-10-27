@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -10,23 +11,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
-        android:title="Favoritos"
+        android:title="@string/chip_favoritos"
         android:titleTextColor="?attr/colorOnPrimary"
         app:navigationIcon="@drawable/baseline_arrow_back_24"
         app:navigationIconTint="?attr/colorOnPrimary"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerFav"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="1">
 
-    <TextView
-        android:id="@+id/emptyFav"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="24dp"
-        android:text="No tienes favoritos todavía"
-        android:gravity="center"
-        android:visibility="gone"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerFav"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!-- Vista vacía -->
+        <TextView
+            android:id="@+id/emptyFav"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/empty_favorites"
+            android:visibility="gone"/>
+    </FrameLayout>
+
 </LinearLayout>

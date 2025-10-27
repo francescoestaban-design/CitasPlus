@@ -38,6 +38,7 @@
     <color name="splash_bg">#FFFFFF</color>
     <color name="teal_200">#03DAC5</color>
     <color name="teal_700">#018786</color>
+    <string name="alergias_opcional_hint">Alergias (opcional)</string>
     <string name="app_name">CitaPluus</string>
     <string name="base_url">http://10.0.2.2:3000/</string>
     <string name="btn_add_fav">Añadir a favoritos</string>
@@ -50,7 +51,7 @@
     <string name="chip_centros">Centros de salud</string>
     <string name="chip_farmacias">Farmacias</string>
     <string name="chip_favoritos">Favoritos</string>
-    <string name="empty_favorites">No tienes favoritos todavía</string>
+    <string name="empty_favorites">No tienes favoritos guardados</string>
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyC7U0bUGOZBDfmm5fHx3MLt5lyW9YGMXuI</string>
     <string name="google_places_web_key">AIzaSyCmClnIigpYybX5mVXsKlmyIR-kBkyk4Ts</string>
     <string name="ir_a_mi_ubicacion">Ir a mi ubicación</string>

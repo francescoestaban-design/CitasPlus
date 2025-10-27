@@ -128,6 +128,9 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
     private static final String STATE_CAM_ZOOM = "state_cam_zoom";
     private Bundle savedState;
 
+    private com.francesco.citapluus.data.FavoritesRepository repo;
+
+
     // ===== Permisos =====
     private final ActivityResultLauncher<String> permisoUbicacion =
             registerForActivityResult(new ActivityResultContracts.RequestPermission(),
@@ -181,6 +184,7 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
         super.onCreate(savedInstanceState);
         this.savedState = savedInstanceState;
         setContentView(R.layout.activity_centros_mapa);
+        repo = new com.francesco.citapluus.data.FavoritesRepository(this);
 
         // Barra superior
         topBar = findViewById(R.id.topBar);
@@ -202,6 +206,7 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
             }
             return false;
         });
+
 
         // Google clients (Places ya inicializado en App)
         placesClient = App.getPlacesClient();
@@ -269,7 +274,10 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
             }
         });
 
-        // Añadir / quitar favorito
+        findViewById(R.id.buttonFavorito).setOnClickListener(v -> {
+            startActivity(new Intent(this, FavoritesActivity.class));
+        });
+
         buttonFavorito.setOnClickListener(v -> {
             SessionManager sm = new SessionManager(this);
 
@@ -277,18 +285,29 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
             if (seleccionPlace != null && seleccionPlace.getLatLng() != null) {
                 String id = seleccionPlace.getId();
                 if (sm.isFavorito(id)) {
-                    sm.removeFavoritoById(id);
-                    Toast.makeText(this, "Eliminado de favoritos", Toast.LENGTH_SHORT).show();
+                    repo.remove(id, new com.francesco.citapluus.data.FavoritesRepository.RepoCallback<Void>() {
+                        @Override public void onSuccess(Void v2) {
+                            android.widget.Toast.makeText(CentrosMapaActivity.this, "Eliminado de favoritos", android.widget.Toast.LENGTH_SHORT).show();
+                            actualizarTextoBotonFavorito();
+                        }
+                        @Override public void onError(Throwable e) {
+                            android.widget.Toast.makeText(CentrosMapaActivity.this, "Error eliminando", android.widget.Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 } else {
-                    LatLng ll = seleccionPlace.getLatLng();
                     String tipo = (chipFarm.isChecked()) ? "FARMACIA" : "CENTRO_SALUD";
-                    sm.addFavorito(new FavoritePlace(
-                            id, seleccionPlace.getName(), seleccionPlace.getAddress(),
-                            ll.latitude, ll.longitude, tipo
-                    ));
-                    Toast.makeText(this, "Añadido a favoritos", Toast.LENGTH_SHORT).show();
+                    LatLng ll = seleccionPlace.getLatLng();
+                    FavoritePlace nuevo = new FavoritePlace(id, seleccionPlace.getName(), seleccionPlace.getAddress(), ll.latitude, ll.longitude, tipo);
+                    repo.add(nuevo, new com.francesco.citapluus.data.FavoritesRepository.RepoCallback<FavoritePlace>() {
+                        @Override public void onSuccess(FavoritePlace fp) {
+                            android.widget.Toast.makeText(CentrosMapaActivity.this, "Añadido a favoritos", android.widget.Toast.LENGTH_SHORT).show();
+                            actualizarTextoBotonFavorito();
+                        }
+                        @Override public void onError(Throwable e) {
+                            android.widget.Toast.makeText(CentrosMapaActivity.this, "Error añadiendo", android.widget.Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 }
-                actualizarTextoBotonFavorito();
                 return;
             }
 
@@ -296,36 +315,55 @@ public class CentrosMapaActivity extends AppCompatActivity implements OnMapReady
             if (seleccionWeb != null) {
                 String id = seleccionWeb.place_id;
                 if (sm.isFavorito(id)) {
-                    sm.removeFavoritoById(id);
-                    Toast.makeText(this, "Eliminado de favoritos", Toast.LENGTH_SHORT).show();
+                    repo.remove(id, new com.francesco.citapluus.data.FavoritesRepository.RepoCallback<Void>() {
+                        @Override public void onSuccess(Void v2) {
+                            android.widget.Toast.makeText(CentrosMapaActivity.this, "Eliminado de favoritos", android.widget.Toast.LENGTH_SHORT).show();
+                            actualizarTextoBotonFavorito();
+                        }
+                        @Override public void onError(Throwable e) {
+                            android.widget.Toast.makeText(CentrosMapaActivity.this, "Error eliminando", android.widget.Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 } else {
                     String tipo = (chipFarm.isChecked()) ? "FARMACIA" : "CENTRO_SALUD";
-                    sm.addFavorito(new FavoritePlace(
+                    FavoritePlace nuevo = new FavoritePlace(
                             id,
                             seleccionWeb.name,
                             seleccionWeb.vicinity != null ? seleccionWeb.vicinity : "",
                             seleccionWeb.geometry.location.lat,
                             seleccionWeb.geometry.location.lng,
                             tipo
-                    ));
-                    Toast.makeText(this, "Añadido a favoritos", Toast.LENGTH_SHORT).show();
+                    );
+                    repo.add(nuevo, new com.francesco.citapluus.data.FavoritesRepository.RepoCallback<FavoritePlace>() {
+                        @Override public void onSuccess(FavoritePlace fp) {
+                            android.widget.Toast.makeText(CentrosMapaActivity.this, "Añadido a favoritos", android.widget.Toast.LENGTH_SHORT).show();
+                            actualizarTextoBotonFavorito();
+                        }
+                        @Override public void onError(Throwable e) {
+                            android.widget.Toast.makeText(CentrosMapaActivity.this, "Error añadiendo", android.widget.Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 }
-                actualizarTextoBotonFavorito();
                 return;
             }
 
-            // Desde favoritos
+            // Desde favoritos (marcador amarillo)
             if (seleccionFav != null) {
-                if (sm.isFavorito(seleccionFav.id)) {
-                    sm.removeFavoritoById(seleccionFav.id);
-                    Toast.makeText(this, "Eliminado de favoritos", Toast.LENGTH_SHORT).show();
-                    if (chipFav.isChecked()) cargarFavoritos();
-                    seleccionFav = null;
-                    seleccion = null;
-                }
-                actualizarTextoBotonFavorito();
+                repo.remove(seleccionFav.id, new com.francesco.citapluus.data.FavoritesRepository.RepoCallback<Void>() {
+                    @Override public void onSuccess(Void v2) {
+                        android.widget.Toast.makeText(CentrosMapaActivity.this, "Eliminado de favoritos", android.widget.Toast.LENGTH_SHORT).show();
+                        if (chipFav.isChecked()) cargarFavoritos();
+                        seleccionFav = null;
+                        seleccion = null;
+                        actualizarTextoBotonFavorito();
+                    }
+                    @Override public void onError(Throwable e) {
+                        android.widget.Toast.makeText(CentrosMapaActivity.this, "Error eliminando", android.widget.Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
+
     }
 
     @Override

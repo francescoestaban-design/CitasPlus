@@ -47,6 +47,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilTipoSangre"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Tipo de sangre">
@@ -54,10 +55,26 @@
                         android:id="@+id/editTextTipoSangre"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:enabled="false"/>
+                        android:enabled="true"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilAlergias"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Alergias">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editTextAlergias"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minLines="1"
+                        android:maxLines="4"
+                        android:enabled="true"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilcp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Código Postal">
@@ -65,9 +82,17 @@
                         android:id="@+id/editTextCodigoPostal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:enabled="false"
+                        android:enabled="true"
                         android:inputType="number"/>
                 </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/txtSaveState"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="12sp"
+                    android:layout_marginTop="6dp"/>
 
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
