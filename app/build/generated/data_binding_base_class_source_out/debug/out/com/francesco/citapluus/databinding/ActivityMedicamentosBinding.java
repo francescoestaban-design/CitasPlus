@@ -5,9 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.SearchView;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
@@ -25,17 +26,26 @@ public final class ActivityMedicamentosBinding implements ViewBinding {
   public final MaterialButton buttonVolverMenu;
 
   @NonNull
+  public final TextView debugInfo;
+
+  @NonNull
   public final RecyclerView recyclerMedicamentos;
+
+  @NonNull
+  public final RecyclerView recyclerSugerencias;
 
   @NonNull
   public final SearchView searchMedicamentos;
 
   private ActivityMedicamentosBinding(@NonNull LinearLayout rootView,
-      @NonNull MaterialButton buttonVolverMenu, @NonNull RecyclerView recyclerMedicamentos,
+      @NonNull MaterialButton buttonVolverMenu, @NonNull TextView debugInfo,
+      @NonNull RecyclerView recyclerMedicamentos, @NonNull RecyclerView recyclerSugerencias,
       @NonNull SearchView searchMedicamentos) {
     this.rootView = rootView;
     this.buttonVolverMenu = buttonVolverMenu;
+    this.debugInfo = debugInfo;
     this.recyclerMedicamentos = recyclerMedicamentos;
+    this.recyclerSugerencias = recyclerSugerencias;
     this.searchMedicamentos = searchMedicamentos;
   }
 
@@ -72,9 +82,21 @@ public final class ActivityMedicamentosBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.debugInfo;
+      TextView debugInfo = ViewBindings.findChildViewById(rootView, id);
+      if (debugInfo == null) {
+        break missingId;
+      }
+
       id = R.id.recyclerMedicamentos;
       RecyclerView recyclerMedicamentos = ViewBindings.findChildViewById(rootView, id);
       if (recyclerMedicamentos == null) {
+        break missingId;
+      }
+
+      id = R.id.recyclerSugerencias;
+      RecyclerView recyclerSugerencias = ViewBindings.findChildViewById(rootView, id);
+      if (recyclerSugerencias == null) {
         break missingId;
       }
 
@@ -84,8 +106,8 @@ public final class ActivityMedicamentosBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityMedicamentosBinding((LinearLayout) rootView, buttonVolverMenu,
-          recyclerMedicamentos, searchMedicamentos);
+      return new ActivityMedicamentosBinding((LinearLayout) rootView, buttonVolverMenu, debugInfo,
+          recyclerMedicamentos, recyclerSugerencias, searchMedicamentos);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

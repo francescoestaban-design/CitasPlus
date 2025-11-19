@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.francesco.citapluus.data.FavoritesRepository;
+import com.francesco.citapluus.ui.SessionManager;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -77,7 +78,7 @@ public class FavoritesActivity extends AppCompatActivity {
                             @Override
                             public void onError(Throwable error) {
                                 // fallback local si algo falló
-                                SessionManager sm = new SessionManager(FavoritesActivity.this);
+                                SessionManager sm = SessionManager.getInstance(FavoritesActivity.this);
                                 List<FavoritePlace> fallback = new ArrayList<>(sm.getFavoritos());
                                 adapter.setData(fallback);
                                 data.clear();
@@ -113,7 +114,7 @@ public class FavoritesActivity extends AppCompatActivity {
 
             @Override
             public void onSwiped(RecyclerView.ViewHolder vh, int direction) {
-                int pos = vh.getBindingAdapterPosition();
+                int pos = vh.getAdapterPosition();
                 if (pos == RecyclerView.NO_POSITION) return;
                 swiped = adapter.getItem(pos);
                 // optimista: quitamos de UI ya

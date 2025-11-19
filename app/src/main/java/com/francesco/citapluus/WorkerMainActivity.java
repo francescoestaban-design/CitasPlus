@@ -3,8 +3,10 @@ package com.francesco.citapluus;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.Intent;
-import android.view.View;
-import com.francesco.citapluus.SessionManager;
+
+import com.francesco.citapluus.ui.LoginActivity;
+import com.francesco.citapluus.ui.SessionManager;
+
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.Toast;
@@ -44,7 +46,7 @@ public class WorkerMainActivity extends AppCompatActivity {
 
         // Botón: Cerrar Sesión
         buttonCerrarSesion.setOnClickListener(v -> {
-            SessionManager sessionManager = new SessionManager(this);
+            SessionManager sessionManager = SessionManager.getInstance(this);
             sessionManager.logout();
             Toast.makeText(this, "Sesión cerrada", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, LoginActivity.class);

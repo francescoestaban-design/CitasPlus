@@ -8,7 +8,7 @@
         <item>10 km</item>
     </string-array>
 
-    <string-array name="pref_radius_values">
+    <string-array name="pref_radius_values" translatable="false">
         <item>1000</item>
         <item>2000</item>
         <item>5000</item>
@@ -21,7 +21,8 @@
         <item>Claro</item>
         <item>Oscuro</item>
     </string-array>
-    <string-array name="pref_theme_values">
+
+    <string-array name="pref_theme_values" translatable="false">
         <item>system</item>
         <item>light</item>
         <item>dark</item>

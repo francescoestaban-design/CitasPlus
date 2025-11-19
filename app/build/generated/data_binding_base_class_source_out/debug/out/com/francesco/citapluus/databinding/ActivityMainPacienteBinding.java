@@ -4,7 +4,6 @@ package com.francesco.citapluus.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -12,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.francesco.citapluus.R;
+import com.google.android.material.card.MaterialCardView;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -21,38 +21,43 @@ public final class ActivityMainPacienteBinding implements ViewBinding {
   private final ScrollView rootView;
 
   @NonNull
-  public final Button btnProbarApi;
-
-  @NonNull
-  public final Button btnSettings;
-
-  @NonNull
-  public final Button buttonAgendarCita;
-
-  @NonNull
-  public final Button buttonMedicamentos;
-
-  @NonNull
-  public final Button buttonPerfil;
-
-  @NonNull
-  public final Button buttonVerCentros;
-
-  @NonNull
   public final TextView textViewTitulo;
 
-  private ActivityMainPacienteBinding(@NonNull ScrollView rootView, @NonNull Button btnProbarApi,
-      @NonNull Button btnSettings, @NonNull Button buttonAgendarCita,
-      @NonNull Button buttonMedicamentos, @NonNull Button buttonPerfil,
-      @NonNull Button buttonVerCentros, @NonNull TextView textViewTitulo) {
+  @NonNull
+  public final MaterialCardView tileCentro;
+
+  @NonNull
+  public final MaterialCardView tileCitas;
+
+  @NonNull
+  public final MaterialCardView tileEmergencia;
+
+  @NonNull
+  public final MaterialCardView tileHistorial;
+
+  @NonNull
+  public final MaterialCardView tileMedicamentos;
+
+  @NonNull
+  public final MaterialCardView tilePerfil;
+
+  @NonNull
+  public final TextView tvCentroResumen;
+
+  private ActivityMainPacienteBinding(@NonNull ScrollView rootView,
+      @NonNull TextView textViewTitulo, @NonNull MaterialCardView tileCentro,
+      @NonNull MaterialCardView tileCitas, @NonNull MaterialCardView tileEmergencia,
+      @NonNull MaterialCardView tileHistorial, @NonNull MaterialCardView tileMedicamentos,
+      @NonNull MaterialCardView tilePerfil, @NonNull TextView tvCentroResumen) {
     this.rootView = rootView;
-    this.btnProbarApi = btnProbarApi;
-    this.btnSettings = btnSettings;
-    this.buttonAgendarCita = buttonAgendarCita;
-    this.buttonMedicamentos = buttonMedicamentos;
-    this.buttonPerfil = buttonPerfil;
-    this.buttonVerCentros = buttonVerCentros;
     this.textViewTitulo = textViewTitulo;
+    this.tileCentro = tileCentro;
+    this.tileCitas = tileCitas;
+    this.tileEmergencia = tileEmergencia;
+    this.tileHistorial = tileHistorial;
+    this.tileMedicamentos = tileMedicamentos;
+    this.tilePerfil = tilePerfil;
+    this.tvCentroResumen = tvCentroResumen;
   }
 
   @Override
@@ -82,50 +87,56 @@ public final class ActivityMainPacienteBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.btnProbarApi;
-      Button btnProbarApi = ViewBindings.findChildViewById(rootView, id);
-      if (btnProbarApi == null) {
-        break missingId;
-      }
-
-      id = R.id.btnSettings;
-      Button btnSettings = ViewBindings.findChildViewById(rootView, id);
-      if (btnSettings == null) {
-        break missingId;
-      }
-
-      id = R.id.buttonAgendarCita;
-      Button buttonAgendarCita = ViewBindings.findChildViewById(rootView, id);
-      if (buttonAgendarCita == null) {
-        break missingId;
-      }
-
-      id = R.id.buttonMedicamentos;
-      Button buttonMedicamentos = ViewBindings.findChildViewById(rootView, id);
-      if (buttonMedicamentos == null) {
-        break missingId;
-      }
-
-      id = R.id.buttonPerfil;
-      Button buttonPerfil = ViewBindings.findChildViewById(rootView, id);
-      if (buttonPerfil == null) {
-        break missingId;
-      }
-
-      id = R.id.buttonVerCentros;
-      Button buttonVerCentros = ViewBindings.findChildViewById(rootView, id);
-      if (buttonVerCentros == null) {
-        break missingId;
-      }
-
       id = R.id.textViewTitulo;
       TextView textViewTitulo = ViewBindings.findChildViewById(rootView, id);
       if (textViewTitulo == null) {
         break missingId;
       }
 
-      return new ActivityMainPacienteBinding((ScrollView) rootView, btnProbarApi, btnSettings,
-          buttonAgendarCita, buttonMedicamentos, buttonPerfil, buttonVerCentros, textViewTitulo);
+      id = R.id.tileCentro;
+      MaterialCardView tileCentro = ViewBindings.findChildViewById(rootView, id);
+      if (tileCentro == null) {
+        break missingId;
+      }
+
+      id = R.id.tileCitas;
+      MaterialCardView tileCitas = ViewBindings.findChildViewById(rootView, id);
+      if (tileCitas == null) {
+        break missingId;
+      }
+
+      id = R.id.tileEmergencia;
+      MaterialCardView tileEmergencia = ViewBindings.findChildViewById(rootView, id);
+      if (tileEmergencia == null) {
+        break missingId;
+      }
+
+      id = R.id.tileHistorial;
+      MaterialCardView tileHistorial = ViewBindings.findChildViewById(rootView, id);
+      if (tileHistorial == null) {
+        break missingId;
+      }
+
+      id = R.id.tileMedicamentos;
+      MaterialCardView tileMedicamentos = ViewBindings.findChildViewById(rootView, id);
+      if (tileMedicamentos == null) {
+        break missingId;
+      }
+
+      id = R.id.tilePerfil;
+      MaterialCardView tilePerfil = ViewBindings.findChildViewById(rootView, id);
+      if (tilePerfil == null) {
+        break missingId;
+      }
+
+      id = R.id.tvCentroResumen;
+      TextView tvCentroResumen = ViewBindings.findChildViewById(rootView, id);
+      if (tvCentroResumen == null) {
+        break missingId;
+      }
+
+      return new ActivityMainPacienteBinding((ScrollView) rootView, textViewTitulo, tileCentro,
+          tileCitas, tileEmergencia, tileHistorial, tileMedicamentos, tilePerfil, tvCentroResumen);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -53,6 +53,15 @@
             android:inputType="number" />
 
         <EditText
+            android:id="@+id/editTextAlergias"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Alergias (separadas por comas)"
+            android:inputType="textCapSentences|textMultiLine"
+            android:minLines="2"
+            android:maxLines="4" />
+
+        <EditText
             android:id="@+id/editTextContrasena"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

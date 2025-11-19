@@ -4,7 +4,6 @@ package com.francesco.citapluus.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -13,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.francesco.citapluus.R;
+import com.google.android.material.button.MaterialButton;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -22,7 +22,7 @@ public final class DialogAgendarCitaBinding implements ViewBinding {
   private final LinearLayout rootView;
 
   @NonNull
-  public final Button buttonConfirmarCita;
+  public final MaterialButton buttonConfirmarCita;
 
   @NonNull
   public final Spinner spinnerDoctor;
@@ -37,7 +37,7 @@ public final class DialogAgendarCitaBinding implements ViewBinding {
   public final TextView textViewFechaSeleccionada;
 
   private DialogAgendarCitaBinding(@NonNull LinearLayout rootView,
-      @NonNull Button buttonConfirmarCita, @NonNull Spinner spinnerDoctor,
+      @NonNull MaterialButton buttonConfirmarCita, @NonNull Spinner spinnerDoctor,
       @NonNull Spinner spinnerHora, @NonNull Spinner spinnerMotivo,
       @NonNull TextView textViewFechaSeleccionada) {
     this.rootView = rootView;
@@ -76,7 +76,7 @@ public final class DialogAgendarCitaBinding implements ViewBinding {
     int id;
     missingId: {
       id = R.id.buttonConfirmarCita;
-      Button buttonConfirmarCita = ViewBindings.findChildViewById(rootView, id);
+      MaterialButton buttonConfirmarCita = ViewBindings.findChildViewById(rootView, id);
       if (buttonConfirmarCita == null) {
         break missingId;
       }

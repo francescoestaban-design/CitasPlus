@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 import android.util.Log;
 
 import androidx.preference.PreferenceManager;
-
+import android.content.SharedPreferences;
 import com.francesco.citapluus.net.core.MockServer;
 import com.francesco.citapluus.net.core.RetrofitProvider;
 import com.google.android.libraries.places.api.Places;
@@ -33,6 +33,7 @@ public class App extends Application {
 
         // === Preferencias iniciales ===
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+
         // por defecto: mock activado en DEBUG, desactivado en RELEASE
         mockEnabled = sp.getBoolean("pref_mock_enabled", BuildConfig.DEBUG);
         realBaseUrl = sp.getString("pref_real_base_url", realBaseUrl);

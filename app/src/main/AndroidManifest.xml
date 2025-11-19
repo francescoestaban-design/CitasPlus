@@ -30,7 +30,7 @@
 
 
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -47,13 +47,13 @@
 
 
 
-        <activity android:name=".LoginActivity"  android:exported="false" />
-        <activity android:name=".PerfilActivity" android:exported="false" />
+        <activity android:name=".ui.LoginActivity"  android:exported="false" />
+        <activity android:name=".ui.PerfilActivity" android:exported="false" />
         <activity android:name=".WorkerMainActivity" android:exported="false" />
-        <activity android:name=".MedicamentosActivity" android:exported="false"/>
+        <activity android:name=".ui.MedicamentosActivity" android:exported="false"/>
 
-        <activity android:name=".CentrosMapaActivity" android:exported="false" />
+        <activity android:name=".ui.CentrosMapaActivity" android:exported="false" />
         <activity android:name=".FavoritesActivity" android:exported="false" />
-        <receiver android:name=".CitaReminderReceiver" android:exported="false" />
+        <receiver android:name=".ui.CitaReminderReceiver" android:exported="false" />
     </application>
 </manifest>

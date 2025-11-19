@@ -71,6 +71,9 @@ public final class ActivityPerfilBinding implements ViewBinding {
   public final TextInputLayout tilcp;
 
   @NonNull
+  public final TextView tvProximasCitas;
+
+  @NonNull
   public final TextView txtSaveState;
 
   private ActivityPerfilBinding(@NonNull ScrollView rootView,
@@ -82,7 +85,8 @@ public final class ActivityPerfilBinding implements ViewBinding {
       @NonNull TextInputEditText editTextNombreCompleto,
       @NonNull TextInputEditText editTextTipoSangre, @NonNull LinearLayout layoutIndicadores,
       @NonNull TextInputLayout tilAlergias, @NonNull TextInputLayout tilTipoSangre,
-      @NonNull TextInputLayout tilcp, @NonNull TextView txtSaveState) {
+      @NonNull TextInputLayout tilcp, @NonNull TextView tvProximasCitas,
+      @NonNull TextView txtSaveState) {
     this.rootView = rootView;
     this.buttonActualizarCentro = buttonActualizarCentro;
     this.buttonCerrarSesion = buttonCerrarSesion;
@@ -99,6 +103,7 @@ public final class ActivityPerfilBinding implements ViewBinding {
     this.tilAlergias = tilAlergias;
     this.tilTipoSangre = tilTipoSangre;
     this.tilcp = tilcp;
+    this.tvProximasCitas = tvProximasCitas;
     this.txtSaveState = txtSaveState;
   }
 
@@ -219,6 +224,12 @@ public final class ActivityPerfilBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.tvProximasCitas;
+      TextView tvProximasCitas = ViewBindings.findChildViewById(rootView, id);
+      if (tvProximasCitas == null) {
+        break missingId;
+      }
+
       id = R.id.txtSaveState;
       TextView txtSaveState = ViewBindings.findChildViewById(rootView, id);
       if (txtSaveState == null) {
@@ -228,7 +239,8 @@ public final class ActivityPerfilBinding implements ViewBinding {
       return new ActivityPerfilBinding((ScrollView) rootView, buttonActualizarCentro,
           buttonCerrarSesion, buttonLlamarEmergencia, buttonVolverMenu, calendarView, chipsCitas,
           editTextAlergias, editTextCIPA, editTextCodigoPostal, editTextNombreCompleto,
-          editTextTipoSangre, layoutIndicadores, tilAlergias, tilTipoSangre, tilcp, txtSaveState);
+          editTextTipoSangre, layoutIndicadores, tilAlergias, tilTipoSangre, tilcp, tvProximasCitas,
+          txtSaveState);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

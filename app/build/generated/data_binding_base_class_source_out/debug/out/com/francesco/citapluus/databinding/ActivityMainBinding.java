@@ -4,13 +4,16 @@ package com.francesco.citapluus.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.francesco.citapluus.R;
+import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -21,20 +24,47 @@ public final class ActivityMainBinding implements ViewBinding {
   private final CoordinatorLayout rootView;
 
   @NonNull
-  public final Button buttonLogin;
+  public final MaterialButton buttonLogin;
 
   @NonNull
-  public final Button buttonRegister;
+  public final MaterialButton buttonRegister;
 
   @NonNull
   public final FloatingActionButton fabSoporte;
 
-  private ActivityMainBinding(@NonNull CoordinatorLayout rootView, @NonNull Button buttonLogin,
-      @NonNull Button buttonRegister, @NonNull FloatingActionButton fabSoporte) {
+  @NonNull
+  public final ImageView ivHero;
+
+  @NonNull
+  public final CoordinatorLayout rootLogin;
+
+  @NonNull
+  public final MaterialToolbar toolbar;
+
+  @NonNull
+  public final TextView tvAyuda;
+
+  @NonNull
+  public final TextView tvSubtitulo;
+
+  @NonNull
+  public final TextView tvTitulo;
+
+  private ActivityMainBinding(@NonNull CoordinatorLayout rootView,
+      @NonNull MaterialButton buttonLogin, @NonNull MaterialButton buttonRegister,
+      @NonNull FloatingActionButton fabSoporte, @NonNull ImageView ivHero,
+      @NonNull CoordinatorLayout rootLogin, @NonNull MaterialToolbar toolbar,
+      @NonNull TextView tvAyuda, @NonNull TextView tvSubtitulo, @NonNull TextView tvTitulo) {
     this.rootView = rootView;
     this.buttonLogin = buttonLogin;
     this.buttonRegister = buttonRegister;
     this.fabSoporte = fabSoporte;
+    this.ivHero = ivHero;
+    this.rootLogin = rootLogin;
+    this.toolbar = toolbar;
+    this.tvAyuda = tvAyuda;
+    this.tvSubtitulo = tvSubtitulo;
+    this.tvTitulo = tvTitulo;
   }
 
   @Override
@@ -65,13 +95,13 @@ public final class ActivityMainBinding implements ViewBinding {
     int id;
     missingId: {
       id = R.id.buttonLogin;
-      Button buttonLogin = ViewBindings.findChildViewById(rootView, id);
+      MaterialButton buttonLogin = ViewBindings.findChildViewById(rootView, id);
       if (buttonLogin == null) {
         break missingId;
       }
 
       id = R.id.buttonRegister;
-      Button buttonRegister = ViewBindings.findChildViewById(rootView, id);
+      MaterialButton buttonRegister = ViewBindings.findChildViewById(rootView, id);
       if (buttonRegister == null) {
         break missingId;
       }
@@ -82,8 +112,40 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.ivHero;
+      ImageView ivHero = ViewBindings.findChildViewById(rootView, id);
+      if (ivHero == null) {
+        break missingId;
+      }
+
+      CoordinatorLayout rootLogin = (CoordinatorLayout) rootView;
+
+      id = R.id.toolbar;
+      MaterialToolbar toolbar = ViewBindings.findChildViewById(rootView, id);
+      if (toolbar == null) {
+        break missingId;
+      }
+
+      id = R.id.tvAyuda;
+      TextView tvAyuda = ViewBindings.findChildViewById(rootView, id);
+      if (tvAyuda == null) {
+        break missingId;
+      }
+
+      id = R.id.tvSubtitulo;
+      TextView tvSubtitulo = ViewBindings.findChildViewById(rootView, id);
+      if (tvSubtitulo == null) {
+        break missingId;
+      }
+
+      id = R.id.tvTitulo;
+      TextView tvTitulo = ViewBindings.findChildViewById(rootView, id);
+      if (tvTitulo == null) {
+        break missingId;
+      }
+
       return new ActivityMainBinding((CoordinatorLayout) rootView, buttonLogin, buttonRegister,
-          fabSoporte);
+          fabSoporte, ivHero, rootLogin, toolbar, tvAyuda, tvSubtitulo, tvTitulo);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

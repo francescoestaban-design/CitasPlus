@@ -140,6 +140,15 @@
                     android:textStyle="bold"
                     android:layout_marginTop="12dp"/>
 
+                <TextView
+                    android:id="@+id/tvProximasCitas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="No tienes próximas citas"
+                    android:textSize="14sp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="8dp"/>
+
                 <LinearLayout
                     android:id="@+id/layoutIndicadores"
                     android:layout_width="match_parent"

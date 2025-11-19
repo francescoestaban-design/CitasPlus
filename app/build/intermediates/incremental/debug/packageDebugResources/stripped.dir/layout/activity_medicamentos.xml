@@ -6,12 +6,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <SearchView
+    <!-- SearchView de AndroidX -->
+    <androidx.appcompat.widget.SearchView
         android:id="@+id/searchMedicamentos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:queryHint="Buscar medicamento" />
+        android:queryHint="Buscar por nombre (p. ej. Paracetamol)"
+        android:iconifiedByDefault="false" />
 
+    <!-- Sugerencias en vivo (se muestra/oculta desde la Activity) -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerSugerencias"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never"
+        android:visibility="gone"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp" />
+
+    <!-- Resultados -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerMedicamentos"
         android:layout_width="match_parent"
@@ -27,5 +40,12 @@
         android:text="Volver al menú principal"
         android:layout_marginTop="16dp"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+    <TextView
+    android:id="@+id/debugInfo"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text=""
+    android:visibility="gone"/>
+
 
 </LinearLayout>

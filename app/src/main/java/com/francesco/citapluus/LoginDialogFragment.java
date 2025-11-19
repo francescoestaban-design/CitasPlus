@@ -8,14 +8,13 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.Spinner;
 import android.widget.Toast;
 import android.content.Intent;
+
+import com.francesco.citapluus.ui.MainActivity;
 import com.google.android.material.textfield.TextInputEditText;
-import com.francesco.citapluus.SessionManager; // ✅ ¡ESTA LÍNEA ES CLAVE!
+import com.francesco.citapluus.ui.SessionManager; // ✅ ¡ESTA LÍNEA ES CLAVE!
 
 public class LoginDialogFragment extends DialogFragment {
     // ... resto del código
@@ -56,7 +55,7 @@ public class LoginDialogFragment extends DialogFragment {
                     Toast.makeText(getContext(), "Completa todos los campos", Toast.LENGTH_SHORT).show();
                 } else {
                     // ✅ DECLARAR E INICIALIZAR sessionManager
-                    SessionManager sessionManager = new SessionManager(getContext());
+                    SessionManager sessionManager = SessionManager.getInstance(requireContext());
 
                     // ✅ Simular login de trabajador (DNI: "admin", Contraseña: "1234")
                     if (usuario.equals("admin") && contrasena.equals("1234")) {

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <ListPreference
         android:key="pref_radio_farmacia"
@@ -8,8 +7,7 @@
         android:summary="Selecciona el radio para las recomendaciones de farmacias"
         android:entries="@array/pref_radius_entries"
         android:entryValues="@array/pref_radius_values"
-        android:defaultValue="7000"
-        app:useSimpleSummaryProvider="true" />
+        android:defaultValue="7000" />
 
     <ListPreference
         android:key="pref_radio_centros"
@@ -17,24 +15,22 @@
         android:summary="Selecciona el radio para las recomendaciones de centros"
         android:entries="@array/pref_radius_entries"
         android:entryValues="@array/pref_radius_values"
-        android:defaultValue="2000"
-        app:useSimpleSummaryProvider="true" />
+        android:defaultValue="2000" />
 
     <ListPreference
         android:key="pref_tema"
         android:title="Tema"
-        android:summary="Claro/Oscuro/Automático"
+        android:summary="Automático / Claro / Oscuro"
         android:entries="@array/pref_theme_entries"
         android:entryValues="@array/pref_theme_values"
-        android:defaultValue="system"
-        app:useSimpleSummaryProvider="true" />
+        android:defaultValue="system" />
 
     <Preference
-        android:key="pref_privacidad"
+        android:key="pref_privacy"
         android:title="Política de privacidad"
         android:summary="Ver detalles de privacidad" />
 
-    <PreferenceCategory android:title="Servidor">
+    <PreferenceCategory android:title="Servidor (opcional)">
         <SwitchPreferenceCompat
             android:key="pref_mock_enabled"
             android:title="Usar servidor de pruebas (Mock)"
@@ -44,8 +40,8 @@
         <EditTextPreference
             android:key="pref_real_base_url"
             android:title="URL del backend real"
-            app:useSimpleSummaryProvider="true"
             android:dialogTitle="URL del backend real"
             android:defaultValue="https://mi-backend-real.com/api/" />
     </PreferenceCategory>
+
 </PreferenceScreen>

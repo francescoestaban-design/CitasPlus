@@ -6,7 +6,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 
 import com.francesco.citapluus.FavoritePlace;
-import com.francesco.citapluus.SessionManager;
+import com.francesco.citapluus.ui.SessionManager;
 import com.francesco.citapluus.net.core.ApiService;
 import com.francesco.citapluus.net.core.RetrofitProvider;
 
@@ -35,7 +35,7 @@ public class FavoritesRepository {
     public FavoritesRepository(@NonNull Context ctx) {
         this.ctx = ctx.getApplicationContext();
         this.api = RetrofitProvider.get(this.ctx).create(ApiService.class);
-        this.sm  = new SessionManager(this.ctx);
+        this.sm = SessionManager.getInstance(this.ctx);
     }
 
     /** GET /favorites */

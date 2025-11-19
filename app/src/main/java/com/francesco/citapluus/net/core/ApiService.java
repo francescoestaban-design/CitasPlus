@@ -3,6 +3,7 @@ package com.francesco.citapluus.net.core;
 import com.francesco.citapluus.FavoritePlace;
 import com.francesco.citapluus.net.dto.AppointmentDto;
 import com.francesco.citapluus.net.dto.CreateAppointmentReq;
+import com.francesco.citapluus.net.dto.DrugInfoDto;
 import com.francesco.citapluus.net.dto.UserProfile;
 
 import java.util.List;
@@ -19,7 +20,7 @@ import retrofit2.http.Query;
 
 public interface ApiService {
 
-    // ---------- Ping (ya lo usas) ----------
+    // ---------- Ping ----------
     class PingResp { public String msg; }
     @GET("ping") Call<PingResp> ping();
 
@@ -31,12 +32,26 @@ public interface ApiService {
     // ---------- Perfil ----------
     @GET("me") Call<UserProfile> getProfile();
 
-    /** PATCH parcial. Acepta cualquier subset: tipoSangre, alergias, codigoPostal… */
+    /** PATCH parcial. Acepta tipoSangre, alergias (CSV o texto), codigoPostal */
     @PATCH("me") Call<UserProfile> patchProfile(@Body Map<String, Object> patch);
 
-
-
+    /** Atajo para parches simples String->String (opcional) */
     @PATCH("me") Call<Void> patchMe(@Body Map<String, String> fields);
+
+    /** Devuelve alergias del usuario como lista normalizada (del lado mock) */
+    @GET("me/allergies") Call<List<String>> getAllergies();
+
+    // ---------- Catálogo de medicamentos ----------
+    /** Búsqueda por nombre (substring, case-insensitive). Si q es null/empty, devuelve todo */
+    // dentro de ApiService
+    @GET("medicines")
+    retrofit2.Call<java.util.List<com.francesco.citapluus.net.dto.DrugInfoDto>> searchMedicines(
+            @Query("q") String query
+    );
+
+    @GET("medicines/suggest")
+    retrofit2.Call<java.util.List<String>> suggest(@Query("q") String q);
+
     // ---------- Citas ----------
     @GET("appointments")
     Call<List<AppointmentDto>> listAppointments(

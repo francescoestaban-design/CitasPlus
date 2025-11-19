@@ -7,7 +7,7 @@
         <item>7 km</item>
         <item>10 km</item>
     </string-array>
-    <string-array name="pref_radius_values">
+    <string-array name="pref_radius_values" translatable="false">
         <item>1000</item>
         <item>2000</item>
         <item>5000</item>
@@ -19,7 +19,7 @@
         <item>Claro</item>
         <item>Oscuro</item>
     </string-array>
-    <string-array name="pref_theme_values">
+    <string-array name="pref_theme_values" translatable="false">
         <item>system</item>
         <item>light</item>
         <item>dark</item>
@@ -505,6 +505,8 @@
         <enum name="startVertical" value="1"/>
         <enum name="startHorizontal" value="2"/>
         <enum name="flip" value="3"/>
+        <enum name="below" value="4"/>
+        <enum name="above" value="5"/>
     </attr>
     <attr format="float" name="path_percent"/>
     <attr format="float" name="perpendicularPath_percent"/>
@@ -672,14 +674,18 @@
     <color name="background_floating_material_light">@android:color/white</color>
     <color name="background_material_dark">@color/material_grey_850</color>
     <color name="background_material_light">@color/material_grey_50</color>
-    <color name="brand_primary">#146C94</color>
-    <color name="brand_secondary">#19A7CE</color>
+    <color name="brand_primary">#1976D2</color>
+    <color name="brand_secondary">#E3F2FD</color>
     <color name="bright_foreground_disabled_material_dark">#80ffffff</color>
     <color name="bright_foreground_disabled_material_light">#80000000</color>
     <color name="bright_foreground_inverse_material_dark">@color/bright_foreground_material_light</color>
     <color name="bright_foreground_inverse_material_light">@color/bright_foreground_material_dark</color>
     <color name="bright_foreground_material_dark">@android:color/white</color>
     <color name="bright_foreground_material_light">@android:color/black</color>
+    <color name="browser_actions_bg_grey">#F5F5F5</color>
+    <color name="browser_actions_divider_color">#1E000000</color>
+    <color name="browser_actions_text_color">#DE000000</color>
+    <color name="browser_actions_title_color">#646464</color>
     <color name="button_material_dark">#ff5a595b</color>
     <color name="button_material_light">#ffd6d7d7</color>
     <color name="call_notification_answer_color">#1d873b</color>
@@ -1375,6 +1381,7 @@
     <color name="secondary_text_disabled_material_dark">#36ffffff</color>
     <color name="secondary_text_disabled_material_light">#24000000</color>
     <color name="splash_bg">#FFFFFF</color>
+    <color name="surfaceContainerLow">#F9F9F9</color>
     <color name="switch_thumb_disabled_material_dark">#ff616161</color>
     <color name="switch_thumb_disabled_material_light">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_dark">#ffbdbdbd</color>
@@ -1465,6 +1472,8 @@
     <dimen name="abc_text_size_title_material">20sp</dimen>
     <dimen name="abc_text_size_title_material_toolbar">20dp</dimen>
     <dimen name="appcompat_dialog_background_inset">16dp</dimen>
+    <dimen name="browser_actions_context_menu_max_width">500dp</dimen>
+    <dimen name="browser_actions_context_menu_min_padding">20dp</dimen>
     <dimen name="cardview_compat_inset_shadow">1dp</dimen>
     <dimen name="cardview_default_elevation">2dp</dimen>
     <dimen name="cardview_default_radius">2dp</dimen>
@@ -2253,7 +2262,6 @@
     <item name="ghost_view" type="id"/>
     <item name="ghost_view_holder" type="id"/>
     <item name="home" type="id"/>
-    <item name="is_pooling_container_tag" type="id"/>
     <item name="item_touch_helper_previous_elevation" type="id"/>
     <item name="line1" type="id"/>
     <item name="line3" type="id"/>
@@ -2274,7 +2282,6 @@
     <item name="navigation_bar_item_large_label_view" type="id"/>
     <item name="navigation_bar_item_small_label_view" type="id"/>
     <item name="parent_matrix" type="id"/>
-    <item name="pooling_container_listener_holder_tag" type="id"/>
     <item name="preferences_detail" type="id"/>
     <item name="preferences_header" type="id"/>
     <item name="preferences_sliding_pane_layout" type="id"/>
@@ -2431,6 +2438,8 @@
     <string name="abc_shareactionprovider_share_with_application">Share with <ns2:g example="Mail" id="application_name">%s</ns2:g></string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
     <string name="alergias_opcional_hint">Alergias (opcional)</string>
+    <string name="android.credentials.TYPE_PASSWORD_CREDENTIAL">Password</string>
+    <string name="androidx.credentials.TYPE_PUBLIC_KEY_CREDENTIAL">Passkey</string>
     <string name="androidx_startup" translatable="false">androidx.startup</string>
     <string name="app_name">CitaPluus</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior</string>
@@ -2481,6 +2490,7 @@
     <string name="common_signin_button_text">Sign in</string>
     <string name="common_signin_button_text_long">Sign in with Google</string>
     <string name="copy">Copy</string>
+    <string name="copy_toast_msg">Link copied to clipboard</string>
     <string name="empty_favorites">No tienes favoritos guardados</string>
     <string description="Screen reader announcement for when a checkbox is on error. [CHAR LIMIT=NONE]" name="error_a11y_label">
     Error: invalid
@@ -2490,8 +2500,17 @@
     <string name="exposed_dropdown_menu_content_description">Show dropdown menu</string>
     <string name="fab_transformation_scrim_behavior" translatable="false">com.google.android.material.transformation.FabTransformationScrimBehavior</string>
     <string name="fab_transformation_sheet_behavior" translatable="false">com.google.android.material.transformation.FabTransformationSheetBehavior</string>
+    <string name="fallback_menu_item_copy_link">Copy link</string>
+    <string name="fallback_menu_item_open_in_browser">Open in browser</string>
+    <string name="fallback_menu_item_share_link">Share link</string>
+    <string name="fcm_fallback_notification_channel_label">Miscellaneous</string>
+    <string name="gcm_defaultSenderId" translatable="false">652798711930</string>
+    <string name="google_api_key" translatable="false">AIzaSyCLPMLr9kKd8IXsRVg4PCgQt68fuKpzDag</string>
+    <string name="google_app_id" translatable="false">1:652798711930:android:01133cd557c1c548c0c3c3</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCLPMLr9kKd8IXsRVg4PCgQt68fuKpzDag</string>
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyC7U0bUGOZBDfmm5fHx3MLt5lyW9YGMXuI</string>
     <string name="google_places_web_key">AIzaSyCmClnIigpYybX5mVXsKlmyIR-kBkyk4Ts</string>
+    <string name="google_storage_bucket" translatable="false">citaplus-ab28e.firebasestorage.app</string>
     <string name="hide_bottom_view_on_scroll_behavior" translatable="false">com.google.android.material.behavior.HideBottomViewOnScrollBehavior</string>
     <string description="Content description for an icon that appears in the title area of a dialog" name="icon_content_description">Dialog Icon</string>
     <string name="ir_a_mi_ubicacion">Ir a mi ubicación</string>
@@ -2628,6 +2647,7 @@
     <string name="preference_copied">
         \"<ns2:g example="Version 1.1" id="summary">%1$s</ns2:g>\" copied to clipboard.
     </string>
+    <string name="project_id" translatable="false">citaplus-ab28e</string>
     <string name="search_menu_title">Search</string>
     <string name="searchbar_scrolling_view_behavior" translatable="false">
     com.google.android.material.search.SearchBar$ScrollingViewBehavior
@@ -7123,6 +7143,10 @@
     <item name="windowActionBar">false</item>
     <item name="windowNoTitle">true</item>
   </style>
+    <style name="Theme.Hidden" parent="@android:style/Theme.DeviceDefault">
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+    </style>
     <style name="Theme.Material3.Dark" parent="Base.Theme.Material3.Dark"/>
     <style name="Theme.Material3.Dark.BottomSheetDialog" parent="Base.Theme.Material3.Dark.BottomSheetDialog"/>
     <style name="Theme.Material3.Dark.Dialog" parent="Base.Theme.Material3.Dark.Dialog"/>
@@ -11836,6 +11860,7 @@
     </declare-styleable>
     <declare-styleable name="ConstraintSet">
         <attr format="reference" name="deriveConstraintsFrom"/>
+        <attr format="string" name="stateLabels"/>
         <attr format="enum" name="constraintRotate">
             <enum name="none" value="0"/>
             <enum name="right" value="1"/>
@@ -12319,6 +12344,22 @@
         
         <attr name="android:color"/>
     </declare-styleable>
+    <declare-styleable name="Grid">
+        <attr format="integer" name="grid_rows"/>
+        <attr format="integer" name="grid_columns"/>
+        <attr format="string" name="grid_spans"/>
+        <attr format="string" name="grid_skips"/>
+        <attr format="string" name="grid_rowWeights"/>
+        <attr format="string" name="grid_columnWeights"/>
+        <attr format="enum" name="grid_orientation">
+            <enum name="horizontal" value="0"/>
+            <enum name="vertical" value="1"/>
+        </attr>
+        <attr format="dimension" name="grid_horizontalGaps"/>
+        <attr format="dimension" name="grid_verticalGaps"/>
+        <attr format="boolean" name="grid_validateInputs"/>
+        <attr format="boolean" name="grid_useRtl"/>
+    </declare-styleable>
     <declare-styleable name="ImageFilterView">
         <attr format="reference" name="blendSrc"/>
         <attr format="reference" name="altSrc"/>
@@ -12409,6 +12450,7 @@
             <enum name="deltaRelative" value="0"/>
             <enum name="pathRelative" value="1"/>
             <enum name="parentRelative" value="2"/>
+            <enum name="axisRelative" value="3"/>
         </attr>
 
         

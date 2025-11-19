@@ -25,6 +25,9 @@ public final class DialogRegistroBinding implements ViewBinding {
   public final Button buttonRegistrar;
 
   @NonNull
+  public final EditText editTextAlergias;
+
+  @NonNull
   public final EditText editTextApellidoMaterno;
 
   @NonNull
@@ -49,12 +52,14 @@ public final class DialogRegistroBinding implements ViewBinding {
   public final Spinner spinnerTipoSangre;
 
   private DialogRegistroBinding(@NonNull ScrollView rootView, @NonNull Button buttonRegistrar,
-      @NonNull EditText editTextApellidoMaterno, @NonNull EditText editTextApellidoPaterno,
-      @NonNull EditText editTextCIPA, @NonNull EditText editTextCodigoPostal,
-      @NonNull EditText editTextContrasena, @NonNull EditText editTextDNI,
-      @NonNull EditText editTextNombre, @NonNull Spinner spinnerTipoSangre) {
+      @NonNull EditText editTextAlergias, @NonNull EditText editTextApellidoMaterno,
+      @NonNull EditText editTextApellidoPaterno, @NonNull EditText editTextCIPA,
+      @NonNull EditText editTextCodigoPostal, @NonNull EditText editTextContrasena,
+      @NonNull EditText editTextDNI, @NonNull EditText editTextNombre,
+      @NonNull Spinner spinnerTipoSangre) {
     this.rootView = rootView;
     this.buttonRegistrar = buttonRegistrar;
+    this.editTextAlergias = editTextAlergias;
     this.editTextApellidoMaterno = editTextApellidoMaterno;
     this.editTextApellidoPaterno = editTextApellidoPaterno;
     this.editTextCIPA = editTextCIPA;
@@ -95,6 +100,12 @@ public final class DialogRegistroBinding implements ViewBinding {
       id = R.id.buttonRegistrar;
       Button buttonRegistrar = ViewBindings.findChildViewById(rootView, id);
       if (buttonRegistrar == null) {
+        break missingId;
+      }
+
+      id = R.id.editTextAlergias;
+      EditText editTextAlergias = ViewBindings.findChildViewById(rootView, id);
+      if (editTextAlergias == null) {
         break missingId;
       }
 
@@ -146,7 +157,7 @@ public final class DialogRegistroBinding implements ViewBinding {
         break missingId;
       }
 
-      return new DialogRegistroBinding((ScrollView) rootView, buttonRegistrar,
+      return new DialogRegistroBinding((ScrollView) rootView, buttonRegistrar, editTextAlergias,
           editTextApellidoMaterno, editTextApellidoPaterno, editTextCIPA, editTextCodigoPostal,
           editTextContrasena, editTextDNI, editTextNombre, spinnerTipoSangre);
     }
