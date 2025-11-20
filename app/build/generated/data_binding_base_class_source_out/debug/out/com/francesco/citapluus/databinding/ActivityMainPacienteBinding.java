@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.francesco.citapluus.R;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.card.MaterialCardView;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -19,6 +20,9 @@ import java.lang.String;
 public final class ActivityMainPacienteBinding implements ViewBinding {
   @NonNull
   private final ScrollView rootView;
+
+  @NonNull
+  public final MaterialButton buttonLogin;
 
   @NonNull
   public final TextView textViewTitulo;
@@ -45,11 +49,13 @@ public final class ActivityMainPacienteBinding implements ViewBinding {
   public final TextView tvCentroResumen;
 
   private ActivityMainPacienteBinding(@NonNull ScrollView rootView,
-      @NonNull TextView textViewTitulo, @NonNull MaterialCardView tileCentro,
-      @NonNull MaterialCardView tileCitas, @NonNull MaterialCardView tileEmergencia,
-      @NonNull MaterialCardView tileHistorial, @NonNull MaterialCardView tileMedicamentos,
-      @NonNull MaterialCardView tilePerfil, @NonNull TextView tvCentroResumen) {
+      @NonNull MaterialButton buttonLogin, @NonNull TextView textViewTitulo,
+      @NonNull MaterialCardView tileCentro, @NonNull MaterialCardView tileCitas,
+      @NonNull MaterialCardView tileEmergencia, @NonNull MaterialCardView tileHistorial,
+      @NonNull MaterialCardView tileMedicamentos, @NonNull MaterialCardView tilePerfil,
+      @NonNull TextView tvCentroResumen) {
     this.rootView = rootView;
+    this.buttonLogin = buttonLogin;
     this.textViewTitulo = textViewTitulo;
     this.tileCentro = tileCentro;
     this.tileCitas = tileCitas;
@@ -87,6 +93,12 @@ public final class ActivityMainPacienteBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.buttonLogin;
+      MaterialButton buttonLogin = ViewBindings.findChildViewById(rootView, id);
+      if (buttonLogin == null) {
+        break missingId;
+      }
+
       id = R.id.textViewTitulo;
       TextView textViewTitulo = ViewBindings.findChildViewById(rootView, id);
       if (textViewTitulo == null) {
@@ -135,8 +147,9 @@ public final class ActivityMainPacienteBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityMainPacienteBinding((ScrollView) rootView, textViewTitulo, tileCentro,
-          tileCitas, tileEmergencia, tileHistorial, tileMedicamentos, tilePerfil, tvCentroResumen);
+      return new ActivityMainPacienteBinding((ScrollView) rootView, buttonLogin, textViewTitulo,
+          tileCentro, tileCitas, tileEmergencia, tileHistorial, tileMedicamentos, tilePerfil,
+          tvCentroResumen);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
