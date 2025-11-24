@@ -51,6 +51,7 @@
         <activity android:name=".ui.PerfilActivity" android:exported="false" />
         <activity android:name=".WorkerMainActivity" android:exported="false" />
         <activity android:name=".ui.MedicamentosActivity" android:exported="false"/>
+        <activity android:name=".ui.HistorialCitasActivity" android:exported="false" />
 
         <activity android:name=".ui.CentrosMapaActivity" android:exported="false" />
         <activity android:name=".FavoritesActivity" android:exported="false" />

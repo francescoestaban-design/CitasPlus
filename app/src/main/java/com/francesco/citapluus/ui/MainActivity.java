@@ -84,9 +84,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(this, MedicamentosActivity.class))
         );
 
-        // Historial → futuro módulo
+        // Historial → abre la pantalla de historial de citas
         tileHistorial.setOnClickListener(v ->
-                Toast.makeText(this, "Historial de citas próximamente", Toast.LENGTH_SHORT).show()
+                startActivity(new Intent(this, HistorialCitasActivity.class))
         );
 
         // Centro de salud → abre mapa de centros
