@@ -13,7 +13,6 @@ import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.francesco.citapluus.R;
 import com.google.android.material.button.MaterialButton;
-import com.google.android.material.textfield.TextInputEditText;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -26,31 +25,26 @@ public final class DialogAgendarCitaBinding implements ViewBinding {
   public final MaterialButton buttonConfirmarCita;
 
   @NonNull
-  public final TextInputEditText editTextMotivoConsulta;
-
-  @NonNull
-  public final TextInputEditText editTextTipoCita;
-
-  @NonNull
   public final Spinner spinnerDoctor;
 
   @NonNull
   public final Spinner spinnerHora;
 
   @NonNull
+  public final Spinner spinnerMotivo;
+
+  @NonNull
   public final TextView textViewFechaSeleccionada;
 
   private DialogAgendarCitaBinding(@NonNull LinearLayout rootView,
-      @NonNull MaterialButton buttonConfirmarCita,
-      @NonNull TextInputEditText editTextMotivoConsulta,
-      @NonNull TextInputEditText editTextTipoCita, @NonNull Spinner spinnerDoctor,
-      @NonNull Spinner spinnerHora, @NonNull TextView textViewFechaSeleccionada) {
+      @NonNull MaterialButton buttonConfirmarCita, @NonNull Spinner spinnerDoctor,
+      @NonNull Spinner spinnerHora, @NonNull Spinner spinnerMotivo,
+      @NonNull TextView textViewFechaSeleccionada) {
     this.rootView = rootView;
     this.buttonConfirmarCita = buttonConfirmarCita;
-    this.editTextMotivoConsulta = editTextMotivoConsulta;
-    this.editTextTipoCita = editTextTipoCita;
     this.spinnerDoctor = spinnerDoctor;
     this.spinnerHora = spinnerHora;
+    this.spinnerMotivo = spinnerMotivo;
     this.textViewFechaSeleccionada = textViewFechaSeleccionada;
   }
 
@@ -87,18 +81,6 @@ public final class DialogAgendarCitaBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.editTextMotivoConsulta;
-      TextInputEditText editTextMotivoConsulta = ViewBindings.findChildViewById(rootView, id);
-      if (editTextMotivoConsulta == null) {
-        break missingId;
-      }
-
-      id = R.id.editTextTipoCita;
-      TextInputEditText editTextTipoCita = ViewBindings.findChildViewById(rootView, id);
-      if (editTextTipoCita == null) {
-        break missingId;
-      }
-
       id = R.id.spinnerDoctor;
       Spinner spinnerDoctor = ViewBindings.findChildViewById(rootView, id);
       if (spinnerDoctor == null) {
@@ -111,6 +93,12 @@ public final class DialogAgendarCitaBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.spinnerMotivo;
+      Spinner spinnerMotivo = ViewBindings.findChildViewById(rootView, id);
+      if (spinnerMotivo == null) {
+        break missingId;
+      }
+
       id = R.id.textViewFechaSeleccionada;
       TextView textViewFechaSeleccionada = ViewBindings.findChildViewById(rootView, id);
       if (textViewFechaSeleccionada == null) {
@@ -118,8 +106,7 @@ public final class DialogAgendarCitaBinding implements ViewBinding {
       }
 
       return new DialogAgendarCitaBinding((LinearLayout) rootView, buttonConfirmarCita,
-          editTextMotivoConsulta, editTextTipoCita, spinnerDoctor, spinnerHora,
-          textViewFechaSeleccionada);
+          spinnerDoctor, spinnerHora, spinnerMotivo, textViewFechaSeleccionada);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

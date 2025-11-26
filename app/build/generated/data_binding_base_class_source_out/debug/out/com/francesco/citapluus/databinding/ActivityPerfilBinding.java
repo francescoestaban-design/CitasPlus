@@ -32,9 +32,6 @@ public final class ActivityPerfilBinding implements ViewBinding {
   public final MaterialButton buttonCerrarSesion;
 
   @NonNull
-  public final MaterialButton buttonGuardarCambios;
-
-  @NonNull
   public final MaterialButton buttonLlamarEmergencia;
 
   @NonNull
@@ -81,10 +78,10 @@ public final class ActivityPerfilBinding implements ViewBinding {
 
   private ActivityPerfilBinding(@NonNull ScrollView rootView,
       @NonNull MaterialButton buttonActualizarCentro, @NonNull MaterialButton buttonCerrarSesion,
-      @NonNull MaterialButton buttonGuardarCambios, @NonNull MaterialButton buttonLlamarEmergencia,
-      @NonNull MaterialButton buttonVolverMenu, @NonNull CalendarView calendarView,
-      @NonNull ChipGroup chipsCitas, @NonNull TextInputEditText editTextAlergias,
-      @NonNull TextInputEditText editTextCIPA, @NonNull TextInputEditText editTextCodigoPostal,
+      @NonNull MaterialButton buttonLlamarEmergencia, @NonNull MaterialButton buttonVolverMenu,
+      @NonNull CalendarView calendarView, @NonNull ChipGroup chipsCitas,
+      @NonNull TextInputEditText editTextAlergias, @NonNull TextInputEditText editTextCIPA,
+      @NonNull TextInputEditText editTextCodigoPostal,
       @NonNull TextInputEditText editTextNombreCompleto,
       @NonNull TextInputEditText editTextTipoSangre, @NonNull LinearLayout layoutIndicadores,
       @NonNull TextInputLayout tilAlergias, @NonNull TextInputLayout tilTipoSangre,
@@ -93,7 +90,6 @@ public final class ActivityPerfilBinding implements ViewBinding {
     this.rootView = rootView;
     this.buttonActualizarCentro = buttonActualizarCentro;
     this.buttonCerrarSesion = buttonCerrarSesion;
-    this.buttonGuardarCambios = buttonGuardarCambios;
     this.buttonLlamarEmergencia = buttonLlamarEmergencia;
     this.buttonVolverMenu = buttonVolverMenu;
     this.calendarView = calendarView;
@@ -147,12 +143,6 @@ public final class ActivityPerfilBinding implements ViewBinding {
       id = R.id.buttonCerrarSesion;
       MaterialButton buttonCerrarSesion = ViewBindings.findChildViewById(rootView, id);
       if (buttonCerrarSesion == null) {
-        break missingId;
-      }
-
-      id = R.id.buttonGuardarCambios;
-      MaterialButton buttonGuardarCambios = ViewBindings.findChildViewById(rootView, id);
-      if (buttonGuardarCambios == null) {
         break missingId;
       }
 
@@ -247,10 +237,10 @@ public final class ActivityPerfilBinding implements ViewBinding {
       }
 
       return new ActivityPerfilBinding((ScrollView) rootView, buttonActualizarCentro,
-          buttonCerrarSesion, buttonGuardarCambios, buttonLlamarEmergencia, buttonVolverMenu,
-          calendarView, chipsCitas, editTextAlergias, editTextCIPA, editTextCodigoPostal,
-          editTextNombreCompleto, editTextTipoSangre, layoutIndicadores, tilAlergias, tilTipoSangre,
-          tilcp, tvProximasCitas, txtSaveState);
+          buttonCerrarSesion, buttonLlamarEmergencia, buttonVolverMenu, calendarView, chipsCitas,
+          editTextAlergias, editTextCIPA, editTextCodigoPostal, editTextNombreCompleto,
+          editTextTipoSangre, layoutIndicadores, tilAlergias, tilTipoSangre, tilcp, tvProximasCitas,
+          txtSaveState);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

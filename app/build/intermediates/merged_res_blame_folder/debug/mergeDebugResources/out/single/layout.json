@@ -48,6 +48,10 @@
         "source": "com.francesco.citapluus.app-main-53:/layout/dialog_login.xml"
     },
     {
+        "merged": "com.francesco.citapluus.app-mergeDebugResources-50:/layout/activity_historial_citas.xml",
+        "source": "com.francesco.citapluus.app-main-53:/layout/activity_historial_citas.xml"
+    },
+    {
         "merged": "com.francesco.citapluus.app-mergeDebugResources-50:/layout/activity_perfil.xml",
         "source": "com.francesco.citapluus.app-main-53:/layout/activity_perfil.xml"
     },

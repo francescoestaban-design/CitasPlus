@@ -3565,6 +3565,7 @@ drawable foto_perfil
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable historial_citas
+drawable ic_arrow_back
 drawable ic_arrow_back_black_24
 drawable ic_arrow_down_24dp
 drawable ic_call_answer
@@ -3676,6 +3677,7 @@ drawable quantum_ic_clear_grey600_24
 drawable quantum_ic_cloud_off_vd_theme_24
 drawable quantum_ic_search_grey600_24
 drawable searchview_bg
+drawable spinner_background
 drawable test_level_drawable
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -3795,6 +3797,7 @@ id browser_actions_menu_items
 id browser_actions_menu_view
 id btnDelete
 id btnGo
+id btnVolver
 id buttonActualizarCentro
 id buttonCancelar
 id buttonCerrarSesion
@@ -4135,6 +4138,7 @@ id rectangles
 id recyclerFav
 id recyclerMedicamentos
 id recyclerSugerencias
+id recyclerViewHistorial
 id recycler_view
 id report_drawn
 id reverseSawtooth
@@ -4192,6 +4196,7 @@ id spacer
 id special_effects_controller_view_tag
 id spinner
 id spinnerDoctor
+id spinnerFiltro
 id spinnerHora
 id spinnerMotivo
 id spinnerTipoSangre
@@ -4441,6 +4446,7 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_centros_mapa
 layout activity_favorites
+layout activity_historial_citas
 layout activity_main
 layout activity_main_paciente
 layout activity_medicamentos

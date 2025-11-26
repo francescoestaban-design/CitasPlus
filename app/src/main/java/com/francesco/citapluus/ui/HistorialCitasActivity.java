@@ -41,7 +41,7 @@ public class HistorialCitasActivity extends AppCompatActivity {
         recyclerViewHistorial.setLayoutManager(new LinearLayoutManager(this));
 
         // Get appointment history from CitaManager
-        listaCitas = CitaManager.getInstance().obtenerCitas();
+        listaCitas = CitaManager.getInstance().getCitas();
 
         // Setup adapter
         citaAdapter = new CitaAdapter(listaCitas);
@@ -55,7 +55,7 @@ public class HistorialCitasActivity extends AppCompatActivity {
         super.onResume();
         // Refresh the appointment list when returning to this screen
         listaCitas.clear();
-        listaCitas.addAll(CitaManager.getInstance().obtenerCitas());
+        listaCitas.addAll(CitaManager.getInstance().getCitas());
         citaAdapter.notifyDataSetChanged();
     }
 }

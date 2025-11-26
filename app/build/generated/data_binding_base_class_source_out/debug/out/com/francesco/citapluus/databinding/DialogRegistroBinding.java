@@ -34,6 +34,9 @@ public final class DialogRegistroBinding implements ViewBinding {
   public final EditText editTextApellidoPaterno;
 
   @NonNull
+  public final EditText editTextCIPA;
+
+  @NonNull
   public final EditText editTextCodigoPostal;
 
   @NonNull
@@ -43,9 +46,6 @@ public final class DialogRegistroBinding implements ViewBinding {
   public final EditText editTextDNI;
 
   @NonNull
-  public final EditText editTextEmail;
-
-  @NonNull
   public final EditText editTextNombre;
 
   @NonNull
@@ -53,19 +53,19 @@ public final class DialogRegistroBinding implements ViewBinding {
 
   private DialogRegistroBinding(@NonNull ScrollView rootView, @NonNull Button buttonRegistrar,
       @NonNull EditText editTextAlergias, @NonNull EditText editTextApellidoMaterno,
-      @NonNull EditText editTextApellidoPaterno, @NonNull EditText editTextCodigoPostal,
-      @NonNull EditText editTextContrasena, @NonNull EditText editTextDNI,
-      @NonNull EditText editTextEmail, @NonNull EditText editTextNombre,
+      @NonNull EditText editTextApellidoPaterno, @NonNull EditText editTextCIPA,
+      @NonNull EditText editTextCodigoPostal, @NonNull EditText editTextContrasena,
+      @NonNull EditText editTextDNI, @NonNull EditText editTextNombre,
       @NonNull Spinner spinnerTipoSangre) {
     this.rootView = rootView;
     this.buttonRegistrar = buttonRegistrar;
     this.editTextAlergias = editTextAlergias;
     this.editTextApellidoMaterno = editTextApellidoMaterno;
     this.editTextApellidoPaterno = editTextApellidoPaterno;
+    this.editTextCIPA = editTextCIPA;
     this.editTextCodigoPostal = editTextCodigoPostal;
     this.editTextContrasena = editTextContrasena;
     this.editTextDNI = editTextDNI;
-    this.editTextEmail = editTextEmail;
     this.editTextNombre = editTextNombre;
     this.spinnerTipoSangre = spinnerTipoSangre;
   }
@@ -121,6 +121,12 @@ public final class DialogRegistroBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.editTextCIPA;
+      EditText editTextCIPA = ViewBindings.findChildViewById(rootView, id);
+      if (editTextCIPA == null) {
+        break missingId;
+      }
+
       id = R.id.editTextCodigoPostal;
       EditText editTextCodigoPostal = ViewBindings.findChildViewById(rootView, id);
       if (editTextCodigoPostal == null) {
@@ -139,12 +145,6 @@ public final class DialogRegistroBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.editTextEmail;
-      EditText editTextEmail = ViewBindings.findChildViewById(rootView, id);
-      if (editTextEmail == null) {
-        break missingId;
-      }
-
       id = R.id.editTextNombre;
       EditText editTextNombre = ViewBindings.findChildViewById(rootView, id);
       if (editTextNombre == null) {
@@ -158,8 +158,8 @@ public final class DialogRegistroBinding implements ViewBinding {
       }
 
       return new DialogRegistroBinding((ScrollView) rootView, buttonRegistrar, editTextAlergias,
-          editTextApellidoMaterno, editTextApellidoPaterno, editTextCodigoPostal,
-          editTextContrasena, editTextDNI, editTextEmail, editTextNombre, spinnerTipoSangre);
+          editTextApellidoMaterno, editTextApellidoPaterno, editTextCIPA, editTextCodigoPostal,
+          editTextContrasena, editTextDNI, editTextNombre, spinnerTipoSangre);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

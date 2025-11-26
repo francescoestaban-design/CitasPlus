@@ -33,6 +33,7 @@ drawable cruz_verde
 drawable favoritos
 drawable foto_perfil
 drawable historial_citas
+drawable ic_arrow_back
 drawable ic_launcher_foreground
 drawable login_imagen
 drawable lupa_buscar
@@ -41,6 +42,7 @@ drawable mi_ubicacion
 drawable person
 drawable personn
 drawable searchview_bg
+drawable spinner_background
 id action_favorites
 id action_search_place
 id action_sort_distance
@@ -48,6 +50,7 @@ id action_sort_type
 id appBarLayout
 id btnDelete
 id btnGo
+id btnVolver
 id buttonActualizarCentro
 id buttonCancelar
 id buttonCerrarSesion
@@ -98,9 +101,11 @@ id map
 id recyclerFav
 id recyclerMedicamentos
 id recyclerSugerencias
+id recyclerViewHistorial
 id rootLogin
 id searchMedicamentos
 id spinnerDoctor
+id spinnerFiltro
 id spinnerHora
 id spinnerMotivo
 id spinnerTipoSangre
@@ -137,6 +142,7 @@ id tvTitulo
 id txtSaveState
 layout activity_centros_mapa
 layout activity_favorites
+layout activity_historial_citas
 layout activity_main
 layout activity_main_paciente
 layout activity_medicamentos

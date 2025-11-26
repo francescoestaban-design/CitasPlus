@@ -85,6 +85,9 @@
             android:name="com.francesco.citapluus.ui.MedicamentosActivity"
             android:exported="false" />
         <activity
+            android:name="com.francesco.citapluus.ui.HistorialCitasActivity"
+            android:exported="false" />
+        <activity
             android:name="com.francesco.citapluus.ui.CentrosMapaActivity"
             android:exported="false" />
         <activity

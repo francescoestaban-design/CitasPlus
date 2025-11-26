@@ -24,20 +24,16 @@ public final class DialogLoginBinding implements ViewBinding {
   public final Button buttonIniciarSesionDialog;
 
   @NonNull
-  public final Button buttonRegistrarse;
-
-  @NonNull
   public final EditText editTextContrasena;
 
   @NonNull
   public final EditText editTextUsuario;
 
   private DialogLoginBinding(@NonNull LinearLayout rootView,
-      @NonNull Button buttonIniciarSesionDialog, @NonNull Button buttonRegistrarse,
-      @NonNull EditText editTextContrasena, @NonNull EditText editTextUsuario) {
+      @NonNull Button buttonIniciarSesionDialog, @NonNull EditText editTextContrasena,
+      @NonNull EditText editTextUsuario) {
     this.rootView = rootView;
     this.buttonIniciarSesionDialog = buttonIniciarSesionDialog;
-    this.buttonRegistrarse = buttonRegistrarse;
     this.editTextContrasena = editTextContrasena;
     this.editTextUsuario = editTextUsuario;
   }
@@ -75,12 +71,6 @@ public final class DialogLoginBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.buttonRegistrarse;
-      Button buttonRegistrarse = ViewBindings.findChildViewById(rootView, id);
-      if (buttonRegistrarse == null) {
-        break missingId;
-      }
-
       id = R.id.editTextContrasena;
       EditText editTextContrasena = ViewBindings.findChildViewById(rootView, id);
       if (editTextContrasena == null) {
@@ -94,7 +84,7 @@ public final class DialogLoginBinding implements ViewBinding {
       }
 
       return new DialogLoginBinding((LinearLayout) rootView, buttonIniciarSesionDialog,
-          buttonRegistrarse, editTextContrasena, editTextUsuario);
+          editTextContrasena, editTextUsuario);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
