@@ -1,0 +1,25 @@
+<resources>
+    <style name="Widget.CitaPluus.PrimaryButton" parent="Widget.Material3.Button">
+        <item name="cornerRadius">28dp</item>
+        <item name="android:insetTop">8dp</item>
+        <item name="android:insetBottom">8dp</item>
+    </style>
+
+    <style name="Widget.CitaPluus.TonalButton" parent="Widget.Material3.Button.TonalButton">
+        <item name="cornerRadius">28dp</item>
+        <item name="android:insetTop">8dp</item>
+        <item name="android:insetBottom">8dp</item>
+    </style>
+
+    <style name="Widget.CitaPluus.OutlinedButton" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="cornerRadius">28dp</item>
+        <item name="android:insetTop">8dp</item>
+        <item name="android:insetBottom">8dp</item>
+    </style>
+
+    <style name="Widget.CitaPluus.TextButton" parent="Widget.Material3.Button.TextButton">
+        <item name="cornerRadius">28dp</item>
+        <item name="android:insetTop">8dp</item>
+        <item name="android:insetBottom">8dp</item>
+    </style>
+</resources>

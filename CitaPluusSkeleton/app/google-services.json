@@ -1,0 +1,31 @@
+{
+  "project_info": {
+    "project_number": "459672532762",
+    "project_id": "citaplus-25b30",
+    "storage_bucket": "citaplus-25b30.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:459672532762:android:baf3fcc5ac2edce01d1ea3",
+        "android_client_info": {
+          "package_name": "com.francesco.citapluus"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXruW9qxuW10nETgomI2sMbZMEBJKUqJs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
+
+

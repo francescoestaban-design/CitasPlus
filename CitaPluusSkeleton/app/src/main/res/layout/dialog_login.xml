@@ -1,0 +1,43 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:padding="16dp" android:orientation="vertical">
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Iniciar Sesión"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"
+        android:layout_gravity="center"/>
+    
+    <EditText android:id="@+id/editTextUsuario"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:hint="Email o DNI"/>
+    <EditText android:id="@+id/editTextContrasena"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:hint="Contraseña" android:inputType="textPassword"/>
+    <Button android:id="@+id/buttonIniciarSesionDialog"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="Iniciar sesión"
+        android:layout_marginTop="8dp"/>
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¿No tienes cuenta?"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:textSize="14sp"
+        android:textColor="#666666"/>
+    
+    <Button android:id="@+id/buttonRegistrarse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Registrarse"
+        android:layout_marginTop="8dp"
+        android:textColor="#1976D2"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        style="?android:attr/borderlessButtonStyle"/>
+</LinearLayout>
