@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootLogin"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F6F7FB">
+
+    <!-- Barra superior (brand) -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:title="CitaPlus"
+        app:titleCentered="true"
+        app:titleTextColor="@android:color/white" />
+
+    <!-- Contenido -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:padding="24dp"
+        android:layout_marginTop="?attr/actionBarSize">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <!-- Espacio bajo la barra -->
+            <Space
+                android:layout_width="1dp"
+                android:layout_height="8dp" />
+
+            <!-- Título grande -->
+            <TextView
+                android:id="@+id/tvTitulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bienvenido a CitaPlus"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:textColor="#111827"
+                android:gravity="center"
+                android:layout_marginTop="12dp" />
+
+            <!-- Subtítulo -->
+            <TextView
+                android:id="@+id/tvSubtitulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tu plataforma médica para agendar tus citas y cuidar de tu salud."
+                android:textSize="16sp"
+                android:lineSpacingExtra="2dp"
+                android:textColor="#4B5563"
+                android:gravity="center"
+                android:layout_marginTop="8dp" />
+
+            <!-- Ilustración -->
+            <ImageView
+                android:id="@+id/ivHero"
+                android:layout_width="260dp"
+                android:layout_height="285dp"
+                android:layout_marginTop="20dp"
+                android:layout_weight="0"
+                android:adjustViewBounds="true"
+
+                android:src="@drawable/login_imagen" />
+
+            <!-- Botón primario -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonLogin"
+                style="@style/Widget.CitaPluus.PrimaryButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Iniciar sesión"
+                android:textAllCaps="false"
+                android:insetTop="12dp"
+                android:insetBottom="12dp"
+                app:icon="@android:drawable/ic_lock_lock"
+                app:iconGravity="textStart"
+                app:iconPadding="12dp" />
+
+            <!-- Botón secundario (outlined) -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonRegister"
+                style="@style/Widget.CitaPluus.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Registrarse"
+                android:textAllCaps="false"
+                android:insetTop="12dp"
+                android:insetBottom="12dp"
+                app:icon="@android:drawable/ic_input_add"
+                app:iconGravity="textStart"
+                app:iconPadding="12dp" />
+
+            <!-- Nota de ayuda -->
+            <TextView
+                android:id="@+id/tvAyuda"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="¿Necesitas ayuda? Toca el botón de soporte."
+                android:textSize="12sp"
+                android:textColor="#6B7280"
+                android:layout_marginTop="10dp" />
+
+            <!-- Extra espacio inferior para que no tape el FAB -->
+            <Space
+                android:layout_width="1dp"
+                android:layout_height="72dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- FAB de soporte -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabSoporte"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="Soporte"
+        app:srcCompat="@android:drawable/ic_dialog_email"
+        app:tint="@android:color/white"
+        app:backgroundTint="?attr/colorPrimary"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

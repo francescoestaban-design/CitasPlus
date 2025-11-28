@@ -1,0 +1,607 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.francesco.citapluus"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+9        android:targetSdkVersion="34" />
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:5:5-66
+11-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:5:22-64
+12    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+12-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:6:5-76
+12-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:6:22-74
+13    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+13-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:7:5-78
+13-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:7:22-76
+14    <uses-permission android:name="android.permission.CALL_PHONE" />
+14-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:8:5-69
+14-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:8:22-66
+15    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+15-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:9:5-78
+15-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:9:22-76
+16    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+16-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:10:5-80
+16-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:10:22-78
+17    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+17-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:11:5-78
+17-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:11:22-76
+18
+19    <uses-feature
+19-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:13:5-15:36
+20        android:name="android.hardware.telephony"
+20-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:14:9-50
+21        android:required="false" />
+21-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:15:9-33
+22
+23    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+23-->[com.google.android.libraries.places:places:3.5.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\0ac1db1daf1c067a5ebbee14d2c3a90a\transformed\jetified-places-3.5.0\AndroidManifest.xml:11:5-76
+23-->[com.google.android.libraries.places:places:3.5.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\0ac1db1daf1c067a5ebbee14d2c3a90a\transformed\jetified-places-3.5.0\AndroidManifest.xml:11:22-73
+24
+25    <uses-feature
+25-->[com.google.android.gms:play-services-maps:18.1.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\157c5cfa693d5ab41056850fe9c66b89\transformed\jetified-play-services-maps-18.1.0\AndroidManifest.xml:26:5-28:35
+26        android:glEsVersion="0x00020000"
+26-->[com.google.android.gms:play-services-maps:18.1.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\157c5cfa693d5ab41056850fe9c66b89\transformed\jetified-play-services-maps-18.1.0\AndroidManifest.xml:27:9-41
+27        android:required="true" />
+27-->[com.google.android.gms:play-services-maps:18.1.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\157c5cfa693d5ab41056850fe9c66b89\transformed\jetified-play-services-maps-18.1.0\AndroidManifest.xml:28:9-32
+28
+29    <queries>
+29-->[com.google.android.gms:play-services-maps:18.1.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\157c5cfa693d5ab41056850fe9c66b89\transformed\jetified-play-services-maps-18.1.0\AndroidManifest.xml:30:5-34:15
+30
+31        <!-- Needs to be explicitly declared on Android R+ -->
+32        <package android:name="com.google.android.apps.maps" />
+32-->[com.google.android.gms:play-services-maps:18.1.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\157c5cfa693d5ab41056850fe9c66b89\transformed\jetified-play-services-maps-18.1.0\AndroidManifest.xml:33:9-64
+32-->[com.google.android.gms:play-services-maps:18.1.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\157c5cfa693d5ab41056850fe9c66b89\transformed\jetified-play-services-maps-18.1.0\AndroidManifest.xml:33:18-61
+33    </queries>
+34
+35    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- Required by older versions of Google Play services to create IID tokens -->
+35-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\5fee61c02b5489685695512cb922fa97\transformed\jetified-firebase-messaging-24.0.0\AndroidManifest.xml:24:5-68
+35-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\5fee61c02b5489685695512cb922fa97\transformed\jetified-firebase-messaging-24.0.0\AndroidManifest.xml:24:22-65
+36    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+36-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\5fee61c02b5489685695512cb922fa97\transformed\jetified-firebase-messaging-24.0.0\AndroidManifest.xml:26:5-82
+36-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\5fee61c02b5489685695512cb922fa97\transformed\jetified-firebase-messaging-24.0.0\AndroidManifest.xml:26:22-79
+37    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+37-->[com.google.android.recaptcha:recaptcha:18.4.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\cb3c3d854303c5e94ebead2ad92fdba3\transformed\jetified-recaptcha-18.4.0\AndroidManifest.xml:9:5-98
+37-->[com.google.android.recaptcha:recaptcha:18.4.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\cb3c3d854303c5e94ebead2ad92fdba3\transformed\jetified-recaptcha-18.4.0\AndroidManifest.xml:9:22-95
+38
+39    <permission
+39-->[androidx.core:core:1.13.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\1ab4aa8ba03df25cbd8775eac9e9cd9a\transformed\core-1.13.0\AndroidManifest.xml:22:5-24:47
+40        android:name="com.francesco.citapluus.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+40-->[androidx.core:core:1.13.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\1ab4aa8ba03df25cbd8775eac9e9cd9a\transformed\core-1.13.0\AndroidManifest.xml:23:9-81
+41        android:protectionLevel="signature" />
+41-->[androidx.core:core:1.13.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\1ab4aa8ba03df25cbd8775eac9e9cd9a\transformed\core-1.13.0\AndroidManifest.xml:24:9-44
+42
+43    <uses-permission android:name="com.francesco.citapluus.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+43-->[androidx.core:core:1.13.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\1ab4aa8ba03df25cbd8775eac9e9cd9a\transformed\core-1.13.0\AndroidManifest.xml:26:5-97
+43-->[androidx.core:core:1.13.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\1ab4aa8ba03df25cbd8775eac9e9cd9a\transformed\core-1.13.0\AndroidManifest.xml:26:22-94
+44
+45    <application
+45-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:18:5-59:19
+46        android:name="com.francesco.citapluus.App"
+46-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:19:9-28
+47        android:allowBackup="true"
+47-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:20:9-35
+48        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+48-->[androidx.core:core:1.13.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\1ab4aa8ba03df25cbd8775eac9e9cd9a\transformed\core-1.13.0\AndroidManifest.xml:28:18-86
+49        android:debuggable="true"
+50        android:extractNativeLibs="false"
+51        android:icon="@mipmap/ic_launcher"
+51-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:23:9-43
+52        android:label="CitaPluus"
+52-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:21:9-34
+53        android:roundIcon="@mipmap/ic_launcher_round"
+53-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:24:9-54
+54        android:supportsRtl="true"
+54-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:22:9-35
+55        android:testOnly="true"
+56        android:theme="@style/Theme.CitaPluus"
+56-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:25:9-47
+57        android:usesCleartextTraffic="true" >
+57-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\debug\AndroidManifest.xml:4:18-53
+58        <meta-data
+58-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:27:5-29:54
+59            android:name="com.google.android.geo.API_KEY"
+59-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:28:13-58
+60            android:value="@string/google_maps_key" />
+60-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:29:13-52
+61
+62        <activity
+62-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:32:9-39:20
+63            android:name="com.francesco.citapluus.ui.MainActivity"
+63-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:33:13-44
+64            android:exported="true" >
+64-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:34:13-36
+65            <intent-filter>
+65-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:35:13-38:29
+66                <action android:name="android.intent.action.MAIN" />
+66-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:36:17-69
+66-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:36:25-66
+67
+68                <category android:name="android.intent.category.LAUNCHER" />
+68-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:37:17-77
+68-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:37:27-74
+69            </intent-filter>
+70        </activity>
+71        <activity
+71-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:41:9-44:39
+72            android:name="com.francesco.citapluus.SettingsActivity"
+72-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:42:13-45
+73            android:exported="false"
+73-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:43:13-37
+74            android:label="Ajustes" />
+74-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:44:13-36
+75        <activity
+75-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:50:9-80
+76            android:name="com.francesco.citapluus.ui.LoginActivity"
+76-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:50:19-51
+77            android:exported="false" />
+77-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:50:53-77
+78        <activity
+78-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:51:9-80
+79            android:name="com.francesco.citapluus.ui.PerfilActivity"
+79-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:51:19-52
+80            android:exported="false" />
+80-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:51:53-77
+81        <activity
+81-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:52:9-81
+82            android:name="com.francesco.citapluus.WorkerMainActivity"
+82-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:52:19-53
+83            android:exported="false" />
+83-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:52:54-78
+84        <activity
+84-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:53:9-85
+85            android:name="com.francesco.citapluus.ui.MedicamentosActivity"
+85-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:53:19-58
+86            android:exported="false" />
+86-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:53:59-83
+87        <activity
+87-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:54:9-88
+88            android:name="com.francesco.citapluus.ui.HistorialCitasActivity"
+88-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:54:19-60
+89            android:exported="false" />
+89-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:54:61-85
+90        <activity
+90-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:56:9-85
+91            android:name="com.francesco.citapluus.ui.CentrosMapaActivity"
+91-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:56:19-57
+92            android:exported="false" />
+92-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:56:58-82
+93        <activity
+93-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:57:9-80
+94            android:name="com.francesco.citapluus.FavoritesActivity"
+94-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:57:19-52
+95            android:exported="false" />
+95-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:57:53-77
+96
+97        <receiver
+97-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:58:9-86
+98            android:name="com.francesco.citapluus.ui.CitaReminderReceiver"
+98-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:58:19-58
+99            android:exported="false" />
+99-->C:\Users\Alejandro Tumbaco\Pictures\CitaPluusSkeleton (1)\CitasPlus\app\src\main\AndroidManifest.xml:58:59-83
+100
+101        <activity
+101-->[com.google.android.libraries.places:places:3.5.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\0ac1db1daf1c067a5ebbee14d2c3a90a\transformed\jetified-places-3.5.0\AndroidManifest.xml:15:9-21:20
+102            android:name="com.google.android.libraries.places.widget.AutocompleteActivity"
+102-->[com.google.android.libraries.places:places:3.5.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\0ac1db1daf1c067a5ebbee14d2c3a90a\transformed\jetified-places-3.5.0\AndroidManifest.xml:16:13-91
+103            android:exported="false"
+103-->[com.google.android.libraries.places:places:3.5.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\0ac1db1daf1c067a5ebbee14d2c3a90a\transformed\jetified-places-3.5.0\AndroidManifest.xml:17:13-37
+104            android:label="@string/places_autocomplete_label"
+104-->[com.google.android.libraries.places:places:3.5.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\0ac1db1daf1c067a5ebbee14d2c3a90a\transformed\jetified-places-3.5.0\AndroidManifest.xml:18:13-62
+105            android:theme="@style/PlacesAutocompleteOverlay"
+105-->[com.google.android.libraries.places:places:3.5.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\0ac1db1daf1c067a5ebbee14d2c3a90a\transformed\jetified-places-3.5.0\AndroidManifest.xml:19:13-61
+106            android:windowSoftInputMode="adjustResize" >
+106-->[com.google.android.libraries.places:places:3.5.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\0ac1db1daf1c067a5ebbee14d2c3a90a\transformed\jetified-places-3.5.0\AndroidManifest.xml:20:13-55
+107        </activity>
+108
+109        <provider
+109-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\8da22f86951ed9b2cda0e6312a34a925\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
+110            android:name="androidx.startup.InitializationProvider"
+110-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\8da22f86951ed9b2cda0e6312a34a925\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:25:13-67
+111            android:authorities="com.francesco.citapluus.androidx-startup"
+111-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\8da22f86951ed9b2cda0e6312a34a925\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:26:13-68
+112            android:exported="false" >
+112-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\8da22f86951ed9b2cda0e6312a34a925\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:27:13-37
+113            <meta-data
+113-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\8da22f86951ed9b2cda0e6312a34a925\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
+114                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+114-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\8da22f86951ed9b2cda0e6312a34a925\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:30:17-75
+115                android:value="androidx.startup" />
+115-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\8da22f86951ed9b2cda0e6312a34a925\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:31:17-49
+116            <meta-data
+116-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\9bd5508b3e3dd7e6d2bd2ee8574811f3\transformed\jetified-lifecycle-process-2.6.2\AndroidManifest.xml:29:13-31:52
+117                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+117-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\9bd5508b3e3dd7e6d2bd2ee8574811f3\transformed\jetified-lifecycle-process-2.6.2\AndroidManifest.xml:30:17-78
+118                android:value="androidx.startup" />
+118-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\9bd5508b3e3dd7e6d2bd2ee8574811f3\transformed\jetified-lifecycle-process-2.6.2\AndroidManifest.xml:31:17-49
+119            <meta-data
+119-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\16093cdd8e24be1ccfc8d5c3db55f1b7\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:29:13-31:52
+120                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+120-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\16093cdd8e24be1ccfc8d5c3db55f1b7\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:30:17-85
+121                android:value="androidx.startup" />
+121-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\16093cdd8e24be1ccfc8d5c3db55f1b7\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:31:17-49
+122        </provider> <!-- Needs to be explicitly declared on P+ -->
+123        <uses-library
+123-->[com.google.android.gms:play-services-maps:18.1.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\157c5cfa693d5ab41056850fe9c66b89\transformed\jetified-play-services-maps-18.1.0\AndroidManifest.xml:39:9-41:40
+124            android:name="org.apache.http.legacy"
+124-->[com.google.android.gms:play-services-maps:18.1.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\157c5cfa693d5ab41056850fe9c66b89\transformed\jetified-play-services-maps-18.1.0\AndroidManifest.xml:40:13-50
+125            android:required="false" />
+125-->[com.google.android.gms:play-services-maps:18.1.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\157c5cfa693d5ab41056850fe9c66b89\transformed\jetified-play-services-maps-18.1.0\AndroidManifest.xml:41:13-37
+126
+127        <activity
+127-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e5bc35d4c54d95007c277ada036522f\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:29:9-46:20
+128            android:name="com.google.firebase.auth.internal.GenericIdpActivity"
+128-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e5bc35d4c54d95007c277ada036522f\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:30:13-80
+129            android:excludeFromRecents="true"
+129-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e5bc35d4c54d95007c277ada036522f\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:31:13-46
+130            android:exported="true"
+130-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e5bc35d4c54d95007c277ada036522f\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:32:13-36
+131            android:launchMode="singleTask"
+131-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e5bc35d4c54d95007c277ada036522f\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:33:13-44
+132            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+132-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e5bc35d4c54d95007c277ada036522f\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:34:13-72
+133            <intent-filter>
+133-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e5bc35d4c54d95007c277ada036522f\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:35:13-45:29
+134                <action android:name="android.intent.action.VIEW" />
+134-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e5bc35d4c54d95007c277ada036522f\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:36:17-69
+134-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e5bc35d4c54d95007c277ada036522f\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:36:25-66
+135
+136                <category android:name="android.intent.category.DEFAULT" />
+136-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e5bc35d4c54d95007c277ada036522f\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:38:17-76
+136-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e5bc35d4c54d95007c277ada036522f\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:38:27-73
+137                <category android:name="android.intent.category.BROWSABLE" />
+137-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e5bc35d4c54d95007c277ada036522f\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:39:17-78
+137-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e5bc35d4c54d95007c277ada036522f\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:39:27-75
+138
+139                <data
+139-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e5bc35d4c54d95007c277ada036522f\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:41:17-44:51
+140                    android:host="firebase.auth"
+140-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e5bc35d4c54d95007c277ada036522f\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:42:21-49
+141                    android:path="/"
+141-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e5bc35d4c54d95007c277ada036522f\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:43:21-37
+142                    android:scheme="genericidp" />
+142-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e5bc35d4c54d95007c277ada036522f\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:44:21-48
+143            </intent-filter>
+144        </activity>
+145        <activity
+145-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e5bc35d4c54d95007c277ada036522f\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:47:9-64:20
+146            android:name="com.google.firebase.auth.internal.RecaptchaActivity"
+146-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e5bc35d4c54d95007c277ada036522f\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:48:13-79
+147            android:excludeFromRecents="true"
+147-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e5bc35d4c54d95007c277ada036522f\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:49:13-46
+148            android:exported="true"
+148-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e5bc35d4c54d95007c277ada036522f\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:50:13-36
+149            android:launchMode="singleTask"
+149-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e5bc35d4c54d95007c277ada036522f\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:51:13-44
+150            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+150-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e5bc35d4c54d95007c277ada036522f\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:52:13-72
+151            <intent-filter>
+151-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e5bc35d4c54d95007c277ada036522f\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:53:13-63:29
+152                <action android:name="android.intent.action.VIEW" />
+152-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e5bc35d4c54d95007c277ada036522f\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:36:17-69
+152-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e5bc35d4c54d95007c277ada036522f\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:36:25-66
+153
+154                <category android:name="android.intent.category.DEFAULT" />
+154-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e5bc35d4c54d95007c277ada036522f\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:38:17-76
+154-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e5bc35d4c54d95007c277ada036522f\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:38:27-73
+155                <category android:name="android.intent.category.BROWSABLE" />
+155-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e5bc35d4c54d95007c277ada036522f\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:39:17-78
+155-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e5bc35d4c54d95007c277ada036522f\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:39:27-75
+156
+157                <data
+157-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e5bc35d4c54d95007c277ada036522f\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:41:17-44:51
+158                    android:host="firebase.auth"
+158-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e5bc35d4c54d95007c277ada036522f\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:42:21-49
+159                    android:path="/"
+159-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e5bc35d4c54d95007c277ada036522f\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:43:21-37
+160                    android:scheme="recaptcha" />
+160-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e5bc35d4c54d95007c277ada036522f\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:44:21-48
+161            </intent-filter>
+162        </activity>
+163
+164        <service
+164-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e5bc35d4c54d95007c277ada036522f\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:66:9-72:19
+165            android:name="com.google.firebase.components.ComponentDiscoveryService"
+165-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e5bc35d4c54d95007c277ada036522f\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:67:13-84
+166            android:directBootAware="true"
+166-->[com.google.firebase:firebase-common:21.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\5a722aeb6306c8822076d18c16c128dd\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:32:13-43
+167            android:exported="false" >
+167-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e5bc35d4c54d95007c277ada036522f\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:68:13-37
+168            <meta-data
+168-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e5bc35d4c54d95007c277ada036522f\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:69:13-71:85
+169                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+169-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e5bc35d4c54d95007c277ada036522f\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:70:17-109
+170                android:value="com.google.firebase.components.ComponentRegistrar" />
+170-->[com.google.firebase:firebase-auth:23.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e5bc35d4c54d95007c277ada036522f\transformed\jetified-firebase-auth-23.0.0\AndroidManifest.xml:71:17-82
+171            <meta-data
+171-->[com.google.firebase:firebase-firestore:25.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\de3aec607da7ac8fdb0a17027a695454\transformed\jetified-firebase-firestore-25.0.0\AndroidManifest.xml:17:13-19:85
+172                android:name="com.google.firebase.components:com.google.firebase.firestore.FirebaseFirestoreKtxRegistrar"
+172-->[com.google.firebase:firebase-firestore:25.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\de3aec607da7ac8fdb0a17027a695454\transformed\jetified-firebase-firestore-25.0.0\AndroidManifest.xml:18:17-122
+173                android:value="com.google.firebase.components.ComponentRegistrar" />
+173-->[com.google.firebase:firebase-firestore:25.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\de3aec607da7ac8fdb0a17027a695454\transformed\jetified-firebase-firestore-25.0.0\AndroidManifest.xml:19:17-82
+174            <meta-data
+174-->[com.google.firebase:firebase-firestore:25.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\de3aec607da7ac8fdb0a17027a695454\transformed\jetified-firebase-firestore-25.0.0\AndroidManifest.xml:20:13-22:85
+175                android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
+175-->[com.google.firebase:firebase-firestore:25.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\de3aec607da7ac8fdb0a17027a695454\transformed\jetified-firebase-firestore-25.0.0\AndroidManifest.xml:21:17-111
+176                android:value="com.google.firebase.components.ComponentRegistrar" />
+176-->[com.google.firebase:firebase-firestore:25.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\de3aec607da7ac8fdb0a17027a695454\transformed\jetified-firebase-firestore-25.0.0\AndroidManifest.xml:22:17-82
+177            <meta-data
+177-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\5fee61c02b5489685695512cb922fa97\transformed\jetified-firebase-messaging-24.0.0\AndroidManifest.xml:57:13-59:85
+178                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingKtxRegistrar"
+178-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\5fee61c02b5489685695512cb922fa97\transformed\jetified-firebase-messaging-24.0.0\AndroidManifest.xml:58:17-122
+179                android:value="com.google.firebase.components.ComponentRegistrar" />
+179-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\5fee61c02b5489685695512cb922fa97\transformed\jetified-firebase-messaging-24.0.0\AndroidManifest.xml:59:17-82
+180            <meta-data
+180-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\5fee61c02b5489685695512cb922fa97\transformed\jetified-firebase-messaging-24.0.0\AndroidManifest.xml:60:13-62:85
+181                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
+181-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\5fee61c02b5489685695512cb922fa97\transformed\jetified-firebase-messaging-24.0.0\AndroidManifest.xml:61:17-119
+182                android:value="com.google.firebase.components.ComponentRegistrar" />
+182-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\5fee61c02b5489685695512cb922fa97\transformed\jetified-firebase-messaging-24.0.0\AndroidManifest.xml:62:17-82
+183            <meta-data
+183-->[com.google.firebase:firebase-storage:21.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\8cba80a7a4b4df0b40197fd3c3b302b8\transformed\jetified-firebase-storage-21.0.0\AndroidManifest.xml:30:13-32:85
+184                android:name="com.google.firebase.components:com.google.firebase.storage.FirebaseStorageKtxRegistrar"
+184-->[com.google.firebase:firebase-storage:21.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\8cba80a7a4b4df0b40197fd3c3b302b8\transformed\jetified-firebase-storage-21.0.0\AndroidManifest.xml:31:17-118
+185                android:value="com.google.firebase.components.ComponentRegistrar" />
+185-->[com.google.firebase:firebase-storage:21.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\8cba80a7a4b4df0b40197fd3c3b302b8\transformed\jetified-firebase-storage-21.0.0\AndroidManifest.xml:32:17-82
+186            <meta-data
+186-->[com.google.firebase:firebase-storage:21.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\8cba80a7a4b4df0b40197fd3c3b302b8\transformed\jetified-firebase-storage-21.0.0\AndroidManifest.xml:33:13-35:85
+187                android:name="com.google.firebase.components:com.google.firebase.storage.StorageRegistrar"
+187-->[com.google.firebase:firebase-storage:21.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\8cba80a7a4b4df0b40197fd3c3b302b8\transformed\jetified-firebase-storage-21.0.0\AndroidManifest.xml:34:17-107
+188                android:value="com.google.firebase.components.ComponentRegistrar" />
+188-->[com.google.firebase:firebase-storage:21.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\8cba80a7a4b4df0b40197fd3c3b302b8\transformed\jetified-firebase-storage-21.0.0\AndroidManifest.xml:35:17-82
+189            <meta-data
+189-->[com.google.firebase:firebase-appcheck:18.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\19d8872fa07d46b25499641146d075e3\transformed\jetified-firebase-appcheck-18.0.0\AndroidManifest.xml:25:13-27:85
+190                android:name="com.google.firebase.components:com.google.firebase.appcheck.FirebaseAppCheckKtxRegistrar"
+190-->[com.google.firebase:firebase-appcheck:18.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\19d8872fa07d46b25499641146d075e3\transformed\jetified-firebase-appcheck-18.0.0\AndroidManifest.xml:26:17-120
+191                android:value="com.google.firebase.components.ComponentRegistrar" />
+191-->[com.google.firebase:firebase-appcheck:18.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\19d8872fa07d46b25499641146d075e3\transformed\jetified-firebase-appcheck-18.0.0\AndroidManifest.xml:27:17-82
+192            <meta-data
+192-->[com.google.firebase:firebase-appcheck:18.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\19d8872fa07d46b25499641146d075e3\transformed\jetified-firebase-appcheck-18.0.0\AndroidManifest.xml:28:13-30:85
+193                android:name="com.google.firebase.components:com.google.firebase.appcheck.FirebaseAppCheckRegistrar"
+193-->[com.google.firebase:firebase-appcheck:18.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\19d8872fa07d46b25499641146d075e3\transformed\jetified-firebase-appcheck-18.0.0\AndroidManifest.xml:29:17-117
+194                android:value="com.google.firebase.components.ComponentRegistrar" />
+194-->[com.google.firebase:firebase-appcheck:18.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\19d8872fa07d46b25499641146d075e3\transformed\jetified-firebase-appcheck-18.0.0\AndroidManifest.xml:30:17-82
+195            <meta-data
+195-->[com.google.firebase:firebase-installations:18.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\345b9402d7e8724d857f5ea1cfdd1543\transformed\jetified-firebase-installations-18.0.0\AndroidManifest.xml:15:13-17:85
+196                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsKtxRegistrar"
+196-->[com.google.firebase:firebase-installations:18.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\345b9402d7e8724d857f5ea1cfdd1543\transformed\jetified-firebase-installations-18.0.0\AndroidManifest.xml:16:17-130
+197                android:value="com.google.firebase.components.ComponentRegistrar" />
+197-->[com.google.firebase:firebase-installations:18.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\345b9402d7e8724d857f5ea1cfdd1543\transformed\jetified-firebase-installations-18.0.0\AndroidManifest.xml:17:17-82
+198            <meta-data
+198-->[com.google.firebase:firebase-installations:18.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\345b9402d7e8724d857f5ea1cfdd1543\transformed\jetified-firebase-installations-18.0.0\AndroidManifest.xml:18:13-20:85
+199                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+199-->[com.google.firebase:firebase-installations:18.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\345b9402d7e8724d857f5ea1cfdd1543\transformed\jetified-firebase-installations-18.0.0\AndroidManifest.xml:19:17-127
+200                android:value="com.google.firebase.components.ComponentRegistrar" />
+200-->[com.google.firebase:firebase-installations:18.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\345b9402d7e8724d857f5ea1cfdd1543\transformed\jetified-firebase-installations-18.0.0\AndroidManifest.xml:20:17-82
+201            <meta-data
+201-->[com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3a83dcc413d04090b98e70be06f40c72\transformed\jetified-firebase-common-ktx-21.0.0\AndroidManifest.xml:12:13-14:85
+202                android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonLegacyRegistrar"
+202-->[com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3a83dcc413d04090b98e70be06f40c72\transformed\jetified-firebase-common-ktx-21.0.0\AndroidManifest.xml:13:17-116
+203                android:value="com.google.firebase.components.ComponentRegistrar" />
+203-->[com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3a83dcc413d04090b98e70be06f40c72\transformed\jetified-firebase-common-ktx-21.0.0\AndroidManifest.xml:14:17-82
+204            <meta-data
+204-->[com.google.firebase:firebase-common:21.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\5a722aeb6306c8822076d18c16c128dd\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:35:13-37:85
+205                android:name="com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar"
+205-->[com.google.firebase:firebase-common:21.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\5a722aeb6306c8822076d18c16c128dd\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:36:17-109
+206                android:value="com.google.firebase.components.ComponentRegistrar" />
+206-->[com.google.firebase:firebase-common:21.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\5a722aeb6306c8822076d18c16c128dd\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:37:17-82
+207            <meta-data
+207-->[com.google.firebase:firebase-datatransport:18.2.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\d60fabb2b7528859f15d7896f1c323e6\transformed\jetified-firebase-datatransport-18.2.0\AndroidManifest.xml:25:13-27:85
+208                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
+208-->[com.google.firebase:firebase-datatransport:18.2.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\d60fabb2b7528859f15d7896f1c323e6\transformed\jetified-firebase-datatransport-18.2.0\AndroidManifest.xml:26:17-115
+209                android:value="com.google.firebase.components.ComponentRegistrar" />
+209-->[com.google.firebase:firebase-datatransport:18.2.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\d60fabb2b7528859f15d7896f1c323e6\transformed\jetified-firebase-datatransport-18.2.0\AndroidManifest.xml:27:17-82
+210        </service>
+211
+212        <receiver
+212-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\5fee61c02b5489685695512cb922fa97\transformed\jetified-firebase-messaging-24.0.0\AndroidManifest.xml:29:9-40:20
+213            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+213-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\5fee61c02b5489685695512cb922fa97\transformed\jetified-firebase-messaging-24.0.0\AndroidManifest.xml:30:13-78
+214            android:exported="true"
+214-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\5fee61c02b5489685695512cb922fa97\transformed\jetified-firebase-messaging-24.0.0\AndroidManifest.xml:31:13-36
+215            android:permission="com.google.android.c2dm.permission.SEND" >
+215-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\5fee61c02b5489685695512cb922fa97\transformed\jetified-firebase-messaging-24.0.0\AndroidManifest.xml:32:13-73
+216            <intent-filter>
+216-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\5fee61c02b5489685695512cb922fa97\transformed\jetified-firebase-messaging-24.0.0\AndroidManifest.xml:33:13-35:29
+217                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+217-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\5fee61c02b5489685695512cb922fa97\transformed\jetified-firebase-messaging-24.0.0\AndroidManifest.xml:34:17-81
+217-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\5fee61c02b5489685695512cb922fa97\transformed\jetified-firebase-messaging-24.0.0\AndroidManifest.xml:34:25-78
+218            </intent-filter>
+219
+220            <meta-data
+220-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\5fee61c02b5489685695512cb922fa97\transformed\jetified-firebase-messaging-24.0.0\AndroidManifest.xml:37:13-39:40
+221                android:name="com.google.android.gms.cloudmessaging.FINISHED_AFTER_HANDLED"
+221-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\5fee61c02b5489685695512cb922fa97\transformed\jetified-firebase-messaging-24.0.0\AndroidManifest.xml:38:17-92
+222                android:value="true" />
+222-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\5fee61c02b5489685695512cb922fa97\transformed\jetified-firebase-messaging-24.0.0\AndroidManifest.xml:39:17-37
+223        </receiver>
+224        <!--
+225             FirebaseMessagingService performs security checks at runtime,
+226             but set to not exported to explicitly avoid allowing another app to call it.
+227        -->
+228        <service
+228-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\5fee61c02b5489685695512cb922fa97\transformed\jetified-firebase-messaging-24.0.0\AndroidManifest.xml:46:9-53:19
+229            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+229-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\5fee61c02b5489685695512cb922fa97\transformed\jetified-firebase-messaging-24.0.0\AndroidManifest.xml:47:13-82
+230            android:directBootAware="true"
+230-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\5fee61c02b5489685695512cb922fa97\transformed\jetified-firebase-messaging-24.0.0\AndroidManifest.xml:48:13-43
+231            android:exported="false" >
+231-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\5fee61c02b5489685695512cb922fa97\transformed\jetified-firebase-messaging-24.0.0\AndroidManifest.xml:49:13-37
+232            <intent-filter android:priority="-500" >
+232-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\5fee61c02b5489685695512cb922fa97\transformed\jetified-firebase-messaging-24.0.0\AndroidManifest.xml:50:13-52:29
+232-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\5fee61c02b5489685695512cb922fa97\transformed\jetified-firebase-messaging-24.0.0\AndroidManifest.xml:50:28-51
+233                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+233-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\5fee61c02b5489685695512cb922fa97\transformed\jetified-firebase-messaging-24.0.0\AndroidManifest.xml:51:17-78
+233-->[com.google.firebase:firebase-messaging:24.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\5fee61c02b5489685695512cb922fa97\transformed\jetified-firebase-messaging-24.0.0\AndroidManifest.xml:51:25-75
+234            </intent-filter>
+235        </service>
+236        <service
+236-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e8e02630765f53f9114af5b949f0398\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:24:9-32:19
+237            android:name="androidx.credentials.playservices.CredentialProviderMetadataHolder"
+237-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e8e02630765f53f9114af5b949f0398\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:25:13-94
+238            android:enabled="true"
+238-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e8e02630765f53f9114af5b949f0398\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:26:13-35
+239            android:exported="false" >
+239-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e8e02630765f53f9114af5b949f0398\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:27:13-37
+240            <meta-data
+240-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e8e02630765f53f9114af5b949f0398\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:29:13-31:104
+241                android:name="androidx.credentials.CREDENTIAL_PROVIDER_KEY"
+241-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e8e02630765f53f9114af5b949f0398\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:30:17-76
+242                android:value="androidx.credentials.playservices.CredentialProviderPlayServicesImpl" />
+242-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e8e02630765f53f9114af5b949f0398\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:31:17-101
+243        </service>
+244
+245        <activity
+245-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e8e02630765f53f9114af5b949f0398\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:34:9-41:20
+246            android:name="androidx.credentials.playservices.HiddenActivity"
+246-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e8e02630765f53f9114af5b949f0398\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:35:13-76
+247            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
+247-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e8e02630765f53f9114af5b949f0398\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:36:13-87
+248            android:enabled="true"
+248-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e8e02630765f53f9114af5b949f0398\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:37:13-35
+249            android:exported="false"
+249-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e8e02630765f53f9114af5b949f0398\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:38:13-37
+250            android:fitsSystemWindows="true"
+250-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e8e02630765f53f9114af5b949f0398\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:39:13-45
+251            android:theme="@style/Theme.Hidden" >
+251-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\3e8e02630765f53f9114af5b949f0398\transformed\jetified-credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:40:13-48
+252        </activity>
+253        <activity
+253-->[com.google.android.gms:play-services-auth:20.7.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\943b0a5876b4f15cd066296260297a43\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:23:9-27:75
+254            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+254-->[com.google.android.gms:play-services-auth:20.7.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\943b0a5876b4f15cd066296260297a43\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:24:13-93
+255            android:excludeFromRecents="true"
+255-->[com.google.android.gms:play-services-auth:20.7.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\943b0a5876b4f15cd066296260297a43\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:25:13-46
+256            android:exported="false"
+256-->[com.google.android.gms:play-services-auth:20.7.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\943b0a5876b4f15cd066296260297a43\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:26:13-37
+257            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+257-->[com.google.android.gms:play-services-auth:20.7.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\943b0a5876b4f15cd066296260297a43\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:27:13-72
+258        <!--
+259            Service handling Google Sign-In user revocation. For apps that do not integrate with
+260            Google Sign-In, this service will never be started.
+261        -->
+262        <service
+262-->[com.google.android.gms:play-services-auth:20.7.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\943b0a5876b4f15cd066296260297a43\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:33:9-37:51
+263            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+263-->[com.google.android.gms:play-services-auth:20.7.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\943b0a5876b4f15cd066296260297a43\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:34:13-89
+264            android:exported="true"
+264-->[com.google.android.gms:play-services-auth:20.7.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\943b0a5876b4f15cd066296260297a43\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:35:13-36
+265            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
+265-->[com.google.android.gms:play-services-auth:20.7.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\943b0a5876b4f15cd066296260297a43\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:36:13-107
+266            android:visibleToInstantApps="true" />
+266-->[com.google.android.gms:play-services-auth:20.7.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\943b0a5876b4f15cd066296260297a43\transformed\jetified-play-services-auth-20.7.0\AndroidManifest.xml:37:13-48
+267
+268        <activity
+268-->[com.google.android.gms:play-services-base:18.3.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\ff1dec1354463379a603bc09872e06d8\transformed\jetified-play-services-base-18.3.0\AndroidManifest.xml:20:9-22:45
+269            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+269-->[com.google.android.gms:play-services-base:18.3.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\ff1dec1354463379a603bc09872e06d8\transformed\jetified-play-services-base-18.3.0\AndroidManifest.xml:20:19-85
+270            android:exported="false"
+270-->[com.google.android.gms:play-services-base:18.3.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\ff1dec1354463379a603bc09872e06d8\transformed\jetified-play-services-base-18.3.0\AndroidManifest.xml:22:19-43
+271            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+271-->[com.google.android.gms:play-services-base:18.3.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\ff1dec1354463379a603bc09872e06d8\transformed\jetified-play-services-base-18.3.0\AndroidManifest.xml:21:19-78
+272
+273        <provider
+273-->[com.google.firebase:firebase-common:21.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\5a722aeb6306c8822076d18c16c128dd\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:23:9-28:39
+274            android:name="com.google.firebase.provider.FirebaseInitProvider"
+274-->[com.google.firebase:firebase-common:21.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\5a722aeb6306c8822076d18c16c128dd\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:24:13-77
+275            android:authorities="com.francesco.citapluus.firebaseinitprovider"
+275-->[com.google.firebase:firebase-common:21.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\5a722aeb6306c8822076d18c16c128dd\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:25:13-72
+276            android:directBootAware="true"
+276-->[com.google.firebase:firebase-common:21.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\5a722aeb6306c8822076d18c16c128dd\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:26:13-43
+277            android:exported="false"
+277-->[com.google.firebase:firebase-common:21.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\5a722aeb6306c8822076d18c16c128dd\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:27:13-37
+278            android:initOrder="100" />
+278-->[com.google.firebase:firebase-common:21.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\5a722aeb6306c8822076d18c16c128dd\transformed\jetified-firebase-common-21.0.0\AndroidManifest.xml:28:13-36
+279
+280        <uses-library
+280-->[androidx.window:window:1.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\06cdc60ceee7556a14ef11cf22ef9e55\transformed\jetified-window-1.0.0\AndroidManifest.xml:25:9-27:40
+281            android:name="androidx.window.extensions"
+281-->[androidx.window:window:1.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\06cdc60ceee7556a14ef11cf22ef9e55\transformed\jetified-window-1.0.0\AndroidManifest.xml:26:13-54
+282            android:required="false" />
+282-->[androidx.window:window:1.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\06cdc60ceee7556a14ef11cf22ef9e55\transformed\jetified-window-1.0.0\AndroidManifest.xml:27:13-37
+283        <uses-library
+283-->[androidx.window:window:1.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\06cdc60ceee7556a14ef11cf22ef9e55\transformed\jetified-window-1.0.0\AndroidManifest.xml:28:9-30:40
+284            android:name="androidx.window.sidecar"
+284-->[androidx.window:window:1.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\06cdc60ceee7556a14ef11cf22ef9e55\transformed\jetified-window-1.0.0\AndroidManifest.xml:29:13-51
+285            android:required="false" />
+285-->[androidx.window:window:1.0.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\06cdc60ceee7556a14ef11cf22ef9e55\transformed\jetified-window-1.0.0\AndroidManifest.xml:30:13-37
+286
+287        <meta-data
+287-->[com.google.android.gms:play-services-basement:18.3.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\d6a5d752b12bf174360355eba181cead\transformed\jetified-play-services-basement-18.3.0\AndroidManifest.xml:21:9-23:69
+288            android:name="com.google.android.gms.version"
+288-->[com.google.android.gms:play-services-basement:18.3.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\d6a5d752b12bf174360355eba181cead\transformed\jetified-play-services-basement-18.3.0\AndroidManifest.xml:22:13-58
+289            android:value="@integer/google_play_services_version" />
+289-->[com.google.android.gms:play-services-basement:18.3.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\d6a5d752b12bf174360355eba181cead\transformed\jetified-play-services-basement-18.3.0\AndroidManifest.xml:23:13-66
+290
+291        <service
+291-->[com.google.android.datatransport:transport-backend-cct:3.2.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\1405e115c9f3bab5505061fc2fc493aa\transformed\jetified-transport-backend-cct-3.2.0\AndroidManifest.xml:26:9-32:19
+292            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+292-->[com.google.android.datatransport:transport-backend-cct:3.2.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\1405e115c9f3bab5505061fc2fc493aa\transformed\jetified-transport-backend-cct-3.2.0\AndroidManifest.xml:27:13-103
+293            android:exported="false" >
+293-->[com.google.android.datatransport:transport-backend-cct:3.2.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\1405e115c9f3bab5505061fc2fc493aa\transformed\jetified-transport-backend-cct-3.2.0\AndroidManifest.xml:28:13-37
+294            <meta-data
+294-->[com.google.android.datatransport:transport-backend-cct:3.2.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\1405e115c9f3bab5505061fc2fc493aa\transformed\jetified-transport-backend-cct-3.2.0\AndroidManifest.xml:29:13-31:39
+295                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+295-->[com.google.android.datatransport:transport-backend-cct:3.2.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\1405e115c9f3bab5505061fc2fc493aa\transformed\jetified-transport-backend-cct-3.2.0\AndroidManifest.xml:30:17-94
+296                android:value="cct" />
+296-->[com.google.android.datatransport:transport-backend-cct:3.2.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\1405e115c9f3bab5505061fc2fc493aa\transformed\jetified-transport-backend-cct-3.2.0\AndroidManifest.xml:31:17-36
+297        </service>
+298        <service
+298-->[com.google.android.datatransport:transport-runtime:3.2.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\4362b0fdfafcbda967cc82d65fd3470c\transformed\jetified-transport-runtime-3.2.0\AndroidManifest.xml:24:9-28:19
+299            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+299-->[com.google.android.datatransport:transport-runtime:3.2.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\4362b0fdfafcbda967cc82d65fd3470c\transformed\jetified-transport-runtime-3.2.0\AndroidManifest.xml:25:13-117
+300            android:exported="false"
+300-->[com.google.android.datatransport:transport-runtime:3.2.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\4362b0fdfafcbda967cc82d65fd3470c\transformed\jetified-transport-runtime-3.2.0\AndroidManifest.xml:26:13-37
+301            android:permission="android.permission.BIND_JOB_SERVICE" >
+301-->[com.google.android.datatransport:transport-runtime:3.2.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\4362b0fdfafcbda967cc82d65fd3470c\transformed\jetified-transport-runtime-3.2.0\AndroidManifest.xml:27:13-69
+302        </service>
+303
+304        <receiver
+304-->[com.google.android.datatransport:transport-runtime:3.2.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\4362b0fdfafcbda967cc82d65fd3470c\transformed\jetified-transport-runtime-3.2.0\AndroidManifest.xml:30:9-32:40
+305            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+305-->[com.google.android.datatransport:transport-runtime:3.2.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\4362b0fdfafcbda967cc82d65fd3470c\transformed\jetified-transport-runtime-3.2.0\AndroidManifest.xml:31:13-132
+306            android:exported="false" />
+306-->[com.google.android.datatransport:transport-runtime:3.2.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\4362b0fdfafcbda967cc82d65fd3470c\transformed\jetified-transport-runtime-3.2.0\AndroidManifest.xml:32:13-37
+307        <receiver
+307-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\16093cdd8e24be1ccfc8d5c3db55f1b7\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:34:9-52:20
+308            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+308-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\16093cdd8e24be1ccfc8d5c3db55f1b7\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:35:13-76
+309            android:directBootAware="false"
+309-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\16093cdd8e24be1ccfc8d5c3db55f1b7\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:36:13-44
+310            android:enabled="true"
+310-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\16093cdd8e24be1ccfc8d5c3db55f1b7\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:37:13-35
+311            android:exported="true"
+311-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\16093cdd8e24be1ccfc8d5c3db55f1b7\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:38:13-36
+312            android:permission="android.permission.DUMP" >
+312-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\16093cdd8e24be1ccfc8d5c3db55f1b7\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:39:13-57
+313            <intent-filter>
+313-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\16093cdd8e24be1ccfc8d5c3db55f1b7\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:40:13-42:29
+314                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+314-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\16093cdd8e24be1ccfc8d5c3db55f1b7\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:41:17-91
+314-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\16093cdd8e24be1ccfc8d5c3db55f1b7\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:41:25-88
+315            </intent-filter>
+316            <intent-filter>
+316-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\16093cdd8e24be1ccfc8d5c3db55f1b7\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:43:13-45:29
+317                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+317-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\16093cdd8e24be1ccfc8d5c3db55f1b7\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:44:17-85
+317-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\16093cdd8e24be1ccfc8d5c3db55f1b7\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:44:25-82
+318            </intent-filter>
+319            <intent-filter>
+319-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\16093cdd8e24be1ccfc8d5c3db55f1b7\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:46:13-48:29
+320                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+320-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\16093cdd8e24be1ccfc8d5c3db55f1b7\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:47:17-88
+320-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\16093cdd8e24be1ccfc8d5c3db55f1b7\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:47:25-85
+321            </intent-filter>
+322            <intent-filter>
+322-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\16093cdd8e24be1ccfc8d5c3db55f1b7\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:49:13-51:29
+323                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+323-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\16093cdd8e24be1ccfc8d5c3db55f1b7\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:50:17-95
+323-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Alejandro Tumbaco\.gradle\caches\transforms-4\16093cdd8e24be1ccfc8d5c3db55f1b7\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:50:25-92
+324            </intent-filter>
+325        </receiver>
+326    </application>
+327
+328</manifest>

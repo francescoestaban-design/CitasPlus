@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_search_place"
+        android:title="@string/buscar"
+        android:icon="@drawable/lupa_buscar"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_favorites"
+        android:title="Favoritos"
+        android:icon="@drawable/favoritos"
+        app:showAsAction="ifRoom" />
+
+</menu>
